@@ -1,0 +1,590 @@
+/* ========================================
+   BTC System - 공통 스타일
+   반응형 + 다크모드 자동 + 한글 최적화
+======================================== */
+
+:root {
+  /* Light Mode (Default) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f7f7f5;
+  --bg-tertiary: #ebebea;
+  --bg-code: #f1f1ef;
+  --bg-table-header: #f1f1ef;
+  --bg-table-row: #ffffff;
+  --bg-table-row-alt: #fafaf9;
+  --bg-callout: #f1f1ef;
+  --bg-warning: #fef3e0;
+  --bg-danger: #fbe4e4;
+  --bg-success: #ddedea;
+  --bg-info: #e7f3f8;
+  
+  --text-primary: #37352f;
+  --text-secondary: #787774;
+  --text-muted: #9b9a97;
+  --text-link: #1d6acb;
+  --text-code: #eb5757;
+  
+  --border-color: #e9e9e7;
+  --border-strong: #d3d2cf;
+  
+  --shadow: 0 1px 3px rgba(15, 15, 15, 0.1);
+  
+  /* 색상 */
+  --color-success: #0f7b6c;
+  --color-warning: #cb912f;
+  --color-danger: #e03e3e;
+  --color-info: #0b6e99;
+  --color-purple: #6940a5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #191919;
+    --bg-secondary: #2f2f2f;
+    --bg-tertiary: #373737;
+    --bg-code: #2f2f2f;
+    --bg-table-header: #2a2a2a;
+    --bg-table-row: #1f1f1f;
+    --bg-table-row-alt: #252525;
+    --bg-callout: #2a2a2a;
+    --bg-warning: #3a2e1c;
+    --bg-danger: #3a2424;
+    --bg-success: #1c3329;
+    --bg-info: #1c2c3a;
+    
+    --text-primary: #e6e6e6;
+    --text-secondary: #999999;
+    --text-muted: #6e6e6e;
+    --text-link: #5a9bd4;
+    --text-code: #ff7369;
+    
+    --border-color: #373737;
+    --border-strong: #4a4a4a;
+    
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    
+    --color-success: #4dab9a;
+    --color-warning: #d8a356;
+    --color-danger: #e8674d;
+    --color-info: #5a9bd4;
+    --color-purple: #9d77c8;
+  }
+}
+
+/* ========================================
+   기본 리셋 + 폰트
+======================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", 
+               "Pretendard", "Noto Sans KR", "Malgun Gothic", 
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   컨테이너
+======================================== */
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ========================================
+   네비게이션
+======================================== */
+
+.nav {
+  position: sticky;
+  top: 0;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.75rem 1.5rem;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  align-items: center;
+}
+
+.nav-home {
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.nav a:hover {
+  color: var(--text-link);
+}
+
+/* ========================================
+   타이포그래피
+======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-size: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+p {
+  margin: 0.75rem 0;
+}
+
+ul, ol {
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin: 0.25rem 0;
+}
+
+a {
+  color: var(--text-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+strong, b {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ========================================
+   인라인 코드 + 코드 블록
+======================================== */
+
+code {
+  font-family: "SFMono-Regular", "Consolas", "Liberation Mono", 
+               "Menlo", "Courier New", monospace;
+  font-size: 0.875em;
+  background: var(--bg-code);
+  color: var(--text-code);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+}
+
+pre {
+  background: var(--bg-code);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+pre code {
+  background: none;
+  color: var(--text-primary);
+  padding: 0;
+  font-size: 0.85rem;
+  white-space: pre;
+}
+
+/* ========================================
+   테이블 (반응형 핵심)
+======================================== */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1rem 0;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th, td {
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: top;
+}
+
+th {
+  background: var(--bg-table-header);
+  font-weight: 700;
+  white-space: nowrap;
+  border-right: 1px solid var(--border-color);
+}
+
+th:last-child {
+  border-right: none;
+}
+
+td {
+  background: var(--bg-table-row);
+}
+
+tr:nth-child(even) td {
+  background: var(--bg-table-row-alt);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* ========================================
+   콜아웃 / 박스
+======================================== */
+
+.callout {
+  background: var(--bg-callout);
+  border-left: 4px solid var(--text-secondary);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+}
+
+.callout.warning {
+  background: var(--bg-warning);
+  border-left-color: var(--color-warning);
+}
+
+.callout.danger {
+  background: var(--bg-danger);
+  border-left-color: var(--color-danger);
+}
+
+.callout.success {
+  background: var(--bg-success);
+  border-left-color: var(--color-success);
+}
+
+.callout.info {
+  background: var(--bg-info);
+  border-left-color: var(--color-info);
+}
+
+blockquote {
+  border-left: 4px solid var(--border-strong);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border-radius: 0 6px 6px 0;
+}
+
+blockquote p {
+  margin: 0.25rem 0;
+}
+
+/* ========================================
+   토글 (details/summary)
+======================================== */
+
+details {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.25rem 0;
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 0.5rem;
+  transition: transform 0.2s;
+  font-size: 0.75rem;
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+details > *:not(summary) {
+  margin-top: 0.75rem;
+}
+
+/* ========================================
+   상태 배지
+======================================== */
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.badge.success { background: var(--bg-success); color: var(--color-success); }
+.badge.warning { background: var(--bg-warning); color: var(--color-warning); }
+.badge.danger  { background: var(--bg-danger); color: var(--color-danger); }
+.badge.info    { background: var(--bg-info); color: var(--color-info); }
+
+/* ========================================
+   유틸리티
+======================================== */
+
+.text-success { color: var(--color-success); }
+.text-warning { color: var(--color-warning); }
+.text-danger  { color: var(--color-danger); }
+.text-info    { color: var(--color-info); }
+.text-muted   { color: var(--text-muted); }
+
+.center { text-align: center; }
+.right  { text-align: right; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 2rem 0;
+}
+
+/* ========================================
+   카드 그리드 (인덱스 페이지)
+======================================== */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.25rem;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.card a {
+  display: block;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0;
+}
+
+/* ========================================
+   메타 정보 (작성일 / 페이지 푸터)
+======================================== */
+
+.meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* ========================================
+   모바일 반응형
+======================================== */
+
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+  
+  .container {
+    padding: 1rem 1rem 3rem;
+  }
+  
+  .nav {
+    padding: 0.5rem 1rem;
+  }
+  
+  .nav-inner {
+    gap: 0.4rem 0.85rem;
+    font-size: 0.85rem;
+  }
+  
+  h1 {
+    font-size: 1.65rem;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.15rem;
+  }
+  
+  table {
+    font-size: 0.82rem;
+  }
+  
+  th, td {
+    padding: 0.5rem 0.6rem;
+  }
+  
+  pre {
+    padding: 0.75rem;
+  }
+  
+  pre code {
+    font-size: 0.78rem;
+  }
+  
+  .callout {
+    padding: 0.75rem 1rem;
+  }
+  
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  table {
+    font-size: 0.78rem;
+  }
+}
+
+/* ========================================
+   인쇄
+======================================== */
+
+@media print {
+  .nav {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .container {
+    max-width: 100%;
+    padding: 1rem;
+  }
+}
+
+/* ========================================
+   접근성
+======================================== */
+
+:focus-visible {
+  outline: 2px solid var(--text-link);
+  outline-offset: 2px;
+}
+
+/* 스크롤바 (다크모드 친화) */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+  }
+}

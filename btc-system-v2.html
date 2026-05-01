@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚀 BTC 매매 시스템 v2 (5차+ 적용)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-home">🏠 BTC 시스템</a>
+    <a href="btc-system-v1.html">📈 보수 룰</a>
+    <a href="btc-system-v2.html">🚀 v2 룰북</a>
+    <a href="btc-v2-card.html">🎯 v2 실전 카드</a>
+    <a href="btc-trade-db.html">📚 5차+ 복기 DB</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<h1>🚀 BTC 매매 시스템 v2 (공격적 기조 — 5차+ 적용)</h1>
+
+<p class="meta" style="margin-top:0;border-top:none;padding-top:0;">
+  작성 시작: 2026.04.27 | 적용 시점: 5차 트레이드부터 | 상태: 🔓 동결 해제 공식화 완료 (2026.04.28 09:30 KST) — 5차 진입 준비 완료<br>
+  기존 시스템 (1~4차): <a href="btc-system-v1.html">📈 BTC 매매 시스템 (보수 기조)</a>
+</p>
+
+<div class="callout success">
+  <p><strong>🔓 동결 해제 공식화 (2026.04.28 09:30 KST):</strong></p>
+  <p>4차 트레이드 SL 발동 완료 → 포지션 0 도달 → 동결 해제 조건 충족.<br>
+  4차 결과: 진입 $78,400 → SL $77,375 / 순손실 약 -0.32 USDT (시드 -0.16% / 거의 본전).<br>
+  v2 신 룰 5차+ 적용 공식 시작. 5차 진입 잠재적 시점: 관찰 구간 도달 + 트리거 충족 시.</p>
+</div>
+
+<div class="callout danger">
+  <p><strong>🚨 ChatGPT 메타 평가 반영 (2026.04.27 23:30):</strong></p>
+  <p>"설계 90~95% 완료, 실행 준비 직전" — 자기 작성물 방어 편향 자각.<br>
+  운영 로그 결함 5건 즉시 수정 완료 + 자동화 계산기 구축 완료 (Excel 53공식 0에러).</p>
+</div>
+
+<h2>🎯 실전 카드 (매뉴얼) — 5차 진입 시 이 페이지 대신 아래 카드 사용</h2>
+
+<blockquote>
+  <p>룰북(본 페이지)과 매뉴얼(자식 페이지) 분리. 실전 중에는 매뉴얼만 본다.</p>
+</blockquote>
+
+<div class="card-grid">
+  <div class="card">
+    <a href="btc-v2-card.html">
+      <h3>🎯 BTC v2 실전 카드 (매뉴얼)</h3>
+      <p>4-STAGE 진입 카드 + 운영 카드 + 기록 카드. 진입 직전 90~120초 체크리스트.</p>
+    </a>
+  </div>
+  <div class="card">
+    <a href="btc-trade-db.html">
+      <h3>📚 BTC 트레이드 복기 데이터베이스</h3>
+      <p>5차+ 데이터 누적 인프라. 매 트레이드 종료 후 기록 카드 완성. 통계 분석 임계 10건.</p>
+    </a>
+  </div>
+</div>
+
+<hr>
+
+<h2>🧭 페이지 운용 목적</h2>
+
+<blockquote>
+  <p><strong>이 페이지는 5차 트레이드부터 적용할 "공격적 기조" 신 룰을 설계·기록한다.</strong></p>
+  <p>1~4차는 보수 기조 룰로 진행되었으며, 그 운영·복기는 <a href="btc-system-v1.html">기존 페이지</a>에 분리 보관한다.</p>
+  <p><strong>두 페이지 간 충돌 발생 시:</strong> 5차+ 트레이드는 본 페이지 우선. 1~4차 복기는 기존 페이지 우선.</p>
+</blockquote>
+
+<h3>📋 새 세션에서 태일이 붙여넣을 프롬프트 템플릿</h3>
+
+<pre><code>5차 트레이드 진입 준비 / 신 룰 검토 시:
+이 노션 페이지 읽어서 맥락 이해해줘: [본 페이지 URL]
+다 파악했으면 "준비 완료"만 답하고 내 지시를 기다려.
+
+4차 트레이드 진행 / 1~3차 복기 시:
+이 노션 페이지 읽어서 맥락 이해해줘: [기존 페이지 URL]</code></pre>
+
+<hr>
+
+<h2>🏛 신 룰 6개 헌법 (변경 불가)</h2>
+
+<p>태일이 본질 명시 (2026.04.27) — 신 룰의 모든 설계는 이 6개 원칙과 정합해야 한다.</p>
+
+<ol>
+  <li><strong>레버리지 3x Isolated 고정</strong></li>
+  <li><strong>공격적 운용</strong> (수익률 우선 관점 — 보수성 약화)</li>
+  <li><strong>근거 없는 진입 절대 금지</strong> (조건 완화 ❌)</li>
+  <li><strong>리스크 헷지 항상</strong> (Stop / TP0 의무 유지)</li>
+  <li><strong>차트 흐름 변경 시 손절 과감</strong></li>
+  <li><strong>익절 손익비 크게 잡되, 터무니없게는 아님</strong> (시장 구조 기반)</li>
+</ol>
+
+<div class="callout warning">
+  <p><strong>핵심 명제:</strong> "공격성 = 사이즈 확대"이지 "근거 약한 진입 허용" ❌</p>
+</div>
+
+<hr>
+
+<h2>🛡️ Claude의 8개 안전장치 (태일 동의 완료)</h2>
+
+<p>신 룰 작업 중 절대 양보 안 할 항목 — 편향 F (보수성의 양보) 재발 방지용.</p>
+
+<ol>
+  <li><strong>샘플 수 룰 유지</strong> ("샘플 &lt; 10 = 룰 수정 금지")</li>
+  <li><strong>동결 메커니즘 자체 유지</strong> (트레이드 진행 중 룰 수정 금지)</li>
+  <li><strong>STAGE 2 의무</strong> (TP0 + Stop 동시 세팅) 유지</li>
+  <li><strong>Stop은 항상 구조 기반</strong> (고정값 ❌)</li>
+  <li><strong>결과론으로 룰 바꾸기 금지</strong></li>
+  <li><strong>1·2차 패턴 (-29% 합산) 재발 시 즉시 동결 + 재검토</strong></li>
+  <li><strong>"공격성 = 사이즈 확대"이지 "근거 약한 진입 허용" ❌</strong></li>
+  <li><strong>"큰 손익비"가 "터무니없는 TP 거리"가 되지 않도록 시장 구조 기반 (저항선/이평선/피보나치) 검증 의무</strong></li>
+</ol>
+
+<hr>
+
+<h2>🌟 3 AI 통합 매트릭스 — 정식 채택 (2026.04.27)</h2>
+
+<h3>합의 흐름</h3>
+
+<pre><code>Claude 1차 제안 → Gemini 보완 (5개 항목) → ChatGPT 평가 (4개 추가 보완) → 태일 명시적 채택</code></pre>
+
+<h3>자기 점검</h3>
+
+<blockquote>
+  <p>편향 E (AI 합의 편향) 자각 중. 매트릭스 임계는 <strong>"검증됨" 아님 "관찰됨" 수준</strong> — 4건(1~4차) 소급 적용 시 정합성 관찰됨. 실 적용은 5차+ 10건 누적까지 임계 수정 금지 (안전장치 1번).</p>
+</blockquote>
+
+<h3>🔴 선행 탈락 조건 (점수 계산 전 자동 차단 — 11개)</h3>
+
+<p>⭐ 항목 3 합의로 2개 추가</p>
+
+<pre><code>1. 거래량 4H 5MA 1.3x 미만 → 진입 금지 (시스템 정체성 핵심)
+2. RR &lt; 1.5 → 진입 금지 (B급은 RR ≥ 2.0 필수)
+3. Stop 위치 구조 불명확 → 진입 금지
+4. TP0 + Stop 즉시 세팅 불가 → 진입 금지 (룰 1번)
+5. 시나리오 C 활성 → 진입 금지
+6. 거래량 고갈 무진입 룰 활성 (4H 3캔들 0.5x 이하) → 진입 금지
+7. 20일선 이격 +7% 이상 → 진입 금지 (추격 차단)
+8. 일봉 종가가 진입 근거 레벨 위 안착 미확인 → 진입 금지
+9. 사이즈 정의 (마진 / 노출 / BTC 수량) 사전 확정 불가 → 진입 금지
+10. 예상 시드 손실 -10% 초과 → 진입 금지 ⭐ 신규 (항목 3 합의)
+11. B급인데 TP1 RR &lt; 2.0 → 진입 금지 ⭐ 신규 (항목 3 합의)</code></pre>
+
+<div class="callout danger">
+  <p><strong>위 11개 중 하나라도 해당 시 점수 계산 불필요 — 즉시 진입 포기.</strong></p>
+</div>
+
+<blockquote>
+  <p><strong>다층 안전장치:</strong> 일부 항목은 동적 하향 룰·시나리오 조건과 중복되나, "선행 탈락"은 진입 차단 1차 라인. 다른 곳에 박혀 있어도 한 번 더 잡는다.</p>
+</blockquote>
+
+<h3>📊 4요소 점수표 (1~3점)</h3>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>판정 요소</th><th>1점</th><th>2점</th><th>3점</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>거래량 (4H 5MA)</strong></td><td>1.3~1.5x</td><td>1.5~2.0x</td><td>2.0x 이상 또는 1.5x+ 핵심 돌파/장대양봉 동반</td></tr>
+<tr><td><strong>RSI 상태</strong></td><td>RSI &gt; MA</td><td>RSI &gt; MA + RSI &gt; 50</td><td>RSI &gt; MA + RSI &gt; 60</td></tr>
+<tr><td><strong>캔들 강도</strong></td><td>음봉 고가 돌파</td><td>평균 몸통 1.2x</td><td>평균 몸통 1.5x / Engulfing</td></tr>
+<tr><td><strong>구조 정합성</strong></td><td>레인지 내부 지지</td><td>이평선/피보나치 지지</td><td>핵심 저항 돌파 / 구조 전환</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>🎯 등급 → 사이즈 매핑 (2026.04.27 항목 3 — 시드 손실 -10% 캡 적용)</h3>
+
+<div class="callout danger">
+  <p><strong>🔴 80% 마진 영구 봉쇄.</strong> S급도 70% 상한.</p>
+  <p><strong>근거:</strong> S급 80% + Stop -5% = 시드 -12% = 1차 손실 패턴(-11.5%) 재현 위험.</p>
+  <p><strong>합의:</strong> Claude (옵션 D+C 절충) → Gemini 지지 → ChatGPT 단호 보류 권고 → 태일 채택.</p>
+</div>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>점수</th><th>등급</th><th>시드 마진</th><th>Stop 거리 한도</th><th>최대 시드 손실</th><th>정성 가이드 (점수 ❌)</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>11~12점</strong></td><td><strong>S급</strong></td><td><strong>60~70%</strong></td><td><strong>-3% 이내</strong></td><td>약 -5.4 ~ -6.3%</td><td>초정밀 타점. 강한 구조·거래량·모멘텀·캔들·리스크 위치 동시 충족.</td></tr>
+<tr><td><strong>8~10점</strong></td><td><strong>A급</strong></td><td><strong>45~55%</strong></td><td><strong>-5% 이내</strong></td><td>약 -6.7 ~ -8.2%</td><td>표준 진입. 구조적 지지·트리거 정상 충족.</td></tr>
+<tr><td><strong>6~7점</strong></td><td><strong>B급</strong></td><td><strong>30~40%</strong></td><td><strong>-7% 이내</strong></td><td>약 -6.3 ~ -8.4%</td><td>실험적 진입. 신호 약하나 RR 충분.</td></tr>
+<tr><td><strong>5점 이하</strong></td><td><strong>진입 금지</strong></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout warning">
+  <p><strong>🔥 시드 보호선:</strong> 모든 등급에서 단일 트레이드 손실 시드 -10% 이내 한정. 1·2차 실패 트라우마 시스템적 차단.</p>
+  <p><strong>🔥 80% 마진 영구 봉쇄:</strong> "공격성"이 아니라 "복구 난이도를 키우는 도박 구조"라 판단. 5차+ 운용에서도 80% 회귀 ❌.</p>
+</div>
+
+<h3>🔄 동적 하향 룰 (Stop 거리 + 강등 트리거 통합)</h3>
+
+<blockquote>
+  <p><strong>"마진을 늘리려면 Stop이 짧아야 하고, Stop이 멀면 마진을 줄여야 한다."</strong></p>
+  <p>매트릭스 점수와 Stop 거리·구조 강등을 결합해 사이즈 자동 조정.</p>
+</blockquote>
+
+<pre><code>📉 Stop 거리 기반 하향:
+- 매트릭스 S급(11~12점) BUT Stop 거리 -3% 초과 → A급 비중(45~55%)으로 하향
+- 매트릭스 S급(11~12점) BUT Stop 거리 -5% 이상 → 진입 재검토 또는 B급 이하로 강등
+- 매트릭스 A급(8~10점) BUT Stop 거리 -5% 초과 → B급 비중(30~40%)으로 하향
+- 매트릭스 B급(6~7점) BUT Stop 거리 -7% 초과 → 진입 금지
+
+📉 구조 강등 트리거 (한 단계 하향):
+- 일봉 RSI 하락 다이버전스 (가격 직전 5일 이내 고점 갱신, RSI 미갱신)
+- 진입 캔들 윗꼬리 30% 초과
+  * 단 종가 핵심 저항 위 마감 + 거래량 2.0x 이상이면 강등 보류 가능
+- 20일선 이격 +5% 이상 (~+7% 미만)
+  (+7% 이상은 선행 탈락 7번에서 이미 진입 금지)
+
+🔴 진입 금지 트리거:
+- 어떤 등급이든 예상 시드 손실 -10% 초과
+- B급으로 강등 후 RR &lt; 2.0
+- 강등 후 점수 5점 이하로 떨어짐</code></pre>
+
+<h3>🚫 동적 상향 룰 — 보류 (5차+ 안정 후 재검토)</h3>
+
+<blockquote>
+  <p><strong>위험 우회로 차단을 위해 상향 룰은 도입하지 않는다 (태일 + ChatGPT + Claude 합의).</strong></p>
+</blockquote>
+
+<p><strong>상향 룰 보류 사유:</strong></p>
+<ul>
+  <li>"A급인데 Stop 짧으니 S급 비중" 류 자기합리화 = 편향 F 변형 = 위험</li>
+  <li>공격적 기조 전환 초기에 상향 룰 도입 시 = 다시 과한 진입으로 회귀 가능성</li>
+  <li>공격성은 사이즈 우회가 아니라 손익비로 구현 (헌법 6번 정합)</li>
+</ul>
+
+<p><strong>상향 룰 재검토 조건 (전부 충족 시):</strong></p>
+<pre><code>1. 5차 이후 실제 트레이드 5건 이상 누적
+2. 룰 위반 0건
+3. Stop / TP0 / TP1 주문 실수 0건
+4. 손실 후 보복성 진입 0건
+5. 1·2차 패턴 (-29% 합산) 미재발</code></pre>
+
+<hr>
+
+<h2>⚡ 1차 합의 사항 (A1 / B3 / C3 / D1)</h2>
+
+<h3>A1) 사이즈: 트리거 강도별 슬라이딩</h3>
+<p>위 매트릭스로 정량화 완료.</p>
+
+<h3>B3) 익절 구조 — "공격성 = 손익비" 명제 (2026.04.27 정식 채택)</h3>
+
+<blockquote>
+  <p><strong>"진정한 공격성 = 좋은 자리에서 끝까지 먹는 것. 사이즈가 아니다."</strong></p>
+  <p><strong>"손실은 -6%로 제한하되 수익은 +12% 이상을 노리는 손익비의 공격성."</strong></p>
+</blockquote>
+
+<h4>🎯 TP0 비중 — 등급별 차등 (2026.04.27 외부 평가 반영 — B3 갱신)</h4>
+
+<blockquote>
+  <p><strong>합의 흐름:</strong> ChatGPT 등급별 차등 제안 (B급 보험 강화) → Gemini 보완 (수치 단일화, A급 25%) → Claude 부분 차등 권장 (옵션 C) → 태일 채택.</p>
+  <p><strong>근거:</strong> B급은 신호 약함 = False Positive 확률 ↑ = 보험 두껍게 필요. "보험료는 확률에 비례한다." S/A급은 샘플 부족 + 수치 차이 미미 → 단순화 우선.</p>
+</blockquote>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>등급</th><th>TP0 비중</th><th>전략적 의도</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>S급</strong></td><td><strong>20%</strong></td><td>추세 극대화: 80% 본량 유지 → RR ≥ 3.5까지 홀딩. 복리 수익 가속.</td></tr>
+<tr><td><strong>A급</strong></td><td><strong>20%</strong></td><td>균형 운용: 1차 수익 확보 + 추세 추종. 안정적 자산 우상향.</td></tr>
+<tr><td><strong>B급</strong></td><td><strong>30%</strong> ⭐</td><td>생존 우선: 잔 흔들림에 대비 확실한 보험료 징수. 하락 시 시드 타격 최소화.</td></tr>
+</tbody>
+</table>
+</div>
+
+<details>
+<summary>📝 이주 이력</summary>
+<ul>
+  <li>2026.04.27 11:00 초안: TP0 30% 일괄</li>
+  <li>2026.04.27 12:30 항목 3 B3 합의: TP0 30% → 20% 축소 (일괄)</li>
+  <li>2026.04.27 14:30 외부 평가 반영: B급만 30% 환원 (등급별 차등)</li>
+</ul>
+<p><strong>⚠️ 자기 점검:</strong> 샘플 2건 (3차/4차) 기반 → 안전장치 1번(샘플 &lt; 10) 충돌 자각. 5차+ 10건 누적 후 통계적 재평가 대상.</p>
+</details>
+
+<h4>그 외 익절 구조</h4>
+<ul>
+  <li><strong>TP1 RR ≥ 2.0</strong> (전 등급 필수, 예외 ❌)</li>
+  <li><strong>TP2 RR ≥ 3.5</strong> (트레일링 대상)</li>
+  <li><strong>트레일링 -7% 유지</strong> (4H 종가 기준 최고점 대비)</li>
+</ul>
+
+<blockquote>
+  <p><strong>공격성 재정의 (헌법 2번 + 6번 결합):</strong> 본 시스템의 공격성은 무리한 풀마진이 아니라, 강한 트리거에서 충분한 사이즈를 사용하고 TP1/TP2를 구조적으로 크게 가져가는 데 있다.</p>
+</blockquote>
+
+<h3>C3) 손절 과감화 — 헌법 5번 운영 정의 (3-Layer 청산 룰)</h3>
+
+<div class="callout info">
+  <p><strong>🎯 Basis-Exit Sync (헌법 5번 정식 정의 — 2026.04.27 합의):</strong></p>
+  <p><strong>"내가 들어간 이유가 무너지면 나간다. 다른 이유로는 안 나간다."</strong></p>
+  <p>진입 근거와 청산 근거를 동일한 축에 정합. 노이즈에 흔들리지 않고 큰 추세를 끝까지 먹기 위한 시스템 철학.</p>
+  <p><strong>합의 흐름:</strong> Claude 3-Layer 1차 제안 → Gemini 보완 (Layer 3 청산 ❌ + A-2 단일화 + Basis-Exit Sync) → ChatGPT 검증 (TP0 전 BE 이동 보류) → 태일 5건 모두 채택.</p>
+</div>
+
+<h4>🌐 Basis-Exit Sync — 시나리오별 진입 근거 = 청산 근거</h4>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>시나리오</th><th>들어간 이유 (진입 근거)</th><th>나가야 하는 이유 (Layer 1 청산 트리거)</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>A (돌파)</strong></td><td>$75K 돌파/안착</td><td>$75K 4H 종가 이탈</td></tr>
+<tr><td><strong>A-2 (강세 추종)</strong></td><td>반전 캔들 저점 방어 + 추세 지속</td><td><strong>MIN(진입 캔들 저점, 트리거 캔들 저점) 4H 종가 이탈</strong> ⭐ 항목 1 합의 정합</td></tr>
+<tr><td><strong>B (지지 반등)</strong></td><td>2회 지지 확인</td><td>2회 지지 저점 4H 종가 이탈</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout warning">
+  <p><strong>🔑 A-2 Layer 1 기준 (항목 6 + 항목 1 통합 — 후행 합의 우선):</strong></p>
+  <p>EMA 20은 실시간 변동 → 청산 기준 모호로 배제.<br>
+  Layer 1 청산 트리거 = MIN(진입 캔들 저점, 트리거 캔들 저점) 4H 종가 이탈<br>
+  = A-2 Stop 기준과 동일 축으로 통일 (둘 다 같은 가격 = MIN 값)<br>
+  4차 사례: $77,375 (진입 캔들 저점, 트리거 캔들 저점보다 낮음) 4H 종가 이탈 시 전량 청산</p>
+  <p><strong>🚨 운영 로그 수정 (2026.04.27):</strong> ChatGPT 메타 평가에서 항목 6 "진입 캔들 저점만"과 항목 1 "MIN" 충돌 지적 → 항목 1 (후행 합의) 우선 통일.</p>
+</div>
+
+<h4>🔴 Layer 1 — Hard Exit (전량 청산)</h4>
+
+<pre><code>조건 (둘 중 하나라도 충족):
+1. 진입 근거 레벨 4H 종가 이탈 (위 Basis-Exit Sync 표 참조)
+2. Stop 발동
+
+핵심: "장중 이탈은 경고, 4H 종가 이탈은 확정"
+→ BTC 변동성 환경에서 장중 꼬리로 이탈 빈번 → 4H 종가 기준 필수</code></pre>
+
+<h4>🟡 Layer 2 — Critical (50% 청산)</h4>
+
+<pre><code>조건 (다음 3개 중 2개 이상 충족):
+1. 4H 음봉 거래량 5MA 1.5x 이상 (강한 매도 컨빅션)
+2. 직전 4H 스윙 저점 이탈 (4H 종가 기준)
+3. 4H RSI &lt; MA + RSI &lt; 50
+
+행동:
+→ 잔여 포지션의 50% 즉시 청산
+→ 나머지는 기존 Stop 유지 (BE 이상이면 BE 유지)</code></pre>
+
+<blockquote>
+  <p><strong>시나리오별 가중치 — 자기 점검 메모로만 (실제 룰 ❌):</strong></p>
+  <ul>
+    <li>A (돌파): 1번 + 2번 우선 (구조 무력화 신호)</li>
+    <li>B (지지): 2번 + 1번 우선 (지지 무력화 신호)</li>
+    <li>A-2 (강세): 1번 단독으로도 강한 신호 (모멘텀 사망)</li>
+    <li><strong>실제 트리거는 모든 시나리오 공통: 3개 중 2개 이상</strong></li>
+    <li>시나리오별 가중치를 룰화하면 실전 헷갈림 → 통일 룰 + 자기 점검 메모로만 운용</li>
+  </ul>
+</blockquote>
+
+<h4>🟢 Layer 3 — Warning (청산 ❌, 상태별 BE 이동만)</h4>
+
+<pre><code>조건 (다음 중 1개 충족):
+1. 일봉 EMA 20 이탈 (장중)
+2. 4H 윗꼬리 30% 초과 + 거래량 감소
+3. 일봉 RSI 하락 다이버전스 확정 (5일 이내)</code></pre>
+
+<div class="callout info">
+  <p><strong>🔑 핵심 원칙 (Gemini + ChatGPT 합의):</strong></p>
+  <p>Layer 3는 "수익 포기"가 아니라 "손실 제거" 단계.<br>
+  청산 트리거 ❌ → 개미털기 방지 → 진입 근거 유지 시 끝까지 보유.<br>
+  3차 트레이드 False Positive 사례 (청산 후 즉시 반등) 재발 방지.</p>
+</div>
+
+<p><strong>상태별 행동 (ChatGPT 신규 보완 — TP0 전 BE 이동 보류):</strong></p>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>포지션 상태</th><th>Layer 3 발생 시 행동</th><th>근거</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>TP0 체결 전</strong></td><td>청산 ❌ / 기존 Stop 유지 / 경계 상태 전환</td><td>TP0 전 BE 이동 시 진입 직후 흔들림에 즉시 잘림 위험</td></tr>
+<tr><td><strong>TP0 체결 후</strong></td><td>청산 ❌ / Stop을 BE(진입가)로 이동</td><td>일부 수익 확보 후 → BE 이동으로 손실 제거 ⭐ 표현 정정 (실제 TP0 RR ≈ 0.67R)</td></tr>
+<tr><td><strong>이미 BE 이상</strong></td><td>청산 ❌ / Stop 유지 또는 더 높은 구조 Stop 검토</td><td>이미 보호선 상승 → 추가 조정 불필요</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4>📋 3-Layer 통합 요약</h4>
+
+<pre><code>┌─ Layer 1 (Hard - 100% 청산) ────────────────────────┐
+│  · 진입 근거 레벨 4H 종가 이탈                       │
+│  · Stop 발동                                         │
+│  → 시나리오별 진입 근거 레벨 (Basis-Exit Sync)       │
+└─────────────────────────────────────────────────────┘
+
+┌─ Layer 2 (Critical - 50% 청산) ─────────────────────┐
+│  · 4H 음봉 거래량 5MA 1.5x 이상                      │
+│  · 직전 4H 스윙 저점 이탈 (4H 종가)                  │
+│  · 4H RSI &lt; MA + RSI &lt; 50                            │
+│  → 3개 중 2개 이상 충족 시 50% 청산                  │
+└─────────────────────────────────────────────────────┘
+
+┌─ Layer 3 (Warning - 청산 ❌) ───────────────────────┐
+│  · 일봉 EMA 20 이탈 (장중)                           │
+│  · 4H 윗꼬리 30% 초과 + 거래량 감소                  │
+│  · 일봉 RSI 하락 다이버전스 확정                     │
+│  → 1개 충족 시 상태별 BE 이동 (TP0 전 ❌)            │
+└─────────────────────────────────────────────────────┘</code></pre>
+
+<blockquote>
+  <p><strong>기존 C3 룰 유지:</strong> 실패 시그널 청산 비중 30% → 50% 격상 (Layer 2가 이를 구현). 진입 근거 레벨 4H 종가 이탈 즉시 전량 청산 (Layer 1이 이를 구현).</p>
+</blockquote>
+
+<h3>🟢 Layer 3 경계 상태 체크리스트 (2026.04.27 항목 5 합의 — 실전 행동 가이드)</h3>
+
+<div class="callout info">
+  <p><strong>🎯 핵심:</strong> Layer 3는 청산 신호가 아니라 <strong>경계 상태 전환 신호</strong>다. 청산 없음 = "무시"가 아니라 "능동적 관찰".</p>
+  <p><strong>합의 흐름:</strong> Claude 경계 체크리스트 5개 제안 → Gemini "정신적 무장"으로 격상 + 권장 → ChatGPT 추가 진입 명시적 봉쇄 강조 → 태일 실전 행동 가이드로 명시 채택.</p>
+</div>
+
+<h4>📋 Layer 3 발생 시 의무 행동 5건</h4>
+
+<pre><code>① 다음 4H 종가 마감까지 능동적 모니터링
+   · 장중 탈락 재회복 부분 / 종가 확정 관찰
+   · "장중 이탈은 경고, 4H 종가 이탈은 확정"
+
+② 직전 4H 스윙 저점 사전 확인
+   · Layer 2 트리거 2번 조건의 기준점 확보
+   · 해당 레벨 4H 종가 이탈 시 Layer 2 전환 대기
+
+③ 추가 하락 알림 설정 (-1.5% / -2%)
+   · 현재가 기준으로 설정
+   · 알림 도달 시 즉시 재평가
+
+④ Layer 2 추가 트리거 충족 시 즉시 Layer 2로 전환
+   · 경계 상태 유지 중 Layer 2 (3개 중 2개 이상) 충족 시 50% 즉시 청산
+
+⑤ 🔴 신규 진입 및 2단 추가 진입 봉쇄 (핵심)
+   · 경계 상태에서는 어떤 명목으로도 새 진입 ❌
+   · "청산은 안 하지만 눌림이니까 추가 진입 넣자" 같은 모순 행동 차단
+   · 물타기 / 평단가 보정 유혹 원천 봉쇄</code></pre>
+
+<h4>💡 추가 자기 점검 메모 (룰 ❌, 관찰만)</h4>
+
+<blockquote>
+  <p><strong>TP1 권역 근접 시 가격-RSI 다이버전스 독해:</strong></p>
+  <p>가격은 고점을 높이지만 4H/일봉 RSI가 고점을 낮추는 경우 = <strong>세력 분산(Distribution)</strong> 가능성 의심.<br>
+  단, 청산 트리거가 아니라 <strong>관찰 메모</strong>. Layer 2 트리거 명세는 그대로 유지.</p>
+</blockquote>
+
+<div class="callout warning">
+  <p><strong>⚠️ 거부 내용 (3-AI 공통):</strong></p>
+  <ul>
+    <li>"$80k 한정 룰" ❌ (특정 가격 의존 일반화 불가)</li>
+    <li>Layer 2에 4H RSI 다이버전스 추가 ❌ (Layer 3과 중복 + 복잡도 ↑)</li>
+    <li>청산 비중 등급별 차등 ❌ (50% 일률 유지)
+      <ul>
+        <li>근거: Layer 2는 "진입 등급"이 아니라 "현재 실패 신호 강도"에 반응</li>
+        <li>"S급이니 덜 판다" = 과거 판단에 집착 = 편향 C 변형</li>
+        <li>신호 강도 동일 → 대응 일관 유지가 시스템 객관성</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<h3>D1) 진입 트리거 유지</h3>
+<ul>
+  <li>현재 5개 조건 (반전 캔들 / 거래량 / 고점 돌파 / Stop / RR) 그대로 유지</li>
+  <li>매트릭스는 "등급 분류" 도구이지 진입 트리거 자체 완화 ❌</li>
+</ul>
+
+<hr>
+
+<h2>🎯 단일 진입 원칙 (2026.04.27 항목 4 합의 — 70/30 분할 폐지)</h2>
+
+<div class="callout info">
+  <p><strong>🔑 핵심:</strong> 5차 이후 공격적 기조에서는 기존 70/30 분할 진입을 폐지한다. <strong>매트릭스 등급에 따라 산출된 최종 마진 비율을 한 번에 진입한다.</strong></p>
+  <p><strong>합의 흐름:</strong> Claude 3가지 옵션 제시 → Gemini 옵션 A 적극 권장 + Aggression vs. Dilution 산수 계산 → ChatGPT 옵션 A 채택 + 8단계 절차 + 부활 조건 4개 구체화 → 태일 옵션 A 채택.</p>
+</div>
+
+<h3>📐 Aggression vs. Dilution — 70/30 분할의 공격성 희석 증명</h3>
+
+<blockquote>
+  <p>매트릭스가 "S급은 60~70% 진입"이라고 명세했는데, 70/30 적용 시 실제 1단은 49%만 진입 → 공격적 기조 자체 손상.</p>
+</blockquote>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>등급</th><th>매트릭스 명세 사이즈</th><th>70/30 적용 시 1단 실제 마진</th><th>공격성 희석 정도</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>S급</strong></td><td>60~70%</td><td><strong>42~49%</strong></td><td>약 30% 손실</td></tr>
+<tr><td><strong>A급</strong></td><td>45~55%</td><td><strong>31.5~38.5%</strong></td><td>약 30% 손실</td></tr>
+<tr><td><strong>B급</strong></td><td>30~40%</td><td><strong>21~28%</strong></td><td>약 30% 손실</td></tr>
+</tbody>
+</table>
+</div>
+
+<blockquote>
+  <p><strong>💡 결론 (Gemini 산수 + ChatGPT 표 확장):</strong> 공격성 = 사이즈 확대 (헌법 2번) 이지만, 70/30은 최초 진입 사이즈를 30% 희석. 매트릭스 설계 의도와 충돌.</p>
+</blockquote>
+
+<h3>🛑 폐지 사항 (룰 자체 삭제)</h3>
+
+<pre><code>✖ 1단 70% / 2단 30% 분할
+✖ 2단 지정가 눌림목 진입
+✖ 2단 미체결 24~48h 자동 취소
+✖ 2단 체결 여부 트래킹
+✖ 2단 Cancel 조건</code></pre>
+
+<h3>✅ 새 단일 진입 절차 8단계 (ChatGPT 구체화 채택)</h3>
+
+<pre><code>① 시나리오 확정: A / A-2 / B
+② 선행 탈락 조건 11개 확인 (하나라도 적용 → 진입 포기)
+③ 4요소 매트릭스 점수 산출 (4~12점)
+④ 등급 확정: S / A / B
+⑤ Stop 거리 측정 후 동적 하향 적용 (등급 한도 초과 시)
+⑥ 최종 마진 비율 확정 (S 60~70% / A 45~55% / B 30~40%)
+⑦ 단일 진입 (1단으로 전체 사이즈 투입)
+⑧ STAGE 2: TP0 + TP1 + Stop 즉시 세팅</code></pre>
+
+<div class="callout danger">
+  <p><strong>⚠️ 추가 진입 금지:</strong></p>
+  <p>진입 후 추가 진입은 <strong>완전히 새로운 트리거가 발생한 경우에만 별도 신규 트레이드로 재평가</strong>한다. 평단가 보정 목적 / 눌림 추가 진입 ❌ (Layer 3 체크리스트 5번 정합).</p>
+</div>
+
+<h3>🔄 5차+ 데이터 누적 후 부활 검토 (4가지 조건 모두 충족 시)</h3>
+
+<blockquote>
+  <p><strong>영구 폐지 ❌. 다음 조건 모두 충족 시 A 시나리오 한정 부분 부활 검토:</strong></p>
+</blockquote>
+
+<pre><code>① A 시나리오가 실제로 3회 이상 발생
+② 단일 진입 후 바로 흔들려 Stop에 근접하는 사례 반복
+③ 2단 눌림 진입이 실제로 평단 개선에 도움이 될 구조 확인
+④ 단일 진입보다 분할 진입이 평균 손익비를 개선한다는 복기 데이터 존재</code></pre>
+
+<blockquote>
+  <p><strong>이 4가지가 모두 충족되기 전에는 분할 진입 도입 ❌.</strong></p>
+</blockquote>
+
+<h3>🚫 거부 사항 (3-AI 합의)</h3>
+
+<pre><code>❌ 옵션 B (70/30 유지 + 명세 강화): 공격성 희석 + 복잡도
+❌ 옵션 C (시나리오별 차등: A/B만 70/30): 실전 복잡도 ↑↑ / 시나리오 결정 + 분할 결정 동시 판단
+❌ 영구 폐지: 5차+ 데이터가 부활 정당성을 보일 가능성 보존</code></pre>
+
+<hr>
+
+<h2>📐 BTC 수량·사이즈 산출 공식 (2026.04.27 항목 2 합의 — 4차 결함 차단)</h2>
+
+<div class="callout info">
+  <p><strong>🔑 핵심:</strong> 4차 결함 1·2번 (사이즈 정의 모호 + OKX Amount 단위 혼동) 완전 차단 공식. 단일 진입(항목 4) 채택 후 계산 단순화됨.</p>
+  <p><strong>합의 흐름:</strong> Claude 공식 권장 → Gemini 동의 + 시각적 대조 제안 → ChatGPT 즉시 채택 + 거래소 UI 변경 대비 + 체크리스트 5개 구체화 → 태일 즉시 채택.</p>
+</div>
+
+<h3>🎯 리딩 명제 (3-AI 합의 결론)</h3>
+
+<blockquote>
+  <p><strong>"사이즈는 공격적으로 정하되, Lot 보정은 보수적으로 한다."</strong> (ChatGPT 논리)</p>
+  <p><strong>"주문의 본질은 BTC 수량. USDT는 체감과 검증을 위한 보조값."</strong></p>
+</blockquote>
+
+<h3>📝 입력값</h3>
+
+<pre><code>- 시드 잔액 S (USDT)
+- 매트릭스 등급 사이즈 % (M)  — 예: A급 50%
+- 진입가 P (USDT/BTC)
+- Stop 가격 SL
+- 레버리지 = 3x (고정)
+- Lot Size = 0.001 BTC (기본값, 주문 전 OKX 최소 단위 재확인)</code></pre>
+
+<h3>① 사이즈 계산 7단계</h3>
+
+<pre><code>① 마진 의도 USDT  = S × M
+   예: 200 × 50% = 100 USDT
+
+② 노출 의도 USDT  = 마진 의도 × 3
+   예: 100 × 3 = 300 USDT
+
+③ BTC 수량 (이론) = 노출 의도 / P
+   예: 300 / 78,400 = 0.003827 BTC
+
+④ BTC 수량 (실제) = round_down(이론값, Lot Size)  ⭐ 내림 처리
+   예: 0.003827 → 0.003 BTC (Lot 0.001 자동 내림)
+
+⑤ 실제 노출 USDT   = BTC 수량(실제) × P
+   예: 0.003 × 78,400 = 235.2 USDT
+
+⑥ 실제 마진 USDT   = 실제 노출 / 3
+   예: 235.2 / 3 = 78.4 USDT
+
+⑦ 실제 시드 사용률 = 실제 마진 / S × 100
+   예: 78.4 / 200 = 39.2%</code></pre>
+
+<h3>② Stop 검증 4단계 (재기재)</h3>
+
+<pre><code>① Stop 거리 %        = (P - SL) / P × 100
+   예: (78,400 - 77,375) / 78,400 = 1.31%
+
+② 예상 손실 USDT     = (P - SL) × BTC 수량(실제)
+   예: (78,400 - 77,375) × 0.003 = 3.075 USDT
+
+③ 예상 시드 손실률 = 예상 손실 / S × 100
+   예: 3.075 / 200 = 1.54%
+
+④ 검증:
+   · Stop 거리가 등급 한도 이내? (S -3% / A -5% / B -7%)
+   · 예상 시드 손실률 &lt; 10%? (선행 탈락 10번)
+   · 둘 다 통과 → 진입 가능
+   · 하나라도 실패 → 동적 하향 또는 진입 금지</code></pre>
+
+<h3>📊 BTC 수량 + USDT 병기 (두 단위 동시 표기)</h3>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>항목</th><th>단위</th><th>역할</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>BTC 수량 (Size)</strong></td><td>BTC</td><td><strong>실제 주문의 본질 단위</strong> — 체결 수량 고정, 가격 변동 무관</td></tr>
+<tr><td>노출 (Notional)</td><td>USDT</td><td>OKX Amount 필드 / 포지션 크기 체감</td></tr>
+<tr><td>마진 (Margin)</td><td>USDT</td><td>시드 사용률 체감</td></tr>
+<tr><td>예상 손실</td><td>USDT</td><td>Stop 발동 시 실제 손실 체감</td></tr>
+<tr><td>예상 시드 손실률</td><td>%</td><td>리스크 캡 검증</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>🔧 OKX 입력 절차</h3>
+
+<pre><code>✅ 권장: Size 필드에 BTC 수량 직접 입력
+   → 단계 ④에서 계산한 값을 그대로 입력
+   → 단위 혼동 원천 차단
+   예: 0.003 BTC 입력
+
+⚠️ 대안: Amount 필드에 노출 USDT 입력
+   → 단계 ⑤ 값 입력
+   예: 235 USDT (소수점 반올림 필요)
+
+🔴 절대 금지:
+   × Amount 필드에 "마진" USDT 입력 ❌
+     → 4차 결함 1·2번 재현 위험
+     → OKX는 Amount = 노출으로 해석 → 실제 마진 1/3 수준으로 체결</code></pre>
+
+<h3>✅ 시각적 대조 체크리스트 (5개 — ChatGPT 구체화 채택)</h3>
+
+<blockquote>
+  <p>주문 제출 전 계산기 수치 ↔ OKX 입력창 수치 최종 시각 대조. 계산 오타까지 잡아낸다.</p>
+</blockquote>
+
+<pre><code>□ 계산표 BTC 수량       = OKX Size 입력값 일치
+□ 계산표 실제 노출 USDT  = OKX 예상 노출과 일치
+□ 계산표 실제 마진 USDT  = OKX 표시 마진과 대략 일치
+□ Stop 주문 수량        = 실제 포지션 수량과 일치
+□ TP0 / TP1 주문 수량   = 계획 비중 또는 소액 시드 예외 수량과 일치</code></pre>
+
+<div class="callout danger">
+  <p><strong>5개 모두 ✅ 붙어야 주문 제출. 하나라도 불일치면 주문 취소 후 재계산.</strong></p>
+  <p><strong>⚠️ 5번 항목 보완 (항목 10 합의 정합):</strong> 시드 &lt; 300 USDT 구간에서는 "계획 비중"이 아니라 "소액 시드 예외 수량 (TP0 = 0.001 BTC 고정)"과 일치 여부 대조. 단, TP0 0.001 &gt; 전체 포지션 50%면 진입 자체 재검토.</p>
+</div>
+
+<h3>🔍 Lot Size 거래소 UI 변경 대비 (ChatGPT 신규 채택)</h3>
+
+<blockquote>
+  <p>Lot Size는 현재 OKX BTCUSDT Perp 주문창의 최소 수량 단위를 기준으로 한다. 기본값은 0.001 BTC로 계산하되, 주문 전 실제 최소 단위를 확인한다.</p>
+</blockquote>
+
+<pre><code>- OKX UI 변경 가능성
+- 상품/모드별 차이 가능성
+- 매번 주문 화면 최소 단위 확인 의무
+→ 0.001 BTC는 현재 기본값, 변경 시 즉시 적용</code></pre>
+
+<h3>📝 4차 소급 검증 (공식 적용 시)</h3>
+
+<pre><code>4차 의도 (시드 200 · 마진 40% · 진입가 $78,400 · Stop $77,375):
+   ① 마진 = 200 × 40% = 80 USDT
+   ② 노출 = 80 × 3 = 240 USDT
+   ③ BTC 수량 (이론) = 240 / 78,400 = 0.003061 BTC
+   ④ BTC 수량 (실제, 내림) = 0.003 BTC
+   ⑤ 실제 노출 = 0.003 × 78,400 = 235.2 USDT
+   ⑥ 실제 마진 = 78.4 USDT
+   ⑦ 시드 사용률 = 39.2%
+   → OKX Size 입력 = 0.003 BTC (권장)
+
+4차 실제 (Amount 40 입력 → 노출 40 해석):
+   - BTC 수량: 0.0005 BTC
+   - 노출: 39.29 USDT
+   - 마진: 13.06 USDT (의도 1/6)
+   → 결함 1·2번 동시 발현
+
+→ 공식 적용 시 4차 의도 정확 계산 + 시각적 대조 체크리스트 적용 시 결함 완전 차단 가능</code></pre>
+
+<h3>📊 시드 규모별 Lot Size 영향 (장기 로드맵)</h3>
+
+<blockquote>
+  <p>공식 자체는 변수형 (시드 S 변수). 단 Lot Size 영향은 시드 규모에 따라 다름.</p>
+</blockquote>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>시드 규모</th><th>0.001 BTC 노출 ($78K 기준)</th><th>시드 대비 비율</th><th>Lot 영향</th></tr>
+</thead>
+<tbody>
+<tr><td>200 USDT</td><td>78 USDT</td><td>약 39%</td><td>큰 영향 (실제 사이즈 22% 손실 가능)</td></tr>
+<tr><td>1,000 USDT</td><td>78 USDT</td><td>약 7.8%</td><td>작은 영향</td></tr>
+<tr><td>10,000 USDT</td><td>78 USDT</td><td>약 0.78%</td><td>무시 가능</td></tr>
+</tbody>
+</table>
+</div>
+
+<blockquote>
+  <p><strong>5차+ 시드 변경 시 재평가 항목:</strong> 시드 증가 시 Lot Size 영향도 ↓ 안정화 → 사이즈 정밀도 향상.</p>
+</blockquote>
+
+<hr>
+
+<h2>📊 S/A/B 최종 사이즈 시뮬레이션 (2026.04.27 항목 10 합의 — 마지막 1건)</h2>
+
+<div class="callout info">
+  <p><strong>🔑 핵심:</strong> 9건 합의 룰 수치 정합성 최종 검증. 시드 200 USDT 기준 매트릭스 등급별 사이즈·Stop·손익 시뮬.</p>
+  <p><strong>합의 흐름:</strong> Claude 6개 시뮬 권장 → Gemini "해상도 문제" 통찰 + 시드 300 예외 조항 제안 → ChatGPT 50% 한계 룰 + "통제된 공격 시스템" 정체성 + 표현 조정 → 태일 즉시 채택.</p>
+</div>
+
+<h3>🎯 시스템 정체성 정의 (ChatGPT 신규 채택)</h3>
+
+<blockquote>
+  <p><strong>"현재 v2는 '극단적 공격 시스템'이 아니라 '통제된 공격 시스템(Controlled Aggression)'이다."</strong></p>
+</blockquote>
+
+<pre><code>구조적 제약 4개 (의도적 설계):
+① 3배 레버리지 고정 (헌법 1번)
+② 시드 200 구간 Lot Size 0.001 BTC 제약 (해상도 문제)
+③ 시드 -10% 손실 캡 (안전장치 6번)
+④ 등급별 Stop 거리 한도 (S -3% / A -5% / B -7%)
+
+→ 총합 효과:
+   시드 200 구간에서 실제 공격성이 의도보다 낮게 구현되는 것은
+   시스템 실패 ❌, 생존성을 우선한 통제된 공격 구조 ✅</code></pre>
+
+<blockquote>
+  <p><strong>⚠️ 사용자 기대치 보정:</strong> TP1 도달 시 시드 수익률 +5.5~+8.7% 범위. "극단적 레버리지 수익"을 기대하면 체감 어긋남.</p>
+</blockquote>
+
+<h3>📈 입력값 (시뮬 조건)</h3>
+
+<pre><code>- 시드 S = 200 USDT (4차 시점 기준)
+- 진입가 P = $78,400
+- Lot Size = 0.001 BTC ($78.4 노출)
+- 레버리지 = 3x Isolated 고정
+- TP1 RR = 2.0 (전 등급 필수)</code></pre>
+
+<h3>📊 6개 시나리오 시뮬 결과표</h3>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>시나리오</th><th>의도 마진</th><th>실제 마진</th><th>BTC 수량</th><th>Stop 거리</th><th>TP1 도달 시드 수익</th><th>Stop 발동 시드 손실</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>S-A</strong> (S급 65% / Stop -3%)</td><td>65%</td><td>52.27%</td><td>0.004</td><td>-3.0%</td><td>+7.84%</td><td><strong>-4.70%</strong></td></tr>
+<tr><td><strong>S-B</strong> (S급 70% / Stop -2%)</td><td>70%</td><td>65.33%</td><td>0.005</td><td>-2.0%</td><td>+8.67%</td><td><strong>-3.92%</strong></td></tr>
+<tr><td><strong>A-A</strong> (A급 50% / Stop -5%)</td><td>50%</td><td>39.20%</td><td>0.003</td><td>-5.0%</td><td>+6.62%</td><td><strong>-5.88%</strong> ⚠️ 최악</td></tr>
+<tr><td><strong>A-B</strong> (A급 50% / Stop -3%)</td><td>50%</td><td>39.20%</td><td>0.003</td><td>-3.0%</td><td>+5.50%</td><td><strong>-3.53%</strong></td></tr>
+<tr><td><strong>B-A</strong> (B급 35% / Stop -7%)</td><td>35%</td><td>26.13%</td><td>0.002</td><td>-7.0%</td><td>+6.07%</td><td><strong>-5.49%</strong></td></tr>
+<tr><td><strong>B-B</strong> (B급 30% / Stop -5%)</td><td>30%</td><td>26.13%</td><td>0.002</td><td>-5.0%</td><td>+7.43%</td><td><strong>-3.92%</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<blockquote>
+  <p><strong>⚠️ 표현 조정 (ChatGPT 명제):</strong> "완벽 작동 확인" ❌ → "시뮬레이션상 모든 대표 케이스에서 -10% 캡이 작동하는 것으로 관찰됨". 실전에서는 슬리피지/급락/주문 미체결 변수 존재.</p>
+</blockquote>
+
+<h3>🔍 핵심 관찰 6건 (정직 표현)</h3>
+
+<h4>🟢 관찰 1: 시드 -10% 캡 다층 관찰됨</h4>
+<pre><code>- 최악 시나리오 (A-A): 시드 손실 -5.88% (10% 캡 이내)
+- 1·2차 -29% 합산 손실 재현 위험 시스템적 차단 관찰됨
+- 구조적 제약 (3x + Lot + 캡 + Stop 한도) 결합 효과 관찰됨</code></pre>
+
+<h4>🟡 관찰 2: 시드 200 "해상도 문제" (Gemini 통찰)</h4>
+<pre><code>- 1틱 (0.001 BTC) = $78.4 노출 = 시드 39%
+- 의도 마진과 실제 마진 차이:
+  · S급 의도 65% → 실제 52.27% (-12.73%p)
+  · A급 의도 50% → 실제 39.20% (-10.80%p)
+  · B급 의도 35% → 실제 26.13% (-8.87%p)
+- 등급별 차등의 절반 정도만 실현됨
+- 장기 자산 규모 증가 시 자연 해소 예상</code></pre>
+
+<h4>🔴 관찰 3: TP0 차등 (항목 11) 시드 200에서 무력화</h4>
+<pre><code>- S/A급 TP0 20% = 0.0006~0.0008 BTC &lt; Lot 0.001
+- 실전: 0.001 청산 시 25~33% 비중 → 의도 차등 무시
+- B급 TP0 30% = 0.0006 BTC &lt; Lot 0.001
+- 실전: 50% 청산으로 증폭
+→ 소액 시드 예외 조항 신설 필요 (아래 3-AI 합의)</code></pre>
+
+<h4>🟢 관찰 4: TP1 도달 시 수익률 범위 +5.5~+8.7%</h4>
+<pre><code>- 1·2차 손실 (-29% 합산) 회복 시 4~6회 TP1 필요
+- 시드 단위 7~8% 수익 공격적이지만 "극단적 레버리지 수익" 아님
+- "통제된 공격 시스템" 정체성과 정합</code></pre>
+
+<h4>🔴 관찰 5: B급 RR 2.0 = TP1 +14% 거리</h4>
+<pre><code>- B급 Stop -7% → RR 2.0 충족에 +14% 이동 필요
+- BTC 4H 환경에서 +14% 도달 빈도 낮음
+- 선행 탈락 11번 (B급 RR &lt; 2.0 금지) 자주 트리거 예상
+- B급 진입 빈도 극히 낮을 것으로 관찰됨
+- "나쁜 자리 걸러내는 필터"로 작동 (Gemini)
+- "Death by a thousand cuts 차단" (Gemini)</code></pre>
+
+<h4>🟡 관찰 6: 4차 실제 (마진 13 USDT) vs 4차 의도 시뮬 (마진 78.4 USDT)</h4>
+<pre><code>- 실제는 의도의 약 1/6 사이즈
+- 항목 2 합의 (BTC 수량 공식 + 시각적 대조 5체크) 적용 시
+  → 5차+ 의도 정확 진입 가능
+  → 4차 결함 1·2번 재발 원천 차단 확인</code></pre>
+
+<h3>🎯 소액 시드 예외 조항 (3-AI 합의 강화안)</h3>
+
+<blockquote>
+  <p>항목 11 합의 (S/A 20% / B 30%) 유지되, 시드 구간별 운용 룰 신설.<br>
+  ⭐ ChatGPT 신규: 50% 한계 룰 추가.</p>
+</blockquote>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>시드 조건</th><th>TP0 처리</th><th>근거</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>시드 &lt; 300 USDT</strong></td><td><strong>TP0 = 0.001 BTC 고정</strong></td><td>Lot Size 해상도 제약</td></tr>
+<tr><td><strong>TP0 0.001 ≤ 전체 포지션 50%</strong></td><td>✅ 허용</td><td>방어적이지만 수용</td></tr>
+<tr><td><strong>⚠️ TP0 0.001 &gt; 전체 포지션 50%</strong></td><td><strong>진입 보류 또는 재검토</strong></td><td>TP0 = 전량 청산 구조 의미 ❌</td></tr>
+<tr><td><strong>시드 300 이상</strong></td><td>S/A 20% / B 30% 차등 재적용</td><td>항목 11 합의 자동 활성</td></tr>
+<tr><td><strong>시드 1,000 이상</strong></td><td>차등 룰 비교적 정상 작동</td><td>Lot 영향 소폭</td></tr>
+<tr><td><strong>시드 10,000 이상</strong></td><td>차등 룰 거의 정상 작동</td><td>Lot 영향 무시 가능</td></tr>
+</tbody>
+</table>
+</div>
+
+<blockquote>
+  <p><strong>⭐ 50% 한계 룰 사례 (ChatGPT 구체화):</strong></p>
+  <ul>
+    <li>0.002 BTC 진입 + TP0 0.001 = 50% 청산 → 허용 (방어적)</li>
+    <li>0.001 BTC 진입 + TP0 0.001 = 100% 청산 → 진입 자체 재검토</li>
+  </ul>
+</blockquote>
+
+<h3>📋 5차+ 모니터링 항목 (항목 8 통합)</h3>
+
+<pre><code>□ 의도 마진 vs 실제 마진 차이 누적 (등급별)
+□ TP0 비중 차등 효과 검증 (시드 변화에 따라)
+□ B급 진입 빈도 (예상 극히 낮음)
+□ 50% 한계 룰 트리거 빈도 (시드 300 미만 구간)
+□ 실제 시드 손실률 vs 시뮬 예상 차이 (슬리피지/급락 변수 포함)</code></pre>
+
+<hr>
+
+<h2>🚫 금지 사항 7개 — 메타 가이드라인 (2026.04.27 항목 7 합의)</h2>
+
+<div class="callout info">
+  <p><strong>🔑 핵심:</strong> 기존 9개 → 7개로 재구성. 행동 제약 → 철학 정립으로 격상.</p>
+  <p><strong>합의 흐름:</strong> Claude 옵션 A 권장 (폐지 3 / 일반화 1 / 유지 5 / 신규 1) → Gemini 4건 동의 + "행동 제약→철학 정립" 격상 → ChatGPT 4건 동의 + 1번 A-2 예외 추가 + 구체 문구 구성 → 태일 즉시 채택.</p>
+</div>
+
+<h3>📐 메타 명제 (3-AI 합의 결론)</h3>
+
+<blockquote>
+  <p><strong>"트레이딩 시스템 = 비행기 조종석. 경고등이 너무 많으면 정작 중요한 순간에 무시하게 된다."</strong> (Gemini)</p>
+  <p><strong>7개 = 무의식적으로도 지킬 수 있는 최소한의 안전벨트.</strong></p>
+</blockquote>
+
+<h3>🔴 확정된 7개 금지 사항</h3>
+
+<pre><code>① 트리거 캔들 종가 대비 +1.5% 초과 추격 진입 금지
+   · (구) "$74K+ 추격 진입 금지" 일반화
+   · ⚠️ 예외: A-2 진입 타이밍 룰(시간 +2캔들 / 가격 +1.5% / RR ≥ 2.0) 동시 충족 시 추격 ❌ 정상 진입
+
+② TP0 + Stop 세팅 없이 보유 금지
+   · 진입 직후 TP0와 Stop이 모두 세팅되어야 포지션 운영으로 인정
+   · STAGE 2 의무 항목 정합
+
+③ 손실 만회 목적의 사이즈 확대 금지
+   · 이전 손실 / 미체결 / 작은 수익을 보상하려고 등급 외 사이즈 확대 ❌
+   · 공격적 기조 전환 시 가장 위험: "이번에 크게 만회하자"
+
+④ 결과론으로 시스템 수정 금지
+   · 단일 트레이드 결과로 룰을 바꾸지 않는다
+   · 샘플 기준 따름 (안전장치 1번 정합)
+
+⑤ 고정값 Stop 금지
+   · Stop은 진입 근거 레벨, 반전 캔들 저점, 지지 저점 등 구조가 결정
+   · "타이트하면 진입 포기, 억지로 넓히지 말라"
+
+⑥ 하락 전개 중 즉흥 숏 진입 금지
+   · v2는 3x Isolated 롱 전용 시스템
+   · 숏은 별도 시스템 수립 전까지 금지
+   · ⚠️ 장기 메모: 숏 금지 룰은 v2 롱 전용 시스템 정체성에 종속. 향후 숏 전용 시스템을 별도로 설계하거나 헌법 1번이 변경될 경우에만 재검토
+
+⑦ ⭐ OKX Amount 필드에 마진 USDT 입력 금지
+   · Amount = 노출(Notional) USDT
+   · 마진 기준으로 계산한 금액은 3배 노출로 변환 필요
+   · 권장: BTC Size 직접 입력
+   · 주문 전 계산표와 OKX 입력값 시각 대조 의무 (항목 2 정합)
+   · 4차 결함 1·2번 재발 원천 차단</code></pre>
+
+<h3>🗑️ 폐지 사항 3개 (선행 탈락/매트릭스에 흡수됨)</h3>
+
+<blockquote>
+  <p>실제로 없애는 게 아니라, 더 강한 위치로 이동한 것.</p>
+</blockquote>
+
+<pre><code>❌ (구 2) "$75K 돌파 전 풀 사이즈 진입 금지"
+   → 매트릭스 점수 + 시나리오 A 조건으로 흡수
+
+❌ (구 7) "거래량 없는 돌파 진입 금지"
+   → 선행 탈락 1번 (거래량 4H 5MA 1.3x 미만 진입 금지)으로 구체화
+
+❌ (구 8) "거래량 고갈 상태 진입 금지"
+   → 선행 탈락 6번 (거래량 고갈 무진입 룰)로 흡수</code></pre>
+
+<details>
+<summary>📊 변경 이력</summary>
+<pre><code>2026.04.17 초안: 9개 금지 사항 (가격 특정값 의존 2개 + 일반 7개)
+2026.04.27 항목 7 합의: 9개 → 7개 재구성
+   · 폐지: 3개 (구 2/7/8 → 선행 탈락/매트릭스)
+   · 일반화: 1개 (구 1: $74K+ → +1.5% 이격)
+   · 유지: 5개 (신 2/3/4/5/6)
+   · 신규: 1개 (신 7: OKX Amount 마진 입력 금지)</code></pre>
+</details>
+
+<hr>
+
+<h2>📋 조건 검증 로그 규칙 (2026.04.27 항목 8 합의)</h2>
+
+<div class="callout info">
+  <p><strong>🔑 핵심 명제 (Gemini 통찰):</strong></p>
+  <p><strong>"트레이딩 시스템에서 로그는 단순한 기록이 아니라 '미래의 나에게 보내는 경고'다."</strong></p>
+  <p><strong>"운영 로그 + 검증 로그를 명확히 구분해야 자기 교정(Self-Correction) 시스템이 완성된다."</strong></p>
+  <p><strong>합의 흐름:</strong> Claude 권장안 (5건) → Gemini 5건 동의 + 운영/검증 로그 분리 + 자동화 양식 → 태일 즉시 채택.</p>
+</div>
+
+<h3>🔄 운영 로그 vs 검증 로그 (분리 원칙)</h3>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>구분</th><th>Operational Log (운영 로그)</th><th>Validation Log (검증 로그)</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>질문</strong></td><td>"내가 버튼을 잘못 눌렀는가?"</td><td>"시장의 패턴이 내 가설과 맞는가?"</td></tr>
+<tr><td><strong>대상</strong></td><td>운영 절차 결함 / UI 조작 실수 / 단위 혼동</td><td>시나리오 / 매트릭스 / 룰 임계 / 트리거</td></tr>
+<tr><td><strong>예시</strong></td><td>4차 결함 5건 (Amount 단위 / Lot Size / SL 자동조정 ❌ / TP1 자동 ❌ / BE 수동)</td><td>시나리오 발동 빈도 / 매트릭스 점수 분포 / TP1 RR 차단 빈도</td></tr>
+<tr><td><strong>수정 임계</strong></td><td><strong>샘플 수와 무관하게 즉시 수정</strong></td><td>안전장치 1번 적용 (10/20 임계)</td></tr>
+<tr><td><strong>근거</strong></td><td>통계적 유의성과 무관한 '오답'</td><td>시장 가설 검증 = 통계적 유의성 필요</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>📐 섹션 1: 메타 룰 — 임계치 룰 (안전장치 1번 그대로)</h3>
+
+<blockquote>
+  <p><strong>⚠️ 검증 로그 (Validation Log)에만 적용. 운영 로그는 즉시 수정.</strong></p>
+</blockquote>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>샘플 수</th><th>허용 액션</th><th>금지 사항</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>&lt; 10</strong></td><td>룰대로 실행 + 데이터 기록만</td><td>어떤 룰 수정도 금지</td></tr>
+<tr><td><strong>10~20</strong></td><td>조건별 승률 분석 허용</td><td>수정은 검토만</td></tr>
+<tr><td><strong>&gt; 20</strong></td><td>근거 있는 룰 수정 가능</td><td>특정 조건 False Positive 40%+ 시 재설계</td></tr>
+</tbody>
+</table>
+</div>
+
+<blockquote>
+  <p><strong>📝 표현 룰:</strong> "검증됨" "증명됨" 단어 사용 ❌. "관찰됨" "초기 신호" 까지만 허용.</p>
+</blockquote>
+
+<h3>🔑 즉시 수정 예외 6건 — ChatGPT 명시 채택</h3>
+
+<blockquote>
+  <p>안전장치 1번(임계치 룰)을 적용하지 않는 예외. 샘플 수와 무관하게 즉시 수정.</p>
+</blockquote>
+
+<pre><code>① 주문 단위 오류 (마진 ↔ 노출 혼동 등)
+② 산수 오류 (계산 공식 적용 및 처리 오류)
+③ 문서 내 상호 충돌 (세션 간 수치 불일치)
+④ OKX UI/주문 절차 오류 (인터페이스 변경 대응 누락 등)
+⑤ Stop/TP 수량 불일치 (TP0 체결 후 SL 수량 미조정 등)
+⑥ 기록 누락이나 양식 오류 (데이터 수집 결함)</code></pre>
+
+<blockquote>
+  <p><strong>⚠️ 구분:</strong> 이 6건은 "룰 변경"이 아니라 "운영 결함 수정". 시장 가설과 무관 → 안전장치 1번 적용 ❌.</p>
+</blockquote>
+
+<h3>📋 섹션 2: 실무 룰 — 트레이드 기록 의무 (매 트레이드 종료 후)</h3>
+
+<blockquote>
+  <p><strong>"어떤 데이터가 나중에 결정적 힌트가 될지 알 수 없다."</strong> (Gemini)</p>
+  <p>포괄적 기록 → 데이터 누적 인프라 우선.</p>
+</blockquote>
+
+<details>
+<summary>🟦 [기본 정보]</summary>
+<pre><code>- 트레이드 번호 (5차 / 6차 / 7차…)
+- 진입 KST 시각
+- 청산 KST 시각
+- 진입가 / 청산가 / Stop / TP0 / TP1 / TP2</code></pre>
+</details>
+
+<details>
+<summary>🟦 [시나리오 정보 — 항목 1 합의]</summary>
+<pre><code>- 발생 시나리오 (A / A-2 / B / C)
+- 트리거 발생 여부 + 발생 시각
+- 진입 여부 + (차단 시) 차단 사유:
+  · A-2 차단: 시간 (+2캔들 초과) / 가격 (+1.5% 초과) / RR &lt; 2.0
+  · 매트릭스 5점 이하 / 선행 탈락 11개 중 어느 항목
+- 진입 근거 레벨 (시나리오별):
+  · A: 돌파 레벨
+  · A-2: 진입 캔들 저점
+  · B: 2회 지지 저점</code></pre>
+</details>
+
+<details>
+<summary>🟦 [매트릭스 정보 — 항목 3 합의]</summary>
+<pre><code>- 4요소 점수:
+  · 거래량 (1~3점) + 수치
+  · RSI 상태 (1~3점) + 수치 (RSI / MA)
+  · 캔들 강도 (1~3점)
+  · 구조 정합성 (1~3점)
+- 합계 점수 (4~12)
+- 등급 (S / A / B)
+- 동적 하향 적용 여부:
+  · Stop 거리 기반 하향
+  · 강등 트리거 (다이버전스 / 윗꼬리 / 20일선 이격)
+- 최종 등급</code></pre>
+</details>
+
+<details>
+<summary>🟦 [사이즈 정보 — 항목 2 합의]</summary>
+<pre><code>- 시드 잔액 (USDT)
+- 의도 마진 % vs 의도 마진 USDT
+- 계산:
+  · BTC 수량 (이론) → BTC 수량 (실제, Lot 내림)
+  · 실제 노출 / 실제 마진 / 시드 사용률
+- OKX 입력 방식 (Size 직접 / Amount):
+- ⭐ 시각적 대조 5체크 통과 여부:
+  □ 계산표 BTC 수량 = OKX Size
+  □ 계산표 노출 USDT = OKX 노출
+  □ 계산표 마진 USDT = OKX 마진
+  □ Stop 주문 수량 = 포지션 수량
+  □ TP0/TP1 주문 수량 = 계획 비중</code></pre>
+</details>
+
+<details>
+<summary>🟦 [Stop 정보 — 항목 3 합의]</summary>
+<pre><code>- Stop 거리 %
+- 등급 한도 (S -3% / A -5% / B -7%) 통과 여부
+- 예상 시드 손실률
+- 시드 -10% 캡 통과 여부 (선행 탈락 10번)</code></pre>
+</details>
+
+<details>
+<summary>🟦 [청산 정보 — 항목 6 + 11 합의]</summary>
+<pre><code>- 최종 청산 방식:
+  · TP0 / TP1 / TP2 / Stop
+  · Layer 1 (Hard) / Layer 2 (50%) / 수동
+- TP0 체결 여부 + 비중 (S/A 20% / B 30%)
+- TP1 체결 여부 (RR 충족?)
+- 트레일링 작동 여부</code></pre>
+</details>
+
+<details>
+<summary>🟦 [3-Layer 운영 — 항목 6 합의]</summary>
+<pre><code>- Layer 1 발동 여부 (어떤 트리거?)
+- Layer 2 발동 여부 (3개 중 몇 개 충족?)
+- Layer 3 발생 여부:
+  · 3개 중 어떤 조건?
+  · TP0 상태별 행동 (BE 이동? 보류?)
+  · 경계 체크리스트 5건 실행 여부</code></pre>
+</details>
+
+<details>
+<summary>🟦 [A-2 특화 (해당 시) — 항목 1 합의]</summary>
+<pre><code>- 트리거 캔들 마감 후 N캔들 뒤 진입 (0/1/2)
+- 트리거 캔들 종가 대비 진입가 % 이격
+- Stop = 진입 캔들 저점 / 트리거 캔들 저점 (어느 게 낮음?)
+- Stop 거리 vs 등급 한도 충돌 여부</code></pre>
+</details>
+
+<details>
+<summary>🟦 [결과]</summary>
+<pre><code>- 진입 후 최대 수익률
+- 진입 후 최대 손실률
+- 실제 실현 손익률
+- 시드 변동 (USDT)</code></pre>
+</details>
+
+<details>
+<summary>🟦 [False Positive 검증]</summary>
+<pre><code>- 청산 후 24h 반대 움직임 여부
+- 청산 후 48h 반대 움직임 여부
+- 청산 결정 사후 평가 (정확 / FP)</code></pre>
+</details>
+
+<details>
+<summary>🟦 [운영 결함 (해당 시) — 즉시 수정 대상]</summary>
+<pre><code>- 운영 결함 발생 여부
+- 발생 시:
+  · 결함 내용 (4차 결함 5건 형식 기록)
+  · 즉시 수정 항목
+  · 시스템 룰에 반영 여부</code></pre>
+</details>
+
+<h3>📝 입력 양식 3단계 분리 (ChatGPT 구체화 채택 — 실전 부담 ↓)</h3>
+
+<blockquote>
+  <p><strong>"30개 항목을 한 번에 보이면 부담. 단계별로 나눔다."</strong> (ChatGPT)</p>
+</blockquote>
+
+<h4>🟢 단계 1: 진입 전 필수 입력 (실전 카드 + 결정 근거)</h4>
+<pre><code>· 시드 잔액 (USDT)
+· 시나리오 (A/A-2/B/C)
+· 매트릭스 점수 + 등급 (S/A/B)
+· 진입가 / Stop
+· TP0 / TP1 가격
+· BTC 수량 (실제, Lot 내림)
+· 예상 시드 손실률
+· 선행 탈락 11개 통과 여부 총평</code></pre>
+
+<h4>🟡 단계 2: 운영 중 업데이트 (실시간 추적)</h4>
+<pre><code>· TP0 체결 여부 + KST 시각
+· TP1 체결 여부 + KST 시각
+· Stop 이동 여부 (BE? 구조 Stop?)
+· Layer 1/2/3 발생 여부 + 조건
+· 알림/주문 수량 이상 여부</code></pre>
+
+<h4>🔵 단계 3: 종료 후 복기 (사후 분석)</h4>
+<pre><code>· 최종 손익 (USDT / %)
+· 진입 후 최대 수익률 / 최대 손실률
+· 청산 후 24h / 48h 반대 움직임
+· False Positive 여부
+· 운영 결함 발생 여부 (입력 시 즉시 수정 항목 명시)
+· 개선 아이디어 (시장 가설 vs 운영 결함 분류)</code></pre>
+
+<blockquote>
+  <p><strong>✨ 메타 명제 (Gemini + ChatGPT 결합):</strong></p>
+  <p><strong>"비행기 조종석"</strong> (경고등 7개) + <strong>"블랙박스"</strong> (이 30개 항목) = v2 시스템 운용 인프라.</p>
+</blockquote>
+
+<h3>📊 섹션 3: 분석 룰 — 누적 통계 (5차+ 10건 누적 후)</h3>
+
+<blockquote>
+  <p>샘플 10건 도달 즉시 통계 분석 시작. 미리 항목을 정의해야 11번째 트레이드부터 즉각 분석 가능.</p>
+</blockquote>
+
+<h4>📈 시나리오 통계</h4>
+<pre><code>- 시나리오별 발동 빈도 (A / A-2 / B / C)
+- 시나리오별 진입 빈도
+- 시나리오별 차단 빈도 + 차단 사유 분포
+- 시나리오별 승률 (TP1 도달율)
+- 시나리오별 평균 RR</code></pre>
+
+<h4>📈 매트릭스 통계</h4>
+<pre><code>- 점수 분포 (5/6/7/8/9/10/11/12점 빈도)
+- 등급별 (S/A/B) 승률 + 평균 RR
+- 동적 하향 적용 빈도
+- 강등 트리거 발생 빈도 (다이버전스 / 윗꼬리 / 20일선)</code></pre>
+
+<h4>📈 운영 통계</h4>
+<pre><code>- TP1 RR 2.0 충족 빈도 + 차단 빈도 (30%+ 시 등급별 RR 차등 검토)
+- Layer 1/2/3 발동 빈도
+- TP0 차등 효과 (S/A 20% vs B 30% 비교)
+- A-2 진입 타이밍 분포 (+0/+1/+2 캔들)
+- A-2 가격 이격 분포</code></pre>
+
+<h4>🔄 10건 누적 후 재검토 트리거</h4>
+<pre><code>- 시나리오 A 발동 0건 → 폐기 검토
+- 시나리오 B 발동 0건 → "2회 지지 확인" 완화 검토
+- A-2 +2캔들 빈도 → +1캔들 변경 검토
+- TP1 RR 2.0 차단 30%+ → 등급별 RR 차등 재합의 (B3 재논의)
+- TP0 차등 효과 검증 → S/A/B 비중 재합의
+- 매트릭스 임계 (점수 → 등급) 재평가
+- 동적 상향 룰 재검토 (보류 사유 5조건 충족 여부)
+- 신 시나리오 추가 (A-3 / D 등) 데이터 기반 검토
+- 시간 기반 트리거 도입 검토
+- 청산 비중 등급별 차등 재검토</code></pre>
+
+<h3>💡 자동화 양식 (Gemini 제안)</h3>
+
+<blockquote>
+  <p>노션 데이터베이스 템플릿 활용 권장. 클릭과 간단한 수치 입력만으로 채울 수 있도록 인프라 구축.<br>
+  실제 DB 구축은 항목 9 (실전 카드) 작업과 함께 진행 예정. <a href="btc-trade-db.html">📚 5차+ 복기 DB</a>로 이전 완료.</p>
+</blockquote>
+
+<hr>
+
+<h2>🗺️ 시나리오 정의 (2026.04.27 항목 1 합의 — 기존 4시나리오 유지 + C 일반화)</h2>
+
+<div class="callout info">
+  <p><strong>핵심 결정:</strong> A / A-2 / B 진입 시나리오 유지 + C 일반화 + A-3/D 신 시나리오 보류.</p>
+  <p><strong>합의 흐름:</strong> Claude 권장안 (기존 유지 + C 일반화) → Gemini 4건 동의 + ±1캔들 룰 제안 → ChatGPT 4건 동의 + ±2캔들 + Stop 등급 한도 연동 + 모니터링 항목 → 태일 ChatGPT +2캔들 채택.</p>
+</div>
+
+<h3>📐 시나리오별 Basis-Exit Sync (항목 6 합의 정합)</h3>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>시나리오</th><th>성격</th><th>핵심 진입 근거 (Entry Basis)</th><th>청산 마지노선 (Layer 1 Hard Exit)</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>A (돌파)</strong></td><td>표준형</td><td>핵심 저항 돌파 후 눌림목 지지 확인</td><td>돌파했던 저항선 4H 종가 이탈</td></tr>
+<tr><td><strong>A-2 (강세 추종)</strong></td><td>공격형</td><td>이평선 터치 + 반전 캔들 + 거래량 1.3x (강세 유지)</td><td><strong>MIN(진입 캔들 저점, 트리거 캔들 저점) 4H 종가 이탈</strong></td></tr>
+<tr><td><strong>B (지지 반등)</strong></td><td>방어형</td><td>레인지 하단 2회 지지 확인</td><td>2회 지지받은 저점 4H 종가 이탈</td></tr>
+<tr><td><strong>C (관망 전환)</strong></td><td>필터</td><td>(진입 시나리오 ❌)</td><td>직전 핵심 지지 일봉 종가 이탈 + 일봉 거래량 5MA 1.0x 이상 → 관망 진입</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>🆕 시나리오 C 일반화 — 가격 특정값 제거 (ChatGPT 정의 채택)</h3>
+
+<blockquote>
+  <p><strong>기존:</strong> "$73K 일봉 종가 이탈" (특정 가격 의존, 5차+ 가격대 변경 시 의미 약화)<br>
+  <strong>갱신:</strong> "직전 핵심 지지 일봉 종가 이탈" (어떤 가격대에서도 작동)</p>
+</blockquote>
+
+<h4>📍 "직전 핵심 지지" 정의 (다음 중 1개 이상 해당)</h4>
+
+<pre><code>1. 최근 7~14일 내 2회 이상 지지 확인된 수평 레벨
+2. 직전 돌파 후 지지 전환된 핵심 저항선
+3. 일봉 20EMA / 50EMA / 200EMA 중 실제 반응이 나온 이동평균
+4. 직전 시나리오의 진입 근거 레벨
+5. 거래량 동반 반등이 나온 저점</code></pre>
+
+<h4>📌 진입 전 명시 의무</h4>
+
+<div class="callout warning">
+  <p><strong>트레이드 시작 시 반드시 기록:</strong></p>
+  <pre><code>이번 트레이드의 직전 핵심 지지 = $XXXXX
+이 가격을 일봉 종가로 이탈하고 거래량 1.0x 이상이면 C 활성 → 관망 전환.</code></pre>
+  <p>→ 모호성 차단. 나중에 "어디가 핵심 지지였지?" 흔들림 ❌.</p>
+</div>
+
+<h3>🚫 신 시나리오 보류 (3-AI 합의)</h3>
+
+<pre><code>❌ A-3 (강세 추격) 신설 ❌
+   사유: A-2와 경계 겹침 + 추격 진입 합법화 위험 + 4차 1건 데이터 부족
+   재검토: 5차+ 10건 누적 후
+
+❌ D (박스권 양 끝) 신설 ❌
+   사유: 박스권 정의 모호 + 공격적 BTC 레버리지 시스템과 성격 다름
+   재검토: 5차+ 10건 누적 후</code></pre>
+
+<blockquote>
+  <p><strong>"A/B가 1~4차 동안 안 나왔다 ≠ 쓸모없다."</strong></p>
+  <p>A/B는 특정 시장 구조가 왔을 때 작동하는 안전장치. 1차 손실(B의 "2회 지지" 위반)이 그 가치를 입증.</p>
+</blockquote>
+
+<hr>
+
+<h2>⏰ A-2 진입 타이밍 룰 (2026.04.27 항목 1 합의 — 늦은 추격 차단)</h2>
+
+<div class="callout info">
+  <p><strong>🎯 핵심:</strong> A-2는 강세 추종 시나리오 → 트리거 발동 후 시간 지나면 "공격적 진입"이 아니라 "늦은 추격"이 된다.</p>
+  <p><strong>합의 흐름:</strong> Gemini ±1캔들 제안 → ChatGPT ±2캔들 + 가격 + RR 3조건 제안 → Claude 권장 (실전 현실성 + 가격/RR 이중 필터) → 태일 ChatGPT 안 채택.</p>
+</div>
+
+<h3>📋 진입 가능 조건 (3조건 모두 충족 시에만 진입)</h3>
+
+<pre><code>조건 1 (시간): 트리거 캔들 마감 후 +2개 4H 캔들 (8시간) 이내
+조건 2 (가격): 진입가가 트리거 캔들 종가 대비 +1.5% 이내
+조건 3 (RR):   TP1 기준 RR ≥ 2.0 유지
+
+→ 위 3조건 중 하나라도 위반 시 진입 포기
+→ 다음 눌림 또는 시나리오 B 대기</code></pre>
+
+<h4>🔍 룰 작동 메커니즘</h4>
+
+<blockquote>
+  <p><strong>시간보다 가격 이격과 RR이 본질이다.</strong></p>
+  <ul>
+    <li>시간이 조금 지나도 가격이 +1.5% 이내 + RR 2.0 유지 → 추격 ❌, 진입 가능</li>
+    <li>시간이 얼마 안 지나도 가격이 +1.5% 넘게 떠버림 → 추격 ✅, 진입 포기</li>
+    <li>KST 새벽/오전 시간대 대응 어려움 보전 (실전 현실성)</li>
+  </ul>
+</blockquote>
+
+<h4>📊 4차 사례 소급 검증</h4>
+
+<pre><code>트리거 캔들: 04-26 21:00 4H (마감 04-27 01:00)
++2캔들 마감 시점: 04-27 09:00
+4차 진입: 04-27 09:31 → +2캔들 마감 직후 (시간 조건 거의 통과)
+
+→ 시간 조건만으로는 4차 진입 통과 가능
+→ 가격 / RR 조건이 추가 차단 필터로 작동
+→ Claude 보수성 양보 (편향 F) 메커니즘적 차단</code></pre>
+
+<hr>
+
+<h2>🛑 A-2 Stop 기준 (2026.04.27 항목 1 합의 — 둘 중 낮은 값 + 등급 한도 연동)</h2>
+
+<h3>📏 Stop 위치 결정</h3>
+
+<blockquote>
+  <p><strong>"진입 시점 4H 캔들 저점 또는 트리거 캔들 저점 중 낮은 것"</strong></p>
+</blockquote>
+
+<pre><code>A-2 Stop = MIN(진입 시점 4H 캔들 저점, 트리거 캔들 저점)
+
+근거:
+- 트리거 캔들 저점만 → Stop 너무 멀어질 수 있음
+- 진입 캔들 저점만 → 너무 타이트 + 트리거 구조 미반영
+- 둘 중 낮은 값 → 구조 무효화 기준 더 명확</code></pre>
+
+<h3>🔄 등급 한도 연동 (필수)</h3>
+
+<blockquote>
+  <p><strong>"둘 중 낮은 값을 쓰되, Stop 거리가 해당 등급 한도(S -3% / A -5% / B -7%)를 초과하면 동적 하향 또는 진입 금지."</strong></p>
+</blockquote>
+
+<pre><code>예시 1: A-2가 A급(8~10점) + Stop 거리 -3% → 정상 진입
+예시 2: A-2가 A급 + Stop 거리 -6% → 등급 한도(-5%) 초과
+   → 동적 하향 룰 적용 → B급 비중(30~40%)으로 하향 또는 진입 금지
+예시 3: A-2가 S급(11~12점) + Stop 거리 -4% → S급 한도(-3%) 초과
+   → A급으로 하향 또는 재검토</code></pre>
+
+<h3>⚠️ 공격성 충돌 처리</h3>
+
+<blockquote>
+  <p><strong>"Stop을 임의로 넓히지 마라. 진입 포기 또는 등급 하향이 정답."</strong></p>
+</blockquote>
+
+<pre><code>🚫 금지: Stop을 임의로 넓혀서 등급 한도 맞춤 (룰 위반)
+✅ 허용:
+   1. 등급 하향 (S → A → B)
+   2. 진입 포기 (다음 눌림 / 시나리오 B 대기)
+
+근거: 트리거 저점과 진입 캔들 저점 차이가 크면 = 이미 좋은 타점 놓쳤다는 뜻
+      → 억지로 Stop을 넓히면 사이즈 확대 욕구 = 편향 F 변형</code></pre>
+
+<hr>
+
+<h2>📊 시나리오 모니터링 항목 (2026.04.27 항목 1 합의 — 5차+ 누적)</h2>
+
+<blockquote>
+  <p><strong>목적:</strong> A-2 진입 타이밍 룰(+2캔들)이 적정한지, 시나리오 A/B가 발동하는지 데이터 누적. 5차+ 10건 후 통계적 재평가.</p>
+</blockquote>
+
+<h3>📋 트레이드별 의무 기록 항목</h3>
+
+<pre><code>[기본 기록 - 모든 시나리오]
+- 발생 시나리오 (A / A-2 / B / C)
+- 트리거 발생 여부 (발생 / 미발생)
+- 진입 여부 (진입 / 차단)
+- 차단 사유 (시간 초과 / 가격 이격 / RR 부족 / Stop 거리 초과 / 매트릭스 5점 이하 / 선행 탈락)
+- 결과 (TP0 / TP1 / TP2 / Stop / Layer 1 / Layer 2)
+- 시나리오별 승률 (누적)
+- 시나리오별 평균 RR (누적)
+
+[A-2 특화 기록]
+- 트리거 캔들 마감 후 N캔들 뒤 진입했는가? (0 / 1 / 2 / 진입 차단)
+- 트리거 종가 대비 진입가 % (예: +0.8% / +1.3% / +1.6% 차단)
+- 진입 캔들 저점 vs 트리거 캔들 저점 (어느 게 Stop?)
+- 진입 후 최대 수익률 / 최대 손실률
+- 진입 후 실제 실현 손익률</code></pre>
+
+<h3>🎯 재검토 트리거 (5차+ 10건 누적 후)</h3>
+
+<pre><code>- 시나리오 A 발동 빈도: 계속 0건 → 폐기 검토
+- 시나리오 B 발동 빈도: "2회 지지 확인" 너무 엄격 검토
+- A-2 발동 빈도 + 차단 빈도: +2캔들 적정성 평가
+- A-2 차단 사유 분포: 시간/가격/RR 중 어느 것이 주요 차단 요인인지
+- 시나리오별 승률 + RR: 룰 전체 효과성
+- 신 패턴 발생 빈도: A-3 / D 등 신 시나리오 신설 정당성 데이터</code></pre>
+
+<hr>
+
+<h2>🔍 1~4차 매트릭스 소급 검증</h2>
+
+<pre><code>1차 ($70,211, -11.5%):
+   추정 점수 4~5점 → 진입 금지 판정 (현 룰로 진입 안 했어야)
+
+2차 ($71,030, -17.4%):
+   B파 반등 진입 = 파동 위반
+   추정 점수 5~6점 → 진입 금지 / B급 경계
+
+3차 ($71,539.8, +0.61):
+   RR 0.73 → 선행 탈락 2번 위반
+   진입 자체 차단됨
+
+4차 ($78,400, 진행 중):
+   - 거래량 1.95x → 2점
+   - RSI 64.23 + MA 크로스 → 3점
+   - 캔들 강도 (Engulfing 추정) → 3점
+   - 구조 정합성 (20일선 지지) → 2점
+   - 합계: 10점 → A급 ✅
+   - 다이버전스: 미발생 / 윗꼬리: 측정 필요 / 20일선 이격: +0.84%
+   - 결론: A급 (시드 마진 50~60%) 적정 진입</code></pre>
+
+<blockquote>
+  <p>→ 신 매트릭스가 1·2·3차 위반 케이스 차단 + 4차 정확한 등급 분류. <strong>"관찰됨" 수준 정합성</strong>.</p>
+</blockquote>
+
+<hr>
+
+<h2>📝 5차 진입 시 사전 의무 항목 (4차 학습 반영)</h2>
+
+<p>4차 진입 과정에서 발견된 시스템 결함 5건 → 5차부터 의무 절차로 박음.</p>
+
+<pre><code>1. 시드 잔액 확인 (Equity / Available)
+
+2. 사이즈 정의 삼중 명시:
+   - 등급 결정 (S/A/B) → 마진 % 결정 (S 60~70% / A 45~55% / B 30~40%)
+   - 🔴 80% 마진 영구 봉쇄 (항목 3 합의)
+   - 마진 금액 / 노출 금액 / BTC 수량 모두 출력
+   - 본질 단위 = BTC 수량 (USDT 표시는 가격 변동 따라 동적)
+   - Stop 거리 한도: S -3% / A -5% / B -7% 이내
+   - 예상 시드 손실 -10% 초과 → 진입 금지
+
+3. OKX "Amount" = 노출 USDT 명시:
+   - 마진 X USDT 사용 의도 → Amount 입력값 = X × 3
+
+4. Lot Size 고려:
+   - BTC Perp 0.001 BTC 단위로 자동 반올림
+   - 입력값이 정확히 체결되지 않을 수 있음
+
+5. 3x Isolated 모드 확인 (Cross 모드 혼동 금지)
+
+6. STAGE 2 (Stop + TP0)의 노출 USDT 값도 사전 계산:
+   - 수량 불일치 시 자동 청산 안 될 수 있음
+
+7. TP0 체결 후 SL 사이즈 수동 확장/축소 검토 절차:
+   - OKX가 자동으로 안 맞춤
+   - 2단 예약 있다면 미리 확장 또는 2단 Cancel 결정
+
+8. TP1 주문 수동 등록:
+   - OKX가 자동 안 해줌
+   - 1R+ 구간 도달 전 등록 필수
+
+9. OKX 알림 설정 점검:
+   - 가격 알림 (TP1 / 2단 체결 지점 / SL)
+   - 포지션 변경 알림 ON
+   - TP0 체결 알림 필수 (4차에서 30~37분 인지 못함)
+
+10. 2단 추가 진입은 룰 정신에 따라만:
+    - 시나리오 명시 추가 진입 구간 (예: A-2 "눌림 관찰 구간 $73~74K")에서만
+    - 사이즈 보정 목적의 평단가 회복용 추가 ❌
+    - 새 트리거 충족 시에만
+
+11. Claude의 보수성 양보 경계 (편향 F):
+    - Claude가 처음 권고한 후 태일이 다른 결정 채택 시 반사적 동의 ❌
+    - 위험-보상 재계산 후 일관성 유지 또는 명시적 반박</code></pre>
+
+<hr>
+
+<h2>⏳ 아직 결정 안 된 항목 (단계 합의 대기)</h2>
+
+<p>5차 진입 전 확정해야 할 작업.</p>
+
+<pre><code>✅ 1. 시나리오 A/A-2/B/C 유지 + C 일반화 + A-2 진입 타이밍 룰 + Stop 기준 [2026.04.27 완료]
+   - 채택: 기존 A/A-2/B 유지 + C "직전 핵심 지지" 일반화
+   - 신설: A-2 진입 타이밍 룰 (+2캔들 + 가격 +1.5% + RR ≥ 2.0)
+   - 신설: A-2 Stop = MIN(진입 캔들 저점, 트리거 캔들 저점) + 등급 한도 연동
+   - 보류: A-3 / D 신 시나리오 (5차+ 10건 누적 후)
+✅ 2. BTC 수량 기준 사이즈 산출 공식 명세 (4차 경험 반영) [2026.04.27 완료]
+   - 채택: 사이즈 계산 7단계 + Stop 검증 4단계 + BTC 수량+USDT 병기 + Lot 내림 + Size(BTC) 직접 입력 + 시각적 대조 5체크
+   - 신규: Lot Size 거래소 UI 변경 대비 + 시드 규모별 로드맵
+✅ 3. 시드 마진 70~80% (S급) 운용 시 Liquidation 거리 검증 (3x Isolated) [2026.04.27 완료]
+✅ 4. 분할 진입 70/30 유지 여부 → 폐지 후 단일 진입 [2026.04.27 완료]
+   - 채택: 옵션 A (70/30 폐지 → 단일 진입)
+   - 근거: Aggression vs. Dilution 산수 (S 70%×70% = 49% = 공격성 30% 희석) + A-2 부적합 + 실전 복잡도
+   - 신설: 8단계 진입 절차 + 추가 진입 금지 + 5차+ 부활 조건 4개
+□ 5. 실패 시그널 50% 청산 트리거 명세 (C3 구현)
+✅ 6. "차트 흐름 변경" 객관 정의 (헌법 5번) [2026.04.27 완료]
+✅ 7. 금지 사항 9개 그대로 유지 여부 [2026.04.27 완료]
+   - 채택: 옵션 A (9개 → 7개 재구성)
+   - 폐지 3 (구 2/7/8) + 일반화 1 (구 1) + 유지 5 + 신규 1 (OKX Amount 마진 입력 금지)
+   - 격상 표현: "행동 제약 → 메타 가이드라인" (Gemini)
+   - 9번 롱/숏 장기 메모 명시 (ChatGPT 구체 문구)
+✅ 8. 조건 검증 로그 규칙 동일 적용 [2026.04.27 완료]
+   - 채택: 안전장치 1번(임계치) 그대로 + 운영/검증 로그 분리 + 포괄 기록 + 3개 섹션 분리
+   - Gemini 신규: "Operational Log vs Validation Log" 통찰 채택
+   - 자동화 양식: 노션 DB 템플릿 (항목 9에서 함께 구축)
+✅ 9. 실전 축약 카드 재설계 (40+ 룰 → 1페이지) [2026.04.27 완료]
+   - 채택: 4-STAGE 진입 카드 + 3개 카드 분리 (진입/운영/기록) + 자식 페이지 분리 + 자동화 계산기 의무
+   - ChatGPT 신규 2건: 60초 → 90~120초 현실화 + STAGE 0 11개 → 5묶음 압축
+   - 자식 페이지 신설: 🎯 BTC v2 실전 카드 (매뉴얼)
+   - 디자인 철학: "Don't make me think" / "비행기 조종석 체크리스트" / "속도가 아닌 누락 방지"
+✅ 10. 최종 시뮬레이션 (S/A/B 최종 사이즈 기준 예상 손실·수익·TP0/TP1/TP2 구조 검증) [2026.04.27 완료 — 마지막 1건]
+   - 채택: 6개 시나리오 시뮬 + "해상도 문제" + 소액 시드 예외 조항 (50% 한계 룰 포함) + "통제된 공격 시스템" 정체성 + 표현 조정 (완벽→관찰)
+   - ChatGPT 신규 4건: 50% 한계 룰 / 시드 임계점 다층화 / "통제된 공격" 정체성 / 표현 조정
+   - 마지막 1건 → v2 시스템 설계 100% 완료
+
+### 📌 추가 검토 항목 (외부 평가 2026.04.27 반영)
+✅ 11. TP0 비중 등급별 차등 검토 (B3 합의 재논의) [2026.04.27 완료]
+   - 채택: 옵션 C (부분 차등) → S/A급 20% / B급 30%
+   - 근거: B급 False Positive 확률 ↑ → 보험 강화 / S·A급 수치 차이 미미 → 단순화
+
+### 📊 모니터링 항목 (5차+ 누적 관찰)
+- TP1 RR 2.0 전 등급 필수 → 진입 후보가 RR 2.0 미달로 자주 차단되는지 추적
+  - 10건 누적 후 통계적 재평가
+  - 차단 빈도 30% 이상 시 등급별 RR 차등 검토 (B3 재합의)
+- 선행 탈락 11개 + 매트릭스 + 동적 하향 + 3-Layer 실전 복잡도
+  - 항목 9 (실전 축약 카드 재설계)에서 통합 압축 완료</code></pre>
+
+<hr>
+
+<details>
+<summary>📜 채택 이력 (전체 11건 + 운영 로그 정리)</summary>
+
+<pre><code>2026.04.27 10:50 KST: 태일이 옵션 B (부분 동결 해제) 선언 → 신 룰 작업 시작
+2026.04.27 10:50 KST: 6개 헌법 + 8개 안전장치 합의
+2026.04.27 10:55 KST: A1/B3/C3/D1 1차 합의
+2026.04.27 11:00 KST: Claude 1차 매트릭스 제안 (S/A/B 정의)
+2026.04.27 11:10 KST: Gemini 보완안 (RSI 다이버전스 / 20일선 / 윗꼬리 / 매트릭스)
+2026.04.27 11:20 KST: ChatGPT 평가 (B급 6점 / 거래량 1.3x 선행 탈락 / 20일선 +7% 진입 금지 / 다이버전스 정의)
+2026.04.27 11:30 KST: 태일 명시적 채택 → 정식 1차안 확정
+2026.04.27 11:40 KST: 페이지 분리 결정 → 본 페이지 신설
+
+2026.04.27 12:30 KST: 항목 3 (Liquidation 거리 + 시드 손실 검증) 합의 완료
+   - Claude 4가지 옵션 제시 → Gemini 옵션 D+C 절충 지지 → ChatGPT 상향 룰 단호 보류 권고
+   - 태일 채택: S 60~70% / A 45~55% / B 30~40% + Stop 한도 + 시드 손실 -10% 캡
+   - 80% 마진 영구 봉쇄 / 동적 하향만 채택 / 상향 보류 / 공격성 = 손익비 / 정성 가이드 점수화 ❌
+   - 선행 탈락 9 → 11개 (시드 손실 -10% 초과 + B급 RR &lt; 2.0)
+   - TP1 RR 2.0 전 등급 필수
+
+2026.04.27 13:30 KST: 항목 6 ("차트 흐름 변경" 객관 정의 - 헌법 5번) 합의 완료
+   - Claude 3-Layer 1차 제안 → Gemini 4건 보완 (Layer 3 청산 ❌ + A-2 진입 캔들 저점 단일화 + Basis-Exit Sync 와일드카드 + Layer 2 가중치 메모) → ChatGPT 검증 + 신규 보완 (TP0 전 BE 이동 보류)
+   - 태일 채택: 5건 모두 채택 (3-Layer + Basis-Exit Sync 헌법 5번 정식 정의 + A-2 단일화 + 가중치 자기 점검 메모만 + TP0 전 BE 보류)
+   - Layer 1 (전량) / Layer 2 (50%) / Layer 3 (청산 ❌, 상태별 BE)
+   - C3 합의 강화 흡수 (실패 시그널 50% 격상 → Layer 2 구현 / 진입 근거 4H 종가 이탈 → Layer 1 구현)
+
+2026.04.27 14:00 KST: 외부 평가 5건 반영 — 잔여 충돌 정리
+   - 🚨 5차 사전 의무 2번 사이즈 표기 (70~80%) 잔존 → S 60~70% / A 45~55% / B 30~40%로 수정 + 80% 봉쇄 명시
+   - 🚨 미결정 10번 "S급 80% 진입 시 시드 손실 검증" → "S/A/B 최종 사이즈 기준 검증"으로 갱신
+   - 추가 검토: 항목 11 (TP0 비중 등급별 차등 — B3 재합의) 신설
+   - 모니터링 항목: TP1 RR 2.0 진입 빈도 + 실전 복잡도 추적 명시
+   - 근거: 잔여 충돌은 객관 사실 → 즉시 수정 / 추가 검토는 3-AI 합의 흐름 보존
+
+2026.04.27 14:30 KST: 항목 11 (TP0 비중 등급별 차등 — B3 재합의) 합의 완료
+   - ChatGPT 등급별 차등 제안 (B급 보험 강화) → Gemini 보완 (수치 단일화, A급 25%) → Claude 부분 차등 권장 (옵션 C) → 태일 옵션 C 채택
+   - 최종: S급 20% / A급 20% / B급 30%
+   - 근거: B급 False Positive 확률 ↑ 보험 강화 / S·A급 수치 차이 미미해 단순화 / 안전장치 1번 (샘플 &lt; 10) 충돌 자각
+   - 5차+ 10건 누적 후 통계적 재평가 대상
+
+2026.04.27 15:30 KST: 항목 5 (실패 시그널 50% 청산 트리거 명세) 합의 완료 — 항목 6 보완으로 마감
+   - Claude "항목 6에 흡수됨" 제시 → Gemini 4건 동의 + RSI 다이버전스 제안 → ChatGPT 4건 동의 + 체크리스트 실전 가이드 명시 + "과거 판단 집착" 논리 추가
+   - 채택: Layer 3 경계 체크리스트 5건 (실전 행동 가이드) + RSI 다이버전스 자기 점검 메모만
+   - 거부: 시간 트리거 / 등급별 차등 청산 / $80k 한정 룰 / Layer 2에 4H RSI 다이버전스 추가
+   - 모니터링: 시간 트리거 + 등급별 차등 → 5차+ 10건 누적 후 재검토
+
+2026.04.27 16:30 KST: 항목 1 (시나리오 A/A-2/B/C 유지 vs 신 시나리오) 합의 완료
+   - Claude 권장안 (기존 유지 + C 일반화 + A-3/D 보류) → Gemini 4건 동의 + ±1캔들 룰 + Basis-Exit Sync 표 → ChatGPT 4건 동의 + ±2캔들 + Stop 등급 한도 연동 + 모니터링 항목 + "직전 핵심 지지" 정의 5개
+   - 태일 채택: 3-AI 통합 합의안 + A-2 진입 타이밍 ChatGPT +2캔들 안
+   - 채택: 기존 A/A-2/B 유지 + C 일반화 + A-2 +2캔들/+1.5%/RR≥2.0 + Stop MIN 등급 한도 연동 + 모니터링 항목
+   - 거부: A-3/D 신 시나리오 / +1캔들 / Stop 임의 넓히기
+   - 모니터링: 시나리오별 빈도/승률/RR + A-2 특화 데이터 (트리거 후 N캔들/가격 이격) → 5차+ 10건 누적 후 재평가
+
+2026.04.27 17:30 KST: 항목 4 (분할 진입 70/30 유지 여부) 합의 완료
+   - Claude 3가지 옵션 제시 (A/B/C) → Gemini 옵션 A 적극 권장 + Aggression vs. Dilution 산수 계산 → ChatGPT 옵션 A 채택 + 8단계 절차 구체화 + 부활 조건 4개 구체화 → 태일 옵션 A 채택
+   - 채택: 70/30 분할 진입 원자 폐지 → 단일 진입
+   - 신설: 8단계 진입 절차 + Aggression vs. Dilution 표 (S 49% / A 38.5% / B 28%) + 5차+ 부활 조건 4개
+   - 삭제: 1단 70% / 2단 30% / 2단 지정가 눌림목 / 2단 미체결 24~48h 취소 / 2단 Cancel 조건
+   - 거부: 옵션 B (유지+명세 강화) / 옵션 C (시나리오별 차등) / 영구 폐지
+   - 근거: Aggression vs. Dilution (산수: S 매트릭스 70% × 1단 70% = 49% = 공격성 30% 희석) + A-2 부적합 + 복잡도 ↑ + 안전장치 1번 정합
+
+2026.04.27 18:30 KST: 항목 2 (BTC 수량 기준 사이즈 산출 공식) 합의 완료
+   - Claude 공식 7단계 + Stop 검증 4단계 권장 → Gemini 적극 동의 + 시각적 대조 제안 + "즉시 채택" 권장 → ChatGPT 적극 동의 + Lot Size UI 변경 대비 + 시각 대조 체크리스트 5개 구체화 + "사이즈는 공격적, Lot 보정은 보수적" 명제 → 태일 즉시 채택
+   - 채택: 7단계 계산 + 4단계 검증 + BTC 수량 본질 단위 + USDT 병기 + Lot 내림 + OKX Size 직접 입력 + 시각적 대조 5체크 + UI 변경 대비 + 시드 규모별 로드맵
+   - 근거: 4차 결함 1·2번 (사이즈 정의 모호 + OKX Amount 단위 혼동) 완전 차단 + 단일 진입(항목 4) 채택 후 계산 단순화 정합
+   - 주목: "산수 + UI 절차" 영역 → 3-AI 합의 패턴 예외적 즉시 채택 (전략 영역 아닌 정확성 영역)
+
+2026.04.27 19:30 KST: 항목 7 (금지 사항 9개 유지 여부) 합의 완료
+   - Claude 옵션 A 권장 (폐지 3 / 일반화 1 / 유지 5 / 신규 1) → Gemini 4건 동의 + "행동 제약→철학 정립" 격상 표현 + 9번 장기 메타 질문 → ChatGPT 4건 동의 + 1번 A-2 예외 추가 + 7개 구체 문구 구성 + 9번 장기 메모 문구 → 태일 즉시 채택
+   - 최종 7개: 이격·타이밍 추격(구1+A-2 예외) / TP0+Stop 세팅 / 손실만회 사이즈 확대 / 결과론 수정 / 고정값 Stop / 하락 중 숏 / OKX Amount 마진 입력
+   - 폐지 3개 (구 2/7/8): 선행 탈락/매트릭스에 구체화 흡수 명시
+   - 메타 명제 (Gemini): "행동 제약 → 메타 가이드라인" / "비행기 조종석 경고등" 시각화
+   - 주목: "문서 정리/최적화" 영역 → 즉시 채택 정당 (항목 2와 동일 성격)
+
+2026.04.27 21:30 KST: 항목 9 (실전 축약 카드 재설계) 합의 완료
+   - Claude 4-STAGE 초안 (60초 목표) → Gemini 6건 동의 + "체크리스트의 마법" 통찰 + 자식 페이지 분리 권장 → ChatGPT 6건 동의 + 60초 → 90~120초 현실화 + STAGE 0 11개 → 5묶음 압축 + "속도가 아닌 누락 방지" 명제 → 태일 즉시 채택
+   - 채택: 4-STAGE 진입 카드 + 3개 카드 분리 (진입/운영/기록) + 자식 페이지 분리 + 자동화 계산기 의존 + 4차 결함 5건 운영 카드 통합
+   - ChatGPT 신규 2건: 목표 시간 90~120초 현실화 + STAGE 0 대시화 5묶음 압축
+   - 자식 페이지 신설: 🎯 BTC v2 실전 카드 (매뉴얼)
+   - 디자인 철학 (Gemini + ChatGPT 결합): "Don't make me think" / "비행기 조종석 체크리스트" / "실전 중에는 룰북 안 본다"
+   - 주목: "시스템 사용성 결정" 영역 → 3-AI 합의 패턴 완전 적용 (항목 3·6·1과 동일 수준)
+
+2026.04.27 22:30 KST: 항목 10 (S/A/B 최종 사이즈 시뮬레이션) 합의 완료 — 마지막 1건
+   - Claude 6개 시뮬 권장 (S-A/B/C, A-A/B/C, B-A/B/C) → Gemini "해상도 문제" 통찰 + 시드 300 예외 조항 제안 + ChatGPT 검증 권장 → ChatGPT 4건 신규 추가 (50% 한계 룰 / 시드 임계점 다층화 / "통제된 공격" 정체성 / 표현 조정) → 태일 즉시 채택
+   - 채택: 6개 시뮬 결과 + 관찰 6건 + 소액 시드 예외 조항 (50% 한계 포함) + "통제된 공격 시스템" 정체성 정의 + 표현 조정 ("완벽 작동" → "관찰됨")
+   - 근거: 9건 합의 룰 수치 정합성 최종 검증 / 시드 200 구간 Lot 해상도 문제 명시 / 안전장치 1번 표현 룰 정합
+   - 핵심 관찰: 시드 -10% 캡 다층 작동 / 시드 200 해상도 문제 / TP0 차등 무력화 / B급 RR 2.0 = +14% (진입 빈도 ↓) / 4차 의도 vs 실제 1/6
+   - 마지막 1건 완료 → v2 시스템 설계 100% 완료 (11/11)
+
+2026.04.27 23:30 KST: 운영 로그 정리 — ChatGPT 메타 평가 5건 즉시 수정
+   - ChatGPT 메타 평가: "설계 90~95% / 실행 준비 직전 단계" → 5건 결함 적시
+   - Claude 자기 점검: "100% 완료" 선언 = 자기 작성물 방어 편향(편향 A) 발동 정직 인정
+   - 즉시 수정 (운영 로그 영역, 안전장치 1번 임계 룰 외 정당):
+     · 오탈자 13건 (숏 / 리딩 / 청산 / 원천 / 캡 등)
+     · A-2 Layer 1 vs Stop 기준 충돌 (항목 6 vs 항목 1) → MIN 기준 통일 (후행 합의 우선)
+     · TP0 "1R 보장" 표현 → "일부 수익 확보" (실제 TP0 RR ≈ 0.67R)
+     · 시각적 대조 5번 "계획 비중" → "계획 비중 또는 소액 시드 예외 수량" (항목 10 합의 정합)
+     · 사이즈 계산 ② 중복 → ① 정렬
+     · 운영 로그 vs 검증 로그 표 깨짐 복구
+   - 자식 페이지 (실전 카드) 동일 갱신 진행 예정
+   - 페이지 상태: "100% 완료" → "설계 95% / 운영 로그 정리 후 실행 준비"</code></pre>
+
+</details>
+
+<hr>
+
+<h2>📅 5차 모니터링 추이 기록 → 복기 DB로 이전 완료</h2>
+
+<blockquote>
+  <p><strong>2026-04-30 09:30 KST 갱신:</strong> 시장 시계열 데이터는 <a href="btc-trade-db.html">📚 BTC 트레이드 복기 데이터베이스</a>의 "04-28 시장 추적 entry"에 통합 누적.</p>
+  <p><strong>이전 사유:</strong> 시계열 일관성 유지 (복기 DB에 04-28 09:00~04-30 05:00 연속 누적) + 해당 페이지에 "5차+ 데이터 누적 인프라" 역할 도메인 명시.</p>
+  <p><strong>되돌릴 시:</strong> 별도 이관 권고 필요 (현재 이동 완료 상태).</p>
+</blockquote>
+
+<h3>점검 포인트 (복기 DB에 있음)</h3>
+<ul>
+  <li>4H 시계열 표 (04-28 09:00 → 04-30 05:00)</li>
+  <li>04-28 일봉 마감 데이터 + 04-29 일봉 마감 데이터</li>
+  <li>선행 탈락 5번 (시나리오 C) 일봉 기준 재검증</li>
+  <li>04-29 17:00 → 04-30 05:00 24시간 추적 분석 (ChatGPT 통찰 정합성 검증)</li>
+  <li>v2 Layer 2 가상 시뮬 (1건)</li>
+  <li>5차 진입 대기 갱신 + 관찰 포인트</li>
+</ul>
+
+<hr>
+
+<h2>🔗 연결 페이지</h2>
+
+<ul>
+  <li><strong>기존 보수 기조 시스템 (1~4차 운영):</strong> <a href="btc-system-v1.html">📈 BTC 매매 시스템</a></li>
+  <li><strong>실전 카드 (매뉴얼):</strong> <a href="btc-v2-card.html">🎯 BTC v2 실전 카드</a></li>
+  <li><strong>5차+ 복기 DB:</strong> <a href="btc-trade-db.html">📚 BTC 트레이드 복기 데이터베이스</a></li>
+</ul>
+
+<div class="meta">
+  작성: 2026.04.27 KST | 적용 시점: 5차 트레이드부터 (동결 해제 완료 2026.04.28 09:30 KST)<br>
+  본문 룰북: 🚀 BTC 매매 시스템 v2<br>
+  마이그레이션: 노션 → HTML (2026-05-01 KST)<br>
+  ⚠️ 본 플랜은 분석적 관점의 정리이며, 투자 조언이 아닙니다.<br>
+  신 룰은 5차 트레이드부터 적용. 4차 진행 운영은 기존 페이지 룰대로 종료 (완료).
+</div>
+
+</div>
+
+</body>
+</html>

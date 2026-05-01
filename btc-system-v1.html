@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📈 BTC 매매 시스템 (보수 룰 — 1~4차 아카이브)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-home">🏠 BTC 시스템</a>
+    <a href="btc-system-v1.html">📈 보수 룰</a>
+    <a href="btc-system-v2.html">🚀 v2 룰북</a>
+    <a href="btc-v2-card.html">🎯 v2 실전 카드</a>
+    <a href="btc-trade-db.html">📚 5차+ 복기 DB</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<h1>📈 BTC 매매 시스템 (2026.04.17 업데이트)</h1>
+
+<div class="callout info">
+  <p><strong>역할:</strong> 1~4차 트레이드 완료 기록 아카이브 (신 진입 운용 ❌)</p>
+  <p><strong>현재 단계:</strong> ✅ 4차 트레이드 종료 완료 (2026-04-28 야간 SL 발동 / 시드 -0.16% / 거의 본전). 포지션 0.</p>
+  <p><strong>🔓 동결 해제 공식화 (2026-04-28 09:30 KST):</strong> v2 시스템 5차+ 적용 공식 시작.</p>
+  <p><strong>5차+ 종주 룰북:</strong> → <a href="btc-system-v2.html">🚀 BTC 매매 시스템 v2</a></p>
+</div>
+
+<details>
+<summary>🚀 SESSION BOOTSTRAP — 새 Claude 세션에서 가장 먼저 읽기 (실전 매매 시엔 접어두기)</summary>
+
+<h3>Claude에게 전달되는 핵심 맥락 (30초 요약)</h3>
+
+<ul>
+  <li><strong>작성·관리자:</strong> Claude (태일과의 반복 업그레이드로 진화)</li>
+  <li><strong>사용자:</strong> 태일 (KST, OKX 3x Isolated 롱 전용 시스템)</li>
+  <li><strong>현재 단계:</strong> ✅ <strong>4차 트레이드 종료 완료</strong> (2026-04-28 야간 SL 발동 / 시드 -0.16% / 거의 본전). 포지션 0.</li>
+  <li><strong>🔓 동결 해제 공식화 (2026-04-28 09:30 KST):</strong> v2 시스템 5차+ 적용 공식 시작. 본 페이지는 1·4차 운용 기록 보관 전용.</li>
+  <li><strong>5차+ 종주 주 룰북:</strong> → <a href="btc-system-v2.html">🚀 BTC 매매 시스템 v2</a></li>
+  <li><strong>본 페이지 역할:</strong> 1~4차 트레이드 완료 기록 아카이브. 신 진입 운용 ❌.</li>
+  <li><strong>최종 업데이트 날짜:</strong> 문서 최하단 참조</li>
+</ul>
+
+<h3>🧭 Claude 메타 규칙 (이 페이지 한정, 절대 준수)</h3>
+
+<ol>
+  <li><strong>이 페이지는 Claude 본인이 작성한 문서다.</strong> 자기 작성물 방어 편향 경계 필수.</li>
+  <li><strong>실시간 시세 접근 불가.</strong> 태일이 공급하는 스냅샷 데이터만 판독 가능.</li>
+  <li><strong>샘플 &lt; 10 = 룰 수정 금지.</strong> "증명됨" "검증됨" 단어 사용 금지. "관찰됨" "초기 신호" 정도까지만 허용.</li>
+  <li><strong>의견 제시 시 샘플 수 명시 + 유의성 자기 검증 선행.</strong> 충족 안 되면 의견 철회.</li>
+  <li><strong>"알려주겠다" "실시간 감시하겠다" 류 발언 금지.</strong> Claude는 수동 대기만 가능.</li>
+  <li><strong>최종 진입/청산 실행 결정은 태일 단독.</strong> Claude는 룰북 역할. 룰북은 혼자 움직일 수 없다.</li>
+</ol>
+
+<h3>⚠️ Claude 과거 편향 기록 (재발 방지용)</h3>
+
+<ul>
+  <li><strong>자기 작성물 방어 편향</strong> (2026.04.17 세션): 자기가 쓴 룰을 "잘 설계됨"으로 과대평가. → 태일이 "네가 작성한 페이지"라고 지적하여 자각.</li>
+  <li><strong>3샘플 과적합 편향</strong> (2026.04.17 세션): "조건 충족 = 생존"을 3개 샘플로 증명된 듯 활용. → ChatGPT 외부 검증으로 자각.</li>
+  <li><strong>자기 권고 과신 편향</strong> (2026.04.21 세션): Claude가 과거에도 "관망해라" "룰대로 해라"라고 권고했던 1차·2차 트레이드가 -11.5% / -17.4% 손실로 끝났음을 잊고, 현재 권고가 검증된 것처럼 제시한 편향. → 태일이 "그동안 실패했던 트레이드들도 내 의견을 모두 받아들였지만 실패했다는 것을 잊지 마라"고 지적하여 자각. <strong>핵심:</strong> Claude 판단 = 검증되지 않은 조언. "룰이 그렇다"와 "룰이 맞다"는 다름. "시스템을 믿어라" 같은 정서적 프레임 금지.</li>
+  <li><strong>한국시간 / 캔들 시간 착각 편향</strong> (2026.04.18~04.25 세션): <strong>최소 6번 반복 지적받음.</strong> 2026.04.27 ChatGPT 외부 검증으로 "라벨 = 시작 시각" 정의 충돌 발견 후 통일 확정.</li>
+  <li><strong>보수 편향도 편향 (편향 F)</strong> (2026.04.27 세션): 4차 트레이드 진입 과정에서 두 번 관찰. (1) 진입 판단: Claude가 "트리거 +8시간 늦은 추격 진입 위험" 봉쇄 권고 → 태일 반박 → 진입 권고로 전환. (2) 2단 Cancel: Claude "Cancel 권장" → 태일 "Stop 확장" 채택 → Claude 반박 없이 수용 → 태일 재자각으로 원래 권고로 회귀. <strong>핵심:</strong> 편향 C(자기 권고 과신)의 반대 방향 — "추가 안전 장치" 명목으로 태일 판단 반사적 수용. <strong>대응:</strong> Claude는 최초 권고 후 태일 반박 시 반사적 수용 금지. 위험-보상 재계산 후 일관성 유지 또는 명시적 반박.</li>
+  <li><strong>패턴 경고:</strong> 자기가 만든 것을 지키려는 동기 + 가정한 상황을 유지하려는 관성 = 판단 왜곡 원천. 외부 반박/지적 시 반사적 방어 금지, 논리만 보고 수용/반박 판단.</li>
+</ul>
+
+<h3>⭐ 4H 캔들 라벨 — 최종 확정 정의 (2026.04.27 통일 확정)</h3>
+
+<div class="callout warning">
+  <p><strong>본 정의가 우선. 이 페이지 어디든 다른 정의가 발견되면 즉시 본 정의로 통일.</strong></p>
+  <ul>
+    <li>✅ <strong>사실 1:</strong> 4H 캔들 라벨 = 캔들의 <strong>시작 시각</strong> (마감 시각 아님)</li>
+    <li>✅ <strong>사실 2 (OKX BTC 4H 캔들 라벨 → 구간):</strong>
+      <ul>
+        <li><code>01:00</code> = 01:00 → 05:00 / <code>05:00</code> = 05:00 → 09:00 / <code>09:00</code> = 09:00 → 13:00</li>
+        <li><code>13:00</code> = 13:00 → 17:00 / <code>17:00</code> = 17:00 → 21:00 / <code>21:00</code> = 21:00 → 다음날 01:00</li>
+      </ul>
+    </li>
+    <li>✅ <strong>사실 3 (마감 여부):</strong> 현재 KST ≥ (라벨 + 4시간) → 마감됨</li>
+    <li>✅ <strong>사실 4:</strong> 차트 우하단 "UTC+9 XX:YY"가 현재 진실 시각. 대화 메시지 간격에서 시간 추정 절대 금지.</li>
+    <li>✅ <strong>사실 5 (일봉):</strong> OKX BTC 일봉 = KST 09:00 시작 → 다음날 09:00 마감. "04.24 라벨 일봉" = 04.24 09:00 → 04.25 09:00.</li>
+  </ul>
+</div>
+
+<h4>차트 판독 전 의무 체크</h4>
+<ol>
+  <li>차트 우하단 시간 → "현재 KST: [년-월-일 시:분]" 완전 표기</li>
+  <li>우상단 데이터 윈도우 시각 = 캔들 <strong>시작 시각</strong> → "캔들 라벨 [X] = [X] → [X+4h] 구간" 명시</li>
+  <li>마감 여부: 현재 KST vs (라벨+4h) 비교 → "마감/진행중" 명시</li>
+</ol>
+
+<h3>📋 새 세션에서 태일이 붙여넣을 프롬프트 템플릿</h3>
+
+<pre><code>이 노션 페이지 읽어서 맥락 이해해줘: https://www.notion.so/32c0b24b1af381e4aea6f98f96177386
+🚀 SESSION BOOTSTRAP 블록을 먼저 봐.
+신 룰 v2 페이지도 같이: https://www.notion.so/34f0b24b1af3817c9e8ffe168a0fbd8a
+다 파악했으면 "준비 완료"만 답하고 내 지시를 기다려.</code></pre>
+
+</details>
+
+<hr>
+
+<h2>나는 이것만 하면 된다</h2>
+
+<ol>
+  <li>✅ <strong>4차 트레이드 종료</strong> — 2026-04-28 야간 SL 발동 ($77,375). 순손익 약 -0.32 USDT (시드 -0.16%, 거의 본전).</li>
+  <li>🔓 <strong>동결 해제 공식화</strong> (2026-04-28 09:30 KST) — 조건 충족 → v2 시스템 5차+ 적용 공식 시작.</li>
+  <li><strong>잔존 주문 일괄 정리</strong> — SL 발동 시 TP1 주문이 남아있을 수 있으니 수동 취소 여부 확인.</li>
+  <li><strong>5차 진입 주 룰북:</strong> → <a href="btc-system-v2.html">🚀 BTC 매매 시스템 v2</a></li>
+  <li><strong>5차 진입 직전 점검 잔여:</strong> ① 자동화 계산기 ✅ 구축 완료 (Excel 53공식) ② "직전 핵심 지지" 명시 의무 (5차 진입 시) ③ 사전 의무 양식 단계 1 작성 (5차 진입 시).</li>
+</ol>
+
+<hr>
+
+<h2>🧊 시스템 동결 이력 (2026.04.17 ~ 2026.04.28)</h2>
+
+<div class="callout success">
+  <p><strong>✅ 동결 종료:</strong> 2026-04-28 09:30 KST — 4차 트레이드 SL 발동 / 포지션 0 도달 / 조건 충족.</p>
+  <p><strong>이력:</strong> 2026.04.17 세션에서 9개 이상 업그레이드 누적 → "더 이상 수정 계속하면 실행 기간 자체가 사라진다" 판단으로 동결 선언.</p>
+  <p><strong>부분 해제 (2026.04.27 10:50 KST):</strong> 신 기조(공격적 운용) 룰 설계 한정 해제. v2 페이지로 분리.</p>
+  <p><strong>완전 해제 (2026.04.28 09:30 KST):</strong> 4차 종료 + v2 설계 11/11 합의 + 자동화 계산기 구축 완료 → 5차+ v2 적용 공식 시작.</p>
+</div>
+
+<h3>📜 동결 기간 성과</h3>
+<ul>
+  <li>룰을 더 만지지 않고 "결과론 차단" 원칙 유지</li>
+  <li>4차 진입 결정: 동결된 기존 룰대로 진행 (A-2 시나리오 첫 명확 충족)</li>
+  <li>4차 결과: 거의 본전 (1·2차 -29% 패턴 재현 차단 관찰됨)</li>
+  <li>5건 시스템 결함 발견 → v2 신 룰에 전원 반영</li>
+  <li>v2 설계 11건 합의 완료 + 자동화 계산기 구축 완료</li>
+</ul>
+
+<h3>🔓 해제 조건 충족 명세 (2026-04-28)</h3>
+<ol>
+  <li>✅ <strong>4차 트레이드 완전 종료 (포지션 0)</strong> — 원조건 충족</li>
+  <li>✅ <strong>태일의 명시적 "동결 해제" 선언</strong> — 조건 2번 충족</li>
+  <li>긴급 예외는 해당 없음 (정상 종료로 해제)</li>
+</ol>
+
+<h3>🔴 동결 범위 (더 이상 적용 ❌)</h3>
+
+<blockquote>
+  <p>아래 룰들은 1·4차 운용 기준으로 그대로 보존. <strong>5차+ 운용에는 v2 룰 적용.</strong></p>
+</blockquote>
+
+<ul>
+  <li>시나리오 A / A-2 / B / C 조건 및 수치 → v2에서 재도입 (항목 1)</li>
+  <li>시스템 규칙 7개 → v2에서 동적 하향/Layer/Basis-Exit Sync로 재설계</li>
+  <li>금지 사항 9개 → v2 금지 7개로 재구성 (항목 7)</li>
+  <li>실전 축약 카드 Stage 0/1/2 → v2 4-STAGE + 실전 카드 자식 페이지로 재설계 (항목 9)</li>
+  <li>TP/Stop/트레일링 수치 → v2 등급별 차등 (항목 3, 11)</li>
+  <li>판단 프로세스 역할 분담 → v2에 동일 원칙 적용</li>
+  <li>조건 검증 로그 규칙 → v2 운영/검증 로그 분리로 재설계 (항목 8)</li>
+</ul>
+
+<h3>🟢 동결 중 허용되었던 활동 (완료)</h3>
+<ul>
+  <li>일별/4H 추이 기록 → 아래 "일별 추이 기록" 세션 참조</li>
+  <li>시나리오 상태 판독 → 4차 진행 중 수행 완료</li>
+  <li>4차 진입 트리거 시 동결된 룰대로 기계적 집행 → 수행 완료</li>
+  <li>조건 검증 로그 기입 → v2 항목 8 합의로 이재</li>
+</ul>
+
+<hr>
+
+<details>
+<summary>🧊 시스템 동결 선언 원본 (2026.04.17 — 과거 기록)</summary>
+
+<blockquote>
+  <p><strong>원조 선언을 그대로 보존. 동결은 이미 해제됨 (위 이력 참조).</strong></p>
+  <p><strong>4차 트레이드가 종료(TP/Stop/선제청산)될 때까지 본 페이지 기존 룰 수정을 동결한다.</strong></p>
+  <p><strong>이유:</strong> 하루 사이에 9개 이상의 업그레이드가 누적됨. 이대로 계속 수정하면 <strong>실행 기간 자체가 사라진다.</strong></p>
+</blockquote>
+
+<h3>🚀 부분 동결 해제 발효 (2026.04.27 10:50 KST) — v2 페이지 분리로 처리 완료</h3>
+
+<blockquote>
+  <p><strong>태일 명시적 선언 채택: "옵션 B — 기조 변경 작업을 위한 부분 동결 해제".</strong></p>
+  <p><strong>해제 범위:</strong> 신 기조(공격적 운용) 룰 설계 작업. 적용 시점은 <strong>5차 트레이드부터</strong>.</p>
+  <p><strong>처리:</strong> 신 룰 작업은 별도 v2 페이지로 이관 완료. 본 페이지는 4차 운용 집중. → <a href="btc-system-v2.html">🚀 BTC 매매 시스템 v2</a></p>
+  <p><strong>유지 범위:</strong> 4차 트레이드 운영 룰은 그대로 적용 (Stop $77,375 / TP1 $80,000 / 2단 Cancel 결정 모두 기존 룰 정합).</p>
+  <p><strong>5차 진입 시도 금지</strong> — 신 룰 v2 완성 + 4차 종료 후 진입.</p>
+</blockquote>
+
+<h3>🔴 동결 범위 (수정 금지)</h3>
+<ul>
+  <li>시나리오 A / A-2 / B / C 조건 및 수치</li>
+  <li>시스템 규칙 7개 (주문관리 / Stop / 실패시그널 / 재진입 / 분할진입 / 트레일링 / 거래량고갈)</li>
+  <li>금지 사항 9개</li>
+  <li>실전 축약 카드 Stage 0/1/2</li>
+  <li>TP/Stop/트레일링 수치</li>
+  <li>판단 프로세스 역할 분담</li>
+  <li>조건 검증 로그 규칙</li>
+</ul>
+
+<h3>🟢 동결 중 허용 (데이터 활동만)</h3>
+<ul>
+  <li>일별/4H 추이 기록</li>
+  <li>시나리오 상태 판독</li>
+  <li>진입 트리거 발동 시 <strong>동결된 룰대로 기계적 집행</strong></li>
+  <li>조건 검증 로그 기입</li>
+</ul>
+
+<h3>🔓 동결 해제 조건</h3>
+<ol>
+  <li><strong>4차 트레이드 완전 종료</strong> (포지션 0 도달)</li>
+  <li>태일의 명시적 "동결 해제" 선언</li>
+  <li>태일+Claude 상호 동의 하의 긴급 예외</li>
+</ol>
+
+<blockquote>
+  <p><strong>"계속 완벽해지려 하면 영원히 실행하지 못한다. 지금 시스템으로 4차를 친다."</strong></p>
+</blockquote>
+
+</details>
+
+<hr>
+
+<h2>⚡ 실전 축약 카드 (진입 직전 60초 체크)</h2>
+
+<blockquote>
+  <p><strong>전체 시스템을 아무리 잘 설계해도 실전에서 못 지키면 무의미. 실전에서는 이 카드만 본다.</strong></p>
+</blockquote>
+
+<h3>🟡 STAGE 0 — 진입 고민할 수 있는 "상황"인가? (차트 열기 전)</h3>
+
+<pre><code>□ 시나리오 C 비활성?
+   → $73K 종가 미이탈 + 지지 실패 3회 미도달
+□ 거래량 고갈 무진입 룰 비활성?
+   → 4H 3캔들 연속 5MA 0.5x 이하 아님</code></pre>
+
+<p>→ <strong>둘 다 ✅</strong> 만 STAGE 1로. 하나라도 ❌ = <strong>즉시 관망, 차트도 닫아.</strong></p>
+
+<h3>🟢 STAGE 1 — 진입 트리거 (5분 내 결정)</h3>
+
+<pre><code>진입 시나리오:  □ A    □ A-2    □ B
+
+□ 1. 반전 캔들 확인 (양봉)
+□ 2. 거래량 4H 5MA 1.3배 이상 + 양봉
+□ 3. 다음 캔들 고점 돌파
+□ 4. Stop 위치 확정 (구조 기반 — 반전캔들 저점 or 눌림 저점)
+□ 5. RR ≥ 1.5 계산 완료 (TP1 기준)</code></pre>
+
+<p>→ <strong>5개 전부 ✅</strong> → 진입 주문. <strong>하나라도 ❌ → 진입 포기.</strong></p>
+
+<h3>🔴 STAGE 2 — 진입 직후 30초 (절대 생략 금지)</h3>
+
+<pre><code>□ TP0 지정가 세팅
+□ Stop-Market 세팅
+□ (선택) 2단 30% 지정가 주문</code></pre>
+
+<p>→ <strong>TP0 + Stop 둘 다 체결 확인 전까지는 "포지션 잡았다"고 말할 수 없음.</strong></p>
+
+<div class="callout danger">
+  <h4>🚨 한 줄만 기억</h4>
+  <p><strong>"STAGE 0 막혔으면 무조건 관망. STAGE 1 하나라도 빠졌으면 진입 포기. STAGE 2 안 했으면 포지션 잡은 게 아님."</strong></p>
+</div>
+
+<hr>
+
+<h2>🟡 시나리오 정의 (4차 트레이드 기준 — 동결)</h2>
+
+<h3>시나리오 A: $75K 돌파 후 눌림목 (권장 — 1순위)</h3>
+
+<p><strong>조건 (5개 전부 충족):</strong></p>
+<ol>
+  <li><strong>$75,000 일봉 종가 돌파 + 일봉 거래량 5MA 1.0배 이상</strong></li>
+  <li>4H 안착 (2캔들 이상 $75K 위 유지)</li>
+  <li>눌림목 $73K~$74K에서 <strong>반전 캔들</strong> 확인</li>
+  <li>거래량 <strong>4H 5MA 1.3배 이상</strong> + <strong>양봉 + 상승 동반</strong></li>
+  <li><strong>다음 캔들이 반전 캔들 고점 돌파</strong> → 진입</li>
+</ol>
+
+<div class="table-wrapper">
+<table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>진입가</td><td>$73,000~$74,000</td></tr>
+<tr><td>Stop</td><td>반전 캔들 저점 or 눌림 저점 이탈 (하한선 $71,000)</td></tr>
+<tr><td>TP0</td><td>$76,000~$76,500 (30% 선익절)</td></tr>
+<tr><td>TP1</td><td>$78,000~$78,500 (추가 30% + BE 전환)</td></tr>
+<tr><td>TP2</td><td>$75K 안착 확인 후 확장 (40% 트레일링 -7%)</td></tr>
+<tr><td>레버리지</td><td>3x Isolated</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>시나리오 A-2: $75K 돌파 후 눌림 없이 강세 유지 (보조)</h3>
+
+<p><strong>조건:</strong></p>
+<ol>
+  <li>$75K 일봉 종가 돌파 + 일봉 거래량 5MA 1.0배 이상 + 4H 안착</li>
+  <li>$75K 위에서 <strong>4개 4H 캔들 이상 지속</strong></li>
+  <li>이평선(EMA 10/20)이 올라오며 가격 지지</li>
+  <li><strong>이평선 터치 + 반전 캔들 + 거래량 1.3x</strong> → 진입</li>
+</ol>
+
+<p><strong>실행 규칙:</strong> 시드 30~50% 진입 / Stop $75K 재이탈 / TP0 진입가 +3~4%.</p>
+
+<h3>시나리오 B: $75K 거부 후 $73K~$74K 지지 확인 (2순위)</h3>
+
+<p><strong>조건 (4개 전부 충족):</strong></p>
+<ol>
+  <li>$75K에서 밀림</li>
+  <li>$73,000~$74,000 <strong>2회 지지 확인</strong></li>
+  <li>반전 캔들 + 거래량 <strong>4H 5MA 1.3배 이상</strong> + 양봉 동반</li>
+  <li><strong>다음 캔들 고점 돌파</strong> → 진입</li>
+</ol>
+
+<blockquote>
+  <p>⭐ B 진입 허용 구간 $73.0~$73.5K. $73.5K 초과 진입 금지.</p>
+</blockquote>
+
+<h3>🔴 시나리오 C: 하락 전개 — 관망 전환</h3>
+
+<p><strong>활성 조건 (둘 중 하나):</strong></p>
+<ol>
+  <li><strong>$73K 일봉 종가 이탈 + 일봉 거래량 5MA 1.0배 이상 동반</strong></li>
+  <li><strong>$73~74K 구간에서 지지 3회 연속 실패</strong></li>
+</ol>
+
+<p><strong>활성 시:</strong> 4차 롱 진입 전면 중단. 관망 모드 최소 3일. $70K 재테스트 대기.</p>
+
+<hr>
+
+<h2>🔴 시스템 규칙 (동결)</h2>
+
+<h3>1. 주문 관리</h3>
+<blockquote><p><strong>진입 즉시 TP0 + Stop 동시 세팅. 주문 없이 보유 금지.</strong></p></blockquote>
+
+<h3>2. Stop (구조 기반)</h3>
+<blockquote>
+  <p>1순위: 반전 캔들 저점 / 2순위: 눌림 저점 / 3순위: 직전 스윙 저점</p>
+  <p>고정값 Stop ❌. 너무 타이트하면 진입 포기.</p>
+</blockquote>
+
+<h3>3. 실패 시그널 (3단계)</h3>
+<p><strong>경고 (1개 충족 → 관찰만):</strong> 저항 윗꼬리 음봉 반복 / 4H 거래량 지속 감소 / 4H RSI 40 이하 접근</p>
+<p><strong>청산 (2개 이상 → 30% 선제 청산):</strong> 저항 윗꼬리 2회+ AND 진입 근거 레벨 재접근 / 4H 음봉 3개 연속 AND 거래량 감소</p>
+<p><strong>하드 청산 (전량):</strong> 진입 근거 레벨 종가 이탈 / Stop 발동</p>
+
+<h3>4. 재진입</h3>
+<p>청산 이유 해소 + 새 반전 캔들 + 거래량 + 사이즈 동일/축소. 청산 후 24h 이내 / 새 트리거 없는 FOMO 진입 금지.</p>
+
+<h3>5. 분할 진입 (70/30)</h3>
+<p>1단 70% 트리거 진입 / 2단 30% 지정가 눌림목. 2단 미체결 시 24~48h 후 취소.</p>
+
+<h3>6. 트레일링 스탑</h3>
+<p>4H 종가 기준 최고점 대비 <strong>-7%</strong>. TP2 물량(40%)에만 적용.</p>
+
+<h3>7. 거래량 고갈 무진입 룰</h3>
+<p><strong>발동:</strong> 4H 거래량 3캔들 연속 5MA 0.5배 이하 + 변동폭 2% 이내 횡보.</p>
+<p><strong>발동 시:</strong> 모든 시나리오 진입 트리거 무시.</p>
+<p><strong>해제:</strong> 거래량 5MA 1.3배 이상 캔들 1개 + 방향성 확정.</p>
+
+<hr>
+
+<h2>🚫 금지 사항</h2>
+
+<ol>
+  <li><strong>$74K+ 추격 진입 금지</strong></li>
+  <li><strong>$75K 돌파 전 풀 사이즈 진입 금지</strong></li>
+  <li><strong>TP0 주문 없이 보유 금지</strong></li>
+  <li><strong>손실 만회 목적 사이즈 확대 금지</strong></li>
+  <li><strong>결과론으로 시스템 의심 금지</strong></li>
+  <li><strong>고정값 Stop 금지</strong></li>
+  <li><strong>거래량 없는 돌파 진입 금지</strong></li>
+  <li><strong>거래량 고갈 상태 진입 금지</strong></li>
+  <li><strong>하락 전개 중 숏 진입 금지</strong></li>
+</ol>
+
+<hr>
+
+<h2>⚙️ 판단 프로세스 — 역할 분담</h2>
+
+<div class="table-wrapper">
+<table>
+<thead><tr><th>역할</th><th>담당</th></tr></thead>
+<tbody>
+<tr><td>실시간 차트 관찰</td><td><strong>태일</strong></td></tr>
+<tr><td>데이터 공급 (4H/일봉 수치, 차트 스크린샷)</td><td><strong>태일</strong></td></tr>
+<tr><td>룰 기준 시나리오 상태 판독</td><td>Claude</td></tr>
+<tr><td>트리거 조건 충족 여부 체크</td><td>Claude</td></tr>
+<tr><td><strong>최종 진입/청산 실행 결정</strong></td><td><strong>태일 단독</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<blockquote>
+  <p><strong>원칙: Claude는 룰북. 태일은 집행자. 룰북이 혼자 움직일 수 없다.</strong></p>
+</blockquote>
+
+<hr>
+
+<h2>📊 4차 트레이드 진입 기록 (2026.04.27 09:31:16 KST)</h2>
+
+<div class="table-wrapper">
+<table>
+<thead><tr><th>항목</th><th>값</th></tr></thead>
+<tbody>
+<tr><td>진입 시나리오</td><td><strong>A-2</strong> ($75K 돌파 후 눌림 없이 강세 유지)</td></tr>
+<tr><td>반전 캔들</td><td>04-26 13:00 4H 양봉 (20일선 $77,748 터치) + 04-26 21:00 거래량 폭발 양봉</td></tr>
+<tr><td>거래량 배수</td><td>4H 5MA <strong>1.95x</strong> (04-26 21:00 캔들). 04-27 05:00 재확인 1.38x</td></tr>
+<tr><td>RSI / RSI-MA</td><td>04-26 21:00: 59.03 / 54.85 → 04-27 05:00: 64.23 / 55.30 (강세 크로스 유지)</td></tr>
+<tr><td>진입가</td><td><strong>$78,400</strong></td></tr>
+<tr><td>Stop</td><td><strong>$77,375</strong> (04-26 13:00 4H 저점 = 반전 캔들 저점 = 룰 1순위 구조 기반)</td></tr>
+<tr><td>TP0</td><td><strong>$79,450</strong> → ✅ <strong>체결 완료</strong> (7.84 USDT 청산, +0.09 USDT, +3.65%)</td></tr>
+<tr><td>TP1</td><td><strong>$80,000 / 16 USDT</strong> Limit Close long (10:29 KST 등록)</td></tr>
+<tr><td>SL 최종</td><td><strong>$77,375 / 31.38 USDT</strong> (잔여 BTC 정확 cover, 2단 Cancel 후 227.52 → 31.38 축소)</td></tr>
+<tr><td>RR (TP1 기준)</td><td>($80,000 - $78,400) / ($78,400 - $77,375) = <strong>1.56</strong> ✅</td></tr>
+<tr><td>마진 / 노출 (1단 체결)</td><td>13.06 USDT 마진 / 39.29 USDT 노출 → TP0 체결 후 잔여 약 31.45 USDT 노출</td></tr>
+<tr><td>Liquidation</td><td>$52,503 (Stop $77,375 한참 아래 안전 마진)</td></tr>
+<tr><td>2단 30% 지정가</td><td><strong>취소 결정 (10:35 KST)</strong> — A-2 룰 정신 위반 + 위험-보상 비대칭 + 사이즈 보정 목적 + 태일 재자각</td></tr>
+<tr><td>STAGE 2 체크</td><td>✅ 진입 / ✅ Stop-Market / ✅ TP0 지정가 → 룰 정합 100%</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>🟡 4차 진입 과정 발견 시스템 결함 (5건 — 5차 진입 전 의무 항목으로 격상)</h3>
+
+<ol>
+  <li><strong>사이즈 정의 모호</strong> — Claude의 "X% 진입" 권고 시 마진/노출/풀 사이즈 중 어느 기준인지 사전 명확화 안 함.</li>
+  <li><strong>OKX Amount 필드 = 노출 USDT (마진 아님)</strong> — 3x 환경: 마진 의도 X → Amount 입력 X×3.</li>
+  <li><strong>OKX Lot Size 0.001 BTC 자동 반올림</strong> — 입력값이 정확히 체결되지 않을 수 있음.</li>
+  <li><strong>TP0 체결 후 SL 사이즈 자동 조정 안 됨</strong> — 수동 확장/축소 필요.</li>
+  <li><strong>TP1 자동 세팅 안 됨 + BE 전환 수동</strong> — TP1 도달 시 SL → 진입가 변경 작업 수동.</li>
+</ol>
+
+<h3>⚠️ 5차 진입 시 사전 의무 11개 항목</h3>
+
+<pre><code> 1. 시드 잔액 확인 (Equity / Available)
+ 2. 사이즈 정의 삼중 명시 (마진 / 노출 / BTC 수량)
+ 3. OKX "Amount" = 노출 USDT 명시
+ 4. Lot Size 0.001 BTC 반올림 고려
+ 5. 3x Isolated 모드 확인
+ 6. STAGE 2 (Stop + TP0)의 노출 USDT 값 사전 계산
+ 7. TP0 체결 후 SL 사이즈 수동 확장/축소 검토 절차
+ 8. TP1 주문 수동 등록
+ 9. OKX 알림 설정 점검 (TP1 / 2단 체결 / SL / TP0 체결 알림 필수)
+10. 2단 추가 진입은 룰 정신에 따라만 (사이즈 보정 평단가 회복용 ❌)
+11. Claude의 보수성 양보 경계 (편향 F)</code></pre>
+
+<h3>🎯 04.27 의사결정 트리 (4차 진행 중)</h3>
+
+<div class="table-wrapper">
+<table>
+<thead><tr><th>가격 경로</th><th>행동</th><th>후속</th></tr></thead>
+<tbody>
+<tr><td><strong>$80,000 도달 (TP1 트리거)</strong></td><td>✅ 16 USDT 자동 익절</td><td><strong>수동 BE 전환:</strong> SL $77,375 → $78,400. 잔여 약 15 USDT 트레일링 -7%</td></tr>
+<tr><td><strong>$77,375 도달 (SL 트리거)</strong></td><td>🔴 잔여 31.38 USDT 자동 청산</td><td><strong>4차 종료.</strong> 손실 시드 -0.16%. 동결 해제 가능.</td></tr>
+<tr><td>$78,000~$80,000 박스권 횡보</td><td>⚠️ 4H 거래량 / RSI 관찰</td><td>실패 시그널 2개 이상 충족 시 30% 선제 청산 검토</td></tr>
+<tr><td>$76~77K 깊은 눌림</td><td>⚠️ 재진입 유혹 경계</td><td>A-2 추가 진입 구간 아님 → 추가 진입 금지. 단순 관찰만.</td></tr>
+<tr><td>$75K 일봉 종가 이탈</td><td>🔴 진입 근거 레벨 이탈</td><td><strong>하드 청산:</strong> 전량 수동 청산. SL 먼저 발동 가능성 높으나 수동 대응 우선.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>📌 현재 상태 요약 (2026.04.27 11:50 KST 기준)</h3>
+
+<ul>
+  <li><strong>진입 시점:</strong> 04.27 09:31:16 KST / 진입가 $78,400 / 시나리오 A-2</li>
+  <li><strong>TP0 체결:</strong> $79,450 / +0.09 USDT (+3.65%) → 1R+ 명확 확보. <strong>최악의 경우도 BE 이상 종료 거의 확정</strong>.</li>
+  <li><strong>현재 운영:</strong> 잔여 0.0004 BTC / 약 31~32 USDT 노출 / 시드 사용률 약 5%</li>
+  <li><strong>주문:</strong> TP1 $80,000 / 16 USDT + SL $77,375 / 31.38 USDT</li>
+  <li><strong>2단 예약:</strong> Cancel 완료 (10:35 KST)</li>
+  <li><strong>편향 관찰:</strong> 편향 C(자기 권고 과신) + F(보수 편향도 편향) 둘 다 작동 → 태일 자각으로 교정. <strong>자기 교정 메커니즘 작동 입증 사례.</strong></li>
+  <li><strong>체크포인트:</strong>
+    <ul>
+      <li>TP1 $80,000 도달 알림 → BE 전환 수동 (SL $77,375 → $78,400)</li>
+      <li>4H 고점 갱신 → 트레일링 -7% 레벨 재계산</li>
+      <li>4H 3캔들 연속 거래량 감소 + RSI 40 접근 → 실패 시그널 경계</li>
+    </ul>
+  </li>
+</ul>
+
+<hr>
+
+<h2>📜 복기 — 전체 트레이드 히스토리</h2>
+
+<div class="table-wrapper">
+<table>
+<thead><tr><th>트레이드</th><th>진입</th><th>결과</th><th>교훈</th></tr></thead>
+<tbody>
+<tr><td>1차</td><td>$70,211</td><td><span class="text-danger"><strong>-11.5%</strong></span></td><td>2회 지지 필수</td></tr>
+<tr><td>2차</td><td>$71,030</td><td><span class="text-danger"><strong>-17.4%</strong></span></td><td>파동 필터 먼저</td></tr>
+<tr><td>3차</td><td>$71,539.8</td><td><span class="text-success"><strong>+0.61 USDT (본전)</strong></span></td><td>TP0 필수 / Stop 구조 기반 / 실패 시그널 3단계 분리</td></tr>
+<tr><td><strong>4차</strong></td><td><strong>$78,400</strong> (2026.04.27)</td><td><span class="text-warning"><strong>SL 발동 종료 → 순손실 약 -0.32 USDT (시드 -0.16% / 거의 본전)</strong></span></td><td>A-2 첫 명확 충족 사례 / 5건 시스템 결함 발견 (v2 반영) / 편향 F 자각 / 1·2차 패턴 차단 관찰됨</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>4차 트레이드 종료 결산 (2026.04.27~28 OKX 실거래)</h3>
+
+<div class="table-wrapper">
+<table>
+<thead><tr><th>시간</th><th>액션</th><th>가격</th><th>BTC</th><th>PnL</th></tr></thead>
+<tbody>
+<tr><td>04/27 09:31</td><td>진입</td><td>$78,400</td><td>0.0005 BTC</td><td>—</td></tr>
+<tr><td>04/27 09:31~32</td><td>✅ TP0 체결</td><td>$79,450</td><td>0.0001 BTC</td><td><strong>+0.09 USDT (+3.65%)</strong></td></tr>
+<tr><td>04/27 10:35</td><td>2단 196 USDT Cancel</td><td>—</td><td>—</td><td>— (시드 보호)</td></tr>
+<tr><td>04/28 야간</td><td>🔴 SL 발동</td><td>$77,375</td><td>0.0004 BTC</td><td><strong>약 -0.41 USDT</strong></td></tr>
+<tr><td><strong>합계</strong></td><td>—</td><td>—</td><td>—</td><td><strong>약 -0.32 USDT (시드 -0.16%)</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<blockquote>
+  <p>4차 SL 발동 캔들: 04-28 01:00 4H 캔들 (저점 $76,450 = SL $77,375 명확 이탈). 이후 04-28 05:00 4H 캔들 부분 회복 (종 $77,119, +0.46%) 되었으나 SL 이미 발동 = 4차 종료.</p>
+  <p>1·2차 패턴 차단 관찰됨 (누적 -29% → 4차 거의 본전). v2 시스템 시뮬도 동일 결과 (Layer 1 이탈 + Layer 2 3 중 2 충족).</p>
+</blockquote>
+
+<h3>3차 트레이드 결산 (OKX 실거래)</h3>
+
+<div class="table-wrapper">
+<table>
+<thead><tr><th>시간</th><th>액션</th><th>가격</th><th>금액</th><th>PnL</th></tr></thead>
+<tbody>
+<tr><td>04/08 10:22</td><td>진입</td><td>$71,539.8</td><td>286.20 USDT</td><td>—</td></tr>
+<tr><td>04/10 09:14</td><td>✅ TP0 익절</td><td>$73,000</td><td>87.60 USDT</td><td><strong>+1.75 (+6.12%)</strong></td></tr>
+<tr><td>04/13 09:54</td><td>⚠️ 선제 청산</td><td>$71,150</td><td>85.38 USDT</td><td>-0.47 (-1.63%)</td></tr>
+<tr><td>04/13 10:06</td><td>⚠️ 전량 청산</td><td>$71,070</td><td>106.61 USDT</td><td>-0.62 (-1.72%)</td></tr>
+<tr><td>04/13 22:05</td><td>⚠️ 잔여분</td><td>$71,128</td><td>7.11 USDT</td><td>-0.05 (-1.73%)</td></tr>
+<tr><td><strong>합계</strong></td><td>—</td><td>—</td><td>—</td><td><strong>+0.61 USDT ≈ 본전</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<blockquote>
+  <p>04.13 청산 후 같은 날 $74,904 반등 (TP1 $74,500 돌파). 결과론적 아쉬움. <strong>단, 청산 시점 판단은 정확했음.</strong></p>
+  <p>실패 시그널 False Positive 가능성 1건 — 4차+ 데이터 누적 검증.</p>
+</blockquote>
+
+<hr>
+
+<h2>🔬 조건 검증 로그 — 데이터 축적 규칙</h2>
+
+<blockquote>
+  <p><strong>샘플 &lt; 10 = 룰 수정 금지.</strong> 단일 손실로 룰 수정 ❌. 결과론 반응 차단.</p>
+</blockquote>
+
+<h3>룰 수정 금지 임계치</h3>
+
+<div class="table-wrapper">
+<table>
+<thead><tr><th>샘플 수</th><th>허용 액션</th><th>금지 사항</th></tr></thead>
+<tbody>
+<tr><td><strong>&lt; 10</strong></td><td>룰대로 실행 + 데이터 기록만</td><td>어떤 룰 수정도 금지</td></tr>
+<tr><td><strong>10~20</strong></td><td>조건별 승률 분석 허용</td><td>수정은 검토만</td></tr>
+<tr><td><strong>&gt; 20</strong></td><td>근거 있는 룰 수정 가능</td><td>특정 조건 False Positive 40%+ 시 재설계</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>4차 종료 후 기록 의무 항목</h3>
+<ul>
+  <li>진입 시 각 조건 수치 (거래량 배수, RSI, 지지 회수 등)</li>
+  <li>최종 청산 방식 (TP0 / TP1 / TP2 / Stop / 실패시그널 선제)</li>
+  <li>진입 후 최대 수익률 / 최대 손실률 / 실제 실현 손익률</li>
+  <li><strong>청산 후 24/48h 반대 움직임</strong> (False Positive 검증)</li>
+  <li>2단 체결 여부</li>
+</ul>
+
+<hr>
+
+<h2>핵심 원칙</h2>
+
+<blockquote>
+  <p><strong>"지지는 '지켜지는 것'이 아니라 '지켜진 것이 확인된 후' 진입한다"</strong></p>
+  <p><strong>"Stop은 구조가 결정한다. 너무 타이트하면 진입을 포기하지, 억지로 넓히지 마라"</strong></p>
+  <p><strong>"TP0 선익절은 보험이다. 보험 없이 보유하지 마라"</strong></p>
+  <p><strong>"TP 우선순위: TP0 확보 → TP1 + BE 전환 → 그다음 TP2 확장. TP2는 기본값이 아니라 보너스다"</strong></p>
+  <p><strong>"결과론으로 시스템을 바꾸지 마라. 과정이 맞으면 결과는 따라온다"</strong></p>
+  <p><strong>"양방향 힘이 없을 때 먼저 움직이는 쪽이 손해다"</strong></p>
+  <p><strong>"롱 바이어스를 플랜에 내장하지 마라. 하락 전개도 시나리오의 일부다"</strong></p>
+</blockquote>
+
+<hr>
+
+<details>
+<summary>⏳ 동결 중 보류 아이디어 (해제 후 일괄 검토)</summary>
+
+<blockquote>
+  <p>동결 기간 중 떠오르는 개선 아이디어는 여기에 로그만 쌓는다. <strong>반영 안 함.</strong> 4차 종료 후 일괄 검토.</p>
+  <p>신 룰 v2 설계 관련 아이디어는 <a href="btc-system-v2.html">v2 페이지</a>의 미결정 항목 섹션 참조.</p>
+</blockquote>
+
+<div class="table-wrapper">
+<table>
+<thead><tr><th>날짜</th><th>제안자</th><th>내용</th><th>우선순위</th></tr></thead>
+<tbody>
+<tr><td>2026.04.25</td><td>Gemini</td><td><strong>EMA 보조 진입 룰</strong> — 관찰 구간 미도달 시에도 EMA 20선 터치 + 거래량 동반 반전 캔들 발생 시 "브레이크아웃 사이즈(10%)"로 진입 허용.</td><td>중</td></tr>
+<tr><td>2026.04.25</td><td>Gemini</td><td><strong>전고점 돌파 후 관찰 구간 리밸런싱</strong> — 새 가격대 안착 3일 이상 시 전고점을 새 관찰 구간 상단으로 자동 업데이트.</td><td>중</td></tr>
+<tr><td>2026.04.25</td><td>ChatGPT/Gemini</td><td><strong>Time Correction 인식 강화</strong> — 강한 종목은 깊은 눌림 대신 기간 조정으로 EMA와 만남. 해석 프레임 조정.</td><td>높음 (룰 변경 아닌 해석 조정)</td></tr>
+<tr><td>2026.04.25</td><td>태일 자각</td><td><strong>동결이 자기실현적 정체 유발 리스크</strong> — "룰 못 바꾸니 진입 못함, 진입 못하니 동결 안 풀림". 해제 기준 재설계 검토 필요.</td><td>높음</td></tr>
+<tr><td>2026.04.27</td><td>Claude/태일 관찰</td><td><strong>A-2 조건 4개 충족 첫 명확 사례 (BTC 4차)</strong> — 진입 미실행 사유: 트리거 +8시간 늦은 추격 위험. 향후 룰 보강 후보: (1) A-2 진입 시점 명시화 — "터치 캔들 ± 1캔들 이내만 진입" (2) 트리거 충족 후 N캔들 지나면 시나리오 B 전환 가능 여부 (3) 거래량 이중 조건 (5MA 1.3x + 20MA 1.0x).</td><td>높음</td></tr>
+<tr><td>2026.04.27</td><td>ChatGPT 외부 검증</td><td><strong>4H 캔들 라벨 규칙 충돌 발견</strong> — 페이지 내 "라벨 = 시작/마감 시각" 두 정의 동시 존재. 처리: "시작 시각 기준" 통일 확정.</td><td>처리 완료</td></tr>
+<tr><td>2026.04.27</td><td>ChatGPT</td><td><strong>매뉴얼 길이 단순화</strong> — SESSION BOOTSTRAP과 편향 기록이 너무 앞에 길어 새 세션 혼동 위험. <strong>2026.04.27 분리 정리 작업으로 일부 해소.</strong></td><td>중</td></tr>
+<tr><td>2026.04.27</td><td>ChatGPT</td><td><strong>A-2 실행 난도 높음</strong> — 6개 조건 모두 충족 = 강한 장에서 놓칠 수 있음. 4차 종료 후 룰 재설계 검토.</td><td>중</td></tr>
+<tr><td>2026.04.27</td><td>4차 관찰</td><td><strong>사이즈 정의 명확화 (마진 / 노출 / BTC 수량)</strong> — "X% 진입" = 시드 X%를 마진으로 + 3x. BTC 수량이 본질 단위.</td><td>높음 (5차 진입 전 필수)</td></tr>
+<tr><td>2026.04.27</td><td>4차 관찰</td><td><strong>OKX 인터페이스 절차 룰화 (5건)</strong> — 5차 진입 전 체크리스트로 등록 필요.</td><td>높음 (5차 진입 전 필수)</td></tr>
+<tr><td>2026.04.27</td><td>편향 F 자각</td><td><strong>보수성 양보 경계 룰화</strong> — "Claude가 권고 후 태일 반박 시 바로 수용하지 말고 위험-보상 재계산".</td><td>높음</td></tr>
+</tbody>
+</table>
+</div>
+
+</details>
+
+<hr>
+
+<h2>📅 일별 추이 기록 (04.14~)</h2>
+
+<div class="table-wrapper">
+<table>
+<thead><tr><th>날짜</th><th>종가</th><th>변화</th><th>저가</th><th>거래량</th><th>5MA 배수</th><th>RSI</th><th>비고</th></tr></thead>
+<tbody>
+<tr><td><strong>04.14</strong></td><td>$74,604</td><td>+2.68%</td><td>$72,397</td><td>8.04K</td><td><strong>1.31x ✅</strong></td><td>66.27</td><td>$75K 거부 1회차. 종가 미안착.</td></tr>
+<tr><td><strong>04.15</strong></td><td>$74,469</td><td>-0.18%</td><td><strong>$73,501</strong></td><td>5.93K</td><td>0.96x</td><td>65.58</td><td>$75K 거부 2회차. 관찰 구간 상단 터치.</td></tr>
+<tr><td><strong>04.16</strong></td><td>$74,699</td><td>+0.30%</td><td><strong>$73,302</strong></td><td>5.68K</td><td>0.85x</td><td>66.24</td><td>$75K 거부 3회차. 거래량 감소.</td></tr>
+<tr><td><strong>04.17</strong></td><td><strong>$76,289</strong></td><td><strong>+2.13%</strong></td><td>$74,343</td><td><strong>12.59K</strong></td><td><strong>1.99x ✅</strong></td><td>70.36</td><td>🚨 $75K 일봉 종가 돌파 + 거래량 1.99x. A-2 조건 1번 충족.</td></tr>
+<tr><td><strong>04.18</strong></td><td>$76,407.5</td><td>+0.17%</td><td>$75,309</td><td>3.7K</td><td><strong>0.59x ❌</strong></td><td>70.65</td><td>$75K 위 유지 2일차. 거래량 약화.</td></tr>
+<tr><td><strong>04.19</strong></td><td>$74,875.6</td><td><strong>-2.00%</strong></td><td><strong>$73,759.5</strong></td><td>4.47K</td><td><strong>0.72x ❌</strong></td><td>62.24</td><td>🔴 $75K 일봉 종가 이탈. A-2 무효화.</td></tr>
+<tr><td><strong>04.20</strong></td><td>$74,984.1</td><td>+0.14%</td><td>$73,717.9</td><td>5.74K</td><td>0.95x</td><td>62.59</td><td>🟢 시나리오 C 활성 불발. $73K 이탈 실패.</td></tr>
+<tr><td><strong>04.21</strong></td><td>$75,987.5</td><td>+1.34%</td><td>$74,825.6</td><td>4.71K</td><td><strong>0.79x ❌</strong></td><td>65.66</td><td>⚠️ $75K 재돌파 — 거래량 미달로 진성 돌파 아님.</td></tr>
+<tr><td><strong>04.22</strong></td><td><strong>$77,528.9</strong></td><td><strong>+2.03%</strong></td><td>$75,581.5</td><td>7.3K</td><td><strong>1.22x ⚠️</strong></td><td><strong>69.78</strong></td><td>🚨 진성 돌파 재확인. 신고점 $79,462.</td></tr>
+<tr><td><strong>04.23</strong></td><td>$78,013.4</td><td>+0.62%</td><td>$76,555.2</td><td>8.15K</td><td><strong>1.31x ✅</strong></td><td>70.96</td><td>일봉 거래량 1.31x. RSI 70.96 과매수.</td></tr>
+<tr><td><strong>04.25</strong></td><td>(미공유)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>4H 05:00: 종가 $77,516, 음봉 -0.33%, 거래량 1.12x, RSI 52.62</td></tr>
+<tr><td><strong>04.26</strong></td><td>(미공유)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><strong>A-2 조건 4개 명확 충족 첫 사례.</strong> 04-26 13:00 4H 20일선 $77,748 터치 양봉 + 04-26 21:00 거래량 1.95x 폭발.</td></tr>
+<tr><td><strong>04.27</strong> (진행 중)</td><td><strong>$78,400 진입가</strong></td><td>(진행 중)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>🟢 <strong>4차 트레이드 진입.</strong> 09:31:16 KST. TP0 $79,450 체결 (+0.09 USDT). SL $77,375 / TP1 $80,000 등록. 2단 Cancel.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>4H 확인 로그 (4차 진입 직전 핵심 캔들)</h3>
+
+<div class="table-wrapper">
+<table>
+<thead><tr><th>4H 캔들</th><th>종가</th><th>RSI</th><th>거래량</th><th>비고</th></tr></thead>
+<tbody>
+<tr><td>04.17 17:00</td><td><strong>$76,737</strong></td><td>74.90 (MA 65.08)</td><td><strong>3.21x ✅✅</strong></td><td>🚨 구조 돌파. $75K 저항 7회만에 돌파.</td></tr>
+<tr><td>04.17 21:00</td><td>$77,630</td><td>78.75</td><td>1.77x</td><td>신고점 $78,344. RSI 극과매수.</td></tr>
+<tr><td>04.18 05:00</td><td>$77,246</td><td>73.53</td><td>0.33x ❌</td><td>A-2 조건 2번 4캔들 완성. 거래량 고갈 시작.</td></tr>
+<tr><td>04.18 13:00</td><td>$77,034</td><td>70.66</td><td>0.46x ❌</td><td>🔴 거래량 고갈 무진입 룰 발동 확정.</td></tr>
+<tr><td>04.20 05:00</td><td>$74,019</td><td>40.65 (MA 59.10)</td><td>1.08x ⚠️</td><td>🔴 $75K 완전 이탈. RSI 4H 과매도 접근.</td></tr>
+<tr><td>04.21 05:00</td><td>$76,075</td><td>58.44 (MA 50.85)</td><td>0.53x ❌</td><td>🟢 강세 크로스 전환. 단 거래량 미달.</td></tr>
+<tr><td>04.25 05:00</td><td>$77,516</td><td>52.62 (MA 60.75)</td><td>1.12x ⚠️</td><td>변곡점 임박. 약세 가속.</td></tr>
+<tr><td><strong>04-26 13:00</strong></td><td>(20일선 $77,748 터치)</td><td>—</td><td>—</td><td>🟢 A-2 조건 3·4 시작점. 반전 양봉.</td></tr>
+<tr><td><strong>04-26 21:00</strong></td><td>(1.95x 폭발 양봉)</td><td>59.03 (MA 54.85)</td><td><strong>1.95x ✅</strong></td><td>🚨 트리거 발동. KST 04-27 01:00 마감.</td></tr>
+<tr><td>04-27 05:00</td><td>(거래량 1.38x)</td><td>64.23 (MA 55.30)</td><td>1.38x ✅</td><td>강세 크로스 유지.</td></tr>
+<tr><td><strong>04-27 09:31</strong></td><td><strong>$78,400</strong></td><td>—</td><td>—</td><td>🟢 <strong>4차 진입 실행.</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<hr>
+
+<h2>🔗 연결 페이지</h2>
+
+<ul>
+  <li><strong>5차+ 신 룰북:</strong> <a href="btc-system-v2.html">🚀 BTC 매매 시스템 v2 (공격적 기조)</a></li>
+  <li><strong>5차+ 실전 카드:</strong> <a href="btc-v2-card.html">🎯 BTC v2 실전 카드 (매뉴얼)</a></li>
+  <li><strong>5차+ 복기 DB:</strong> <a href="btc-trade-db.html">📚 BTC 트레이드 복기 데이터베이스</a></li>
+</ul>
+
+<div class="meta">
+  작성: 2026.03.23 | 최종 업데이트: 2026.04.28 09:30 KST (4차 종료 + 동결 해제 공식화 + 5차+ v2 적용 공식 시작)<br>
+  1차: $70,211 → -11.5% | 2차: $71,030 → -17.4% | 3차: $71,539.8 → +0.61 USDT (본전) | 4차: $78,400 → SL 발동 종료 / 약 -0.32 USDT (시드 -0.16%, 거의 본전)<br>
+  마이그레이션: 노션 → HTML (2026-04-29 KST)<br>
+  ⚠️ 본 플랜은 분석적 관점의 정리이며, 투자 조언이 아닙니다.<br>
+  ✅ 동결 해제 완료 (2026-04-28 09:30 KST). 5차+ 운용은 v2 페이지 참조.
+</div>
+
+</div>
+
+</body>
+</html>

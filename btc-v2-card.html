@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎯 BTC v2 실전 카드 (매뉴얼)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-home">🏠 BTC 시스템</a>
+    <a href="btc-system-v1.html">📈 보수 룰</a>
+    <a href="btc-system-v2.html">🚀 v2 룰북</a>
+    <a href="btc-v2-card.html">🎯 v2 실전 카드</a>
+    <a href="btc-trade-db.html">📚 5차+ 복기 DB</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<h1>🎯 BTC v2 실전 카드 (매뉴얼)</h1>
+
+<p class="meta" style="margin-top:0;border-top:none;padding-top:0;">
+  5차+ 트레이드 적용 | 본문 룰북: <a href="btc-system-v2.html">🚀 BTC 매매 시스템 v2</a>
+</p>
+
+<div class="callout success">
+  <p><strong>🔓 동결 해제 공식화 (2026.04.28 09:30 KST):</strong></p>
+  <p>4차 SL 발동 완료 (포지션 0) → v2 시스템 5차+ 적용 공식 시작.<br>
+  4차 결과: 거의 본전 (시드 -0.16%) / 1·2차 패턴 (-29% 합산) 차단 ✅ 관찰됨.<br>
+  자동화 계산기 (Excel) 구축 완료 → STAGE 2·3 입력·대조에 활용.</p>
+</div>
+
+<div class="callout warning">
+  <p><strong>🚨 운영 로그 정리 (2026.04.27 23:30):</strong></p>
+  <p>ChatGPT 메타 평가 반영 — A-2 Layer 1 기준 "MIN"으로 통일 (항목 1 합의 우선) + TP0 수량 체크에 소액 시드 예외 명시.</p>
+</div>
+
+<hr>
+
+<h2>🧭 카드 운용 철학</h2>
+
+<blockquote>
+  <p><strong>"이 카드는 비행기 조종사의 이륙 전 체크리스트다."</strong> (Gemini)</p>
+  <p><strong>"중요한 건 속도가 아니라 누락 방지다."</strong> (ChatGPT)</p>
+  <p><strong>"Don't make me think — STAGE 0에서 ❌ 하나면 즉시 차트 닫는다."</strong></p>
+</blockquote>
+
+<h3>⏱ 목표 시간 (ChatGPT 현실화)</h3>
+
+<ul>
+  <li><strong>진입 판단 목표: 90~120초</strong></li>
+  <li><strong>자동화 계산기 사용 시: 60~90초 가능</strong></li>
+  <li>60초 압박 ❌ — 누락 방지가 본질</li>
+</ul>
+
+<h3>📦 카드 구조 (3개 분리)</h3>
+
+<pre><code>진입 카드 (STAGE 0~3)
+  → 진입 직전, '전투' 상황. 들어갈지 말지 결정.
+
+운영 카드 (3-Layer + 경계 + OKX 수동 체크)
+  → 포지션 보유 중, '관리' 상황. TP/Stop/Layer 대응.
+
+기록 카드 (~30 항목)
+  → 종료 후, '복기' 상황. 통계 누적.</code></pre>
+
+<hr>
+
+<h2>🟢 진입 카드 — STAGE 0~3</h2>
+
+<blockquote>
+  <p>자동화 계산기 (스프레드시트) 준비 후 사용. 카드에는 결과값만 입력.</p>
+</blockquote>
+
+<h3>⛔ STAGE 0 — 시장 차단 (10초)</h3>
+
+<div class="callout danger">
+  <p><strong>5묶음 중 하나라도 ❌ → 즉시 차트 닫고 관망.</strong></p>
+</div>
+
+<pre><code>□ 1. 신호 부족
+   - 거래량 4H 5MA 1.3x 미만
+   - RR &lt; 1.5
+   - Stop 위치 구조 불명확
+
+□ 2. 시장 환경 부적합
+   - 시나리오 C 활성 (직전 핵심 지지 일봉 종가 이탈)
+   - 거래량 고갈 무진입 룰 활성
+   - 20일선 이격 +7% 이상
+
+□ 3. 진입 근거 불완전
+   - 일봉 종가 진입 근거 레벨 위 안착 미확인
+   - A-2 진입 타이밍 룰 위반 (시간 +2캔들 / 가격 +1.5% / RR 2.0)
+
+□ 4. 주문 준비 불가
+   - 사이즈 정의 (마진 / 노출 / BTC 수량) 사전 확정 불가
+   - TP0 + Stop 즉시 세팅 불가
+
+□ 5. 리스크 초과
+   - 예상 시드 손실 -10% 초과
+   - B급인데 TP1 RR &lt; 2.0</code></pre>
+
+<blockquote>
+  <p>→ <strong>5묶음 모두 ✅ → STAGE 1</strong><br>
+  → 본문 11개 상세는 <a href="btc-system-v2.html">룰북</a> 참조</p>
+</blockquote>
+
+<h3>🟢 STAGE 1 — 진입 분류 (15~30초)</h3>
+
+<pre><code>[1] 시나리오 확정
+   □ A (돌파 후 눌림목)
+   □ A-2 (강세 추종)
+   □ B (지지 반등)
+
+[2] 매트릭스 4요소 점수 (1~3점)
+   □ 거래량 _점
+   □ RSI _점
+   □ 캔들 강도 _점
+   □ 구조 정합성 _점
+   합계: ___점
+
+[3] 등급 결정
+   □ 5점 이하: 진입 금지
+   □ 6~7점: B급 (마진 30~40%, Stop -7% 이내)
+   □ 8~10점: A급 (마진 45~55%, Stop -5% 이내)
+   □ 11~12점: S급 (마진 60~70%, Stop -3% 이내) [80% 봉쇄]
+
+[4] A-2 한정 추가 체크
+   □ 트리거 캔들 마감 후 +2캔들(8h) 이내?
+   □ 진입가 트리거 종가 대비 +1.5% 이내?
+   □ TP1 RR ≥ 2.0 유지?
+
+[5] 동적 하향 체크
+   □ Stop 거리가 등급 한도 초과? → 한 단계 하향
+   □ 강등 트리거 (다이버전스 / 윗꼬리 30%+ / 20일선 +5%~+7%)? → 한 단계 하향</code></pre>
+
+<blockquote>
+  <p>→ <strong>모든 체크 통과 → STAGE 2</strong></p>
+</blockquote>
+
+<h3>🔵 STAGE 2 — 사이즈/Stop 계산 (20~30초)</h3>
+
+<blockquote>
+  <p>자동화 계산기 사용 권장. 입력만 하고 결과 확인.</p>
+</blockquote>
+
+<pre><code>[입력]
+시드 S = ___ USDT
+등급 사이즈 % M = ___%
+진입가 P = $___
+Stop 가격 SL = $___
+레버리지 = 3x (고정)
+Lot Size = 0.001 BTC (주문 전 OKX 재확인)
+
+[사이즈 계산 7단계]
+1. 마진 의도 = S × M = ___ USDT
+2. 노출 의도 = 마진 × 3 = ___ USDT
+3. BTC 수량 (이론) = 노출 / P = 0.____ BTC
+4. BTC 수량 (실제, Lot 내림) = 0.____ BTC ⭐
+5. 실제 노출 = BTC × P = ___ USDT
+6. 실제 마진 = 노출 / 3 = ___ USDT
+7. 시드 사용률 = 마진 / S = ___%
+
+[Stop 검증 4단계]
+1. Stop 거리 % = (P-SL)/P = ___%
+2. 예상 손실 = (P-SL) × BTC = ___ USDT
+3. 예상 시드 손실률 = 손실/S = ___%
+4. 검증
+   □ Stop 거리 ≤ 등급 한도? (S -3% / A -5% / B -7%)
+   □ 시드 손실률 &lt; 10%?</code></pre>
+
+<blockquote>
+  <p>→ <strong>둘 다 ✅ → STAGE 3</strong></p>
+</blockquote>
+
+<h3>🔴 STAGE 3 — 주문 실행 + 시각적 대조 (15~30초)</h3>
+
+<div class="callout danger">
+  <p><strong>OKX Amount = 노출(Notional)이지 마진 ❌</strong></p>
+  <p><strong>권장: BTC Size 직접 입력</strong></p>
+</div>
+
+<pre><code>[OKX 입력]
+□ Size 필드에 BTC 수량 직접 입력 (권장)
+   → STAGE 2 단계 4번 값 그대로
+
+또는 □ Amount 필드에 노출 USDT 입력
+   → STAGE 2 단계 5번 값
+   🚨 절대 금지: Amount에 "마진" USDT 입력
+
+[시각적 대조 5체크 — 모두 ✅ 시 주문 제출]
+□ 계산표 BTC 수량 = OKX Size 입력값
+□ 계산표 실제 노출 = OKX 표시 노출
+□ 계산표 실제 마진 = OKX 표시 마진
+□ Stop 주문 수량 = 실제 포지션 수량
+□ TP0 주문 수량 = 계획 비중 (S/A 20% / B 30%)
+
+[STAGE 2 의무 (체결 직후 30초 이내)]
+□ TP0 지정가 세팅
+□ Stop-Market 세팅 (구조 기반)
+□ TP1 Limit Close 등록 (RR ≥ 2.0)</code></pre>
+
+<blockquote>
+  <p>→ <strong>모든 체크 ✅ → 주문 제출</strong><br>
+  → <strong>하나라도 ❌ → 주문 취소 후 재계산</strong></p>
+</blockquote>
+
+<hr>
+
+<h2>🟡 운영 카드 — 3-Layer + 경계 + OKX 수동 체크</h2>
+
+<blockquote>
+  <p>포지션 보유 중 참조. 차분한 대응이 핵심.</p>
+</blockquote>
+
+<h3>🌐 Basis-Exit Sync (헌법 5번)</h3>
+
+<div class="callout info">
+  <p><strong>"내가 들어간 이유가 무너지면 나간다. 다른 이유로는 안 나간다."</strong></p>
+</div>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>시나리오</th><th>진입 근거 = 청산 마지노선</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>A</strong></td><td>돌파 레벨 4H 종가 이탈</td></tr>
+<tr><td><strong>A-2</strong></td><td>MIN(진입 캔들 저점, 트리거 캔들 저점) 4H 종가 이탈 ⭐</td></tr>
+<tr><td><strong>B</strong></td><td>2회 지지 저점 4H 종가 이탈</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>🔴 Layer 1 — Hard Exit (전량 청산)</h3>
+
+<pre><code>조건 (둘 중 하나):
+□ 진입 근거 레벨 4H 종가 이탈 (시나리오별: A=돌파레벨 / A-2=MIN(진입·트리거 캔들 저점) / B=2회 지지저점)
+□ Stop 발동
+
+행동: 전량 청산 (수동 또는 자동)</code></pre>
+
+<h3>🟡 Layer 2 — Critical (50% 청산)</h3>
+
+<pre><code>조건 (3개 중 2개 이상):
+□ 4H 음봉 거래량 5MA 1.5x 이상
+□ 직전 4H 스윙 저점 이탈 (4H 종가)
+□ 4H RSI &lt; MA + RSI &lt; 50
+
+행동:
+→ 50% 즉시 청산
+→ 잔여 50%는 기존 Stop 유지 (BE 이상이면 BE)</code></pre>
+
+<h3>🟢 Layer 3 — Warning (청산 ❌, 상태별 BE)</h3>
+
+<pre><code>조건 (1개 충족):
+□ 일봉 EMA 20 이탈 (장중)
+□ 4H 윗꼬리 30% 초과 + 거래량 감소
+□ 일봉 RSI 하락 다이버전스 확정 (5일 이내)</code></pre>
+
+<p><strong>상태별 행동:</strong></p>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>포지션 상태</th><th>행동</th></tr>
+</thead>
+<tbody>
+<tr><td>TP0 체결 전</td><td>청산 ❌ / Stop 유지 / 경계 상태</td></tr>
+<tr><td>TP0 체결 후</td><td>청산 ❌ / Stop을 BE(진입가)로 이동</td></tr>
+<tr><td>이미 BE 이상</td><td>Stop 유지 또는 더 높은 구조 Stop</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>📋 Layer 3 경계 체크리스트 (5건 의무)</h3>
+
+<pre><code>① 4H 종가 마감까지 능동 모니터링
+② 직전 4H 스윙 저점 사전 확인
+③ -1.5% / -2% 추가 하락 알림 설정
+④ Layer 2 트리거 추가 충족 시 즉시 50% 청산
+⑤ 🔴 신규 / 2단 추가 진입 봉쇄 (핵심)</code></pre>
+
+<h3>🔧 OKX 수동 체크 (4차 결함 5건 차단)</h3>
+
+<div class="callout warning">
+  <p><strong>OKX는 자동으로 안 해준다. 수동 절차 의무.</strong></p>
+</div>
+
+<pre><code>□ TP0 체결 직후: SL 사이즈 자동 조정 안 됨
+  → 잔여 BTC 수량 기준 SL 수동 재등록
+  → 또는 2단 예약 있으면 Cancel 결정
+
+□ TP1 주문 자동 등록 안 됨
+  → 진입 직후 또는 1R+ 도달 전 수동 등록
+
+□ BE 전환 수동
+  → TP1 체결 시: SL → 진입가 (BE)
+  → Layer 3 (TP0 후): SL → 진입가
+
+□ 알림 설정 점검
+  → 가격 알림 (TP1 / SL / 추가 하락 -1.5%/-2%)
+  → 포지션 변경 알림 ON
+  → TP0 / SL 체결 알림 필수
+
+□ 주문 수량 일치 확인
+  → SL 수량 = 잔여 BTC
+  → TP0 + TP1 + 잔여 = 진입 BTC</code></pre>
+
+<h3>🚫 진입 후 운영 금지 사항 (7개 중 핵심)</h3>
+
+<pre><code>□ 추가 진입 ❌ (새 트리거 발생 전까지)
+□ 손실 만회 사이즈 확대 ❌
+□ 평단가 보정 / 물타기 ❌
+□ Stop을 임의로 넓히기 ❌
+□ Layer 3에서 청산 ❌ (BE 이동만)</code></pre>
+
+<hr>
+
+<h2>📋 기록 카드 — 트레이드 종료 후 의무 (~30 항목)</h2>
+
+<blockquote>
+  <p>자동화 양식 (<a href="btc-trade-db.html">노션 DB → HTML 복기 페이지</a>) 활용. 클릭+수치 입력만.</p>
+</blockquote>
+
+<h3>🟦 [기본 정보]</h3>
+<pre><code>□ 트레이드 번호 (5차 / 6차 / 7차...)
+□ 진입 KST / 청산 KST
+□ 진입가 / 청산가 / Stop / TP0 / TP1 / TP2</code></pre>
+
+<h3>🟦 [시나리오]</h3>
+<pre><code>□ 시나리오 (A / A-2 / B / C)
+□ 트리거 발생 시각
+□ 진입 / 차단 + (차단 사유)
+□ 진입 근거 레벨 (시나리오별)</code></pre>
+
+<h3>🟦 [매트릭스]</h3>
+<pre><code>□ 4요소 점수 (거래량 / RSI / 캔들 / 구조)
+□ 합계 / 등급 (S/A/B)
+□ 동적 하향 적용 여부 + 사유</code></pre>
+
+<h3>🟦 [사이즈]</h3>
+<pre><code>□ 시드 잔액 (USDT)
+□ 의도 마진 % vs 실제 마진 USDT
+□ BTC 수량 (이론 / 실제 Lot 내림)
+□ 시드 사용률 %
+□ 시각적 대조 5체크 통과?</code></pre>
+
+<h3>🟦 [Stop]</h3>
+<pre><code>□ Stop 거리 % (등급 한도 통과?)
+□ 예상 시드 손실률 (-10% 캡 통과?)</code></pre>
+
+<h3>🟦 [청산]</h3>
+<pre><code>□ 최종 청산 방식 (TP0/TP1/TP2/Stop/Layer1/Layer2/수동)
+□ TP0 체결 + 비중 (S/A 20% / B 30%)
+□ TP1 RR ≥ 2.0 충족 / 체결?
+□ 트레일링 작동?</code></pre>
+
+<h3>🟦 [3-Layer]</h3>
+<pre><code>□ Layer 1 발동? (어느 트리거?)
+□ Layer 2 발동? (3 중 몇 개?)
+□ Layer 3 발생? (TP0 상태별 BE 이동?)
+□ 경계 체크리스트 5건 실행?</code></pre>
+
+<h3>🟦 [A-2 특화 (해당 시)]</h3>
+<pre><code>□ 트리거 후 N캔들 진입 (0/1/2)
+□ 트리거 종가 대비 진입가 % 이격
+□ Stop = 진입 캔들 저점 / 트리거 캔들 저점?
+□ Stop 거리 vs 등급 한도</code></pre>
+
+<h3>🟦 [결과]</h3>
+<pre><code>□ 진입 후 최대 수익률 / 최대 손실률
+□ 실제 실현 손익률
+□ 시드 변동 (USDT)</code></pre>
+
+<h3>🟦 [False Positive 검증]</h3>
+<pre><code>□ 청산 후 24h 반대 움직임?
+□ 청산 후 48h 반대 움직임?
+□ 청산 결정 사후 평가 (정확/오류)</code></pre>
+
+<h3>🟦 [운영 결함 (해당 시 — 즉시 수정)]</h3>
+<pre><code>□ 운영 결함 발생?
+  → 결함 내용 (4차 결함 5건 형식)
+  → 즉시 수정 항목
+  → 시스템 룰 반영 여부
+
+⚠️ 운영 로그(즉시 수정) vs 검증 로그(샘플 &lt; 10 룰 수정 ❌) 분리</code></pre>
+
+<hr>
+
+<h2>🔗 본문 룰북 빠른 참조</h2>
+
+<ul>
+  <li><strong>선행 탈락 11개 상세:</strong> <a href="btc-system-v2.html">v2 룰북 → 선행 탈락 조건</a></li>
+  <li><strong>매트릭스 점수표:</strong> <a href="btc-system-v2.html">v2 룰북 → 4요소 점수표</a></li>
+  <li><strong>등급 → 사이즈 매핑 + Stop 한도:</strong> <a href="btc-system-v2.html">v2 룰북 → 등급 매핑</a></li>
+  <li><strong>3-Layer 청산 + Basis-Exit Sync:</strong> <a href="btc-system-v2.html">v2 룰북 → C3</a></li>
+  <li><strong>BTC 수량 산출 공식:</strong> <a href="btc-system-v2.html">v2 룰북 → 항목 2</a></li>
+  <li><strong>금지 사항 7개 상세:</strong> <a href="btc-system-v2.html">v2 룰북 → 항목 7</a></li>
+  <li><strong>5차+ 복기 DB:</strong> <a href="btc-trade-db.html">📚 BTC 트레이드 복기 데이터베이스</a></li>
+</ul>
+
+<hr>
+
+<h2>⚠️ 카드 사용 원칙</h2>
+
+<div class="callout warning">
+  <p><strong>실전 중에는 본문을 보지 말고, 이 카드만 본다.</strong></p>
+  <p><strong>카드는 룰의 본문이 아니라 체크리스트다.</strong></p>
+  <p><strong>의문 발생 시 → 본문 룰북으로 점프, 카드로 다시 복귀.</strong></p>
+</div>
+
+<h3>🚨 주의 (인지 부하 관리)</h3>
+
+<pre><code>- 카드의 모든 항목을 외울 필요 ❌
+- STAGE 0 5묶음만 인지하면 즉시 시장 차단 가능
+- 매트릭스/사이즈는 자동화 계산기 의존
+- 시각적 대조 5체크는 의무 (4차 결함 1·2번 차단)</code></pre>
+
+<div class="meta">
+  작성: 2026.04.27 KST | 적용 시점: 5차 트레이드부터<br>
+  본문 룰북: <a href="btc-system-v2.html">🚀 BTC 매매 시스템 v2</a><br>
+  마이그레이션: 노션 → HTML (2026-05-01 KST)<br>
+  ⚠️ 본 카드는 분석적 관점의 정리이며, 투자 조언이 아닙니다.
+</div>
+
+</div>
+
+</body>
+</html>
