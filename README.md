@@ -35,13 +35,16 @@ OKX 3x Isolated 롱 전용 BTC 트레이딩 시스템 — 노션 → HTML 정적
 
 ## 📚 페이지 인덱스
 
-| # | 파일 | 역할 |
-|---|---|---|
-| 0 | [`index.html`](./index.html) | 🏠 메인 인덱스 (시스템 개요 / 편향 기록 / 트레이드 히스토리) |
-| 1 | [`btc-system-v1.html`](./btc-system-v1.html) | 📈 보수 룰 (1~4차 운용 아카이브, 신 진입 ❌) |
-| 2 | [`btc-system-v2.html`](./btc-system-v2.html) | 🚀 v2 룰북 (5차+ 메인 — 매트릭스 / 3-Layer / 사이즈 공식) |
-| 3 | [`btc-v2-card.html`](./btc-v2-card.html) | 🎯 v2 실전 카드 (4-STAGE 진입 매뉴얼) |
-| 4 | [`btc-trade-db.html`](./btc-trade-db.html) | 📚 5차+ 복기 DB (트레이드 누적 인프라 + 시장 추적) |
+| # | 파일 | 역할 | 갱신 빈도 |
+|---|---|---|---|
+| 0 | [`index.html`](./index.html) | 🏠 메인 인덱스 (시스템 개요 / 편향 기록 / 트레이드 히스토리) | 정적 |
+| 1 | [`btc-system-v1.html`](./btc-system-v1.html) | 📈 보수 룰 (1~4차 운용 아카이브, 단순 참고용 / 분석 입력 ❌) | 정적 |
+| 2 | [`btc-system-v2.html`](./btc-system-v2.html) | 🚀 v2 룰북 (5차+ 메인 — 매트릭스 / 3-Layer / 사이즈 공식) | 정적 / 합의 시 |
+| 3 | [`btc-v2-card.html`](./btc-v2-card.html) | 🎯 v2 실전 카드 (4-STAGE 진입 매뉴얼) | 정적 |
+| 4 | [`btc-trades.html`](./btc-trades.html) | 📚 트레이드 복기 카드 (4차+ 트레이드 단위 누적) | 트레이드별 (월 1~2회) |
+| 5 | [`btc-market.html`](./btc-market.html) | 📊 시장 추적 (4H + 일봉 / 시간 단위 누적) | 4H/일 단위 |
+| 6 | [`btc-reviews.html`](./btc-reviews.html) | 🤖 3-AI 외부 검토 (이벤트 단위 / 편향 E+F 대응) | 이벤트별 |
+| ⚠️ | [`btc-trade-db.html`](./btc-trade-db.html) | (Deprecated 2026-05-01) → 자동 redirect → btc-trades.html | 폐기 |
 
 ---
 
@@ -83,14 +86,28 @@ https://<github-username>.github.io/btc-system/
 ```
 btc-system/
 ├── index.html              # 🏠 메인 인덱스
-├── btc-system-v1.html      # 📈 보수 룰 (1~4차)
-├── btc-system-v2.html      # 🚀 v2 룰북 (5차+)
-├── btc-v2-card.html        # 🎯 v2 실전 카드
-├── btc-trade-db.html       # 📚 복기 DB
+├── btc-system-v1.html      # 📈 보수 룰 (1~4차) — 정적 / 참조용
+├── btc-system-v2.html      # 🚀 v2 룰북 (5차+) — 정적 / 합의 시
+├── btc-v2-card.html        # 🎯 v2 실전 카드 — 정적
+├── btc-trades.html         # 📚 트레이드 복기 카드 (4/5/6/...)
+├── btc-market.html         # 📊 시장 추적 (4H + 일봉)
+├── btc-reviews.html        # 🤖 3-AI 외부 검토 결과
+├── btc-trade-db.html       # ⚠️ Deprecated (redirect → btc-trades.html)
 ├── styles.css              # 공통 스타일
 ├── README.md               # 본 파일
 └── .gitignore
 ```
+
+### 📐 페이지 분리 정책 (2026-05-01)
+
+각 페이지 단일 책임 + 갱신 빈도별 분리:
+
+- **정적 페이지 (정적 / 합의 시 갱신):** `index` / `v1` / `v2` / `card`
+- **트레이드 단위 누적:** `trades` (5차/6차/7차/...)
+- **시간 단위 누적:** `market` (4H + 일봉 / 월별 분리 검토)
+- **이벤트 단위 누적:** `reviews` (3-AI 검토 / 매번 추가)
+
+분리 사유: 단일 페이지 1MB+ 위험 / git diff 노이즈 / 모바일 로드 / 새 Claude 세션 컨텍스트 효율
 
 ---
 
