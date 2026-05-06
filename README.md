@@ -39,7 +39,8 @@ OKX 3x Isolated 롱 전용 BTC 트레이딩 시스템 — 노션 → HTML 정적
 |---|---|---|---|
 | 0 | [`index.html`](./index.html) | 🏠 메인 인덱스 (시스템 개요 / 편향 기록 / 트레이드 히스토리) | 정적 |
 | 1 | [`btc-system-v1.html`](./btc-system-v1.html) | 📈 보수 룰 (1~4차 운용 아카이브, 단순 참고용 / 분석 입력 ❌) | 정적 |
-| 2 | [`btc-system-v2.html`](./btc-system-v2.html) | 🚀 v2 룰북 (5차+ 메인 — 매트릭스 / 3-Layer / 사이즈 공식) | 정적 / 합의 시 |
+| 2 | [`btc-system-v2.html`](./btc-system-v2.html) | 🚀 v2 룰북 핵심 (헌법 / 안전장치 / 매트릭스 / 시나리오 / 사이즈 / 금지 / 로그) | 정적 / 합의 시 |
+| 2-A | [`btc-rules-extension.html`](./btc-rules-extension.html) | ⭐ v2 룰북 확장 (5차 사이클 진화 룰 #7~#15 / 검토 후보 / 운영자 메타 9건) | 5차 사이클 진화 |
 | 3 | [`btc-v2-card.html`](./btc-v2-card.html) | 🎯 v2 실전 카드 (4-STAGE 진입 매뉴얼) | 정적 |
 | 4 | [`btc-trades.html`](./btc-trades.html) | 📚 트레이드 복기 카드 (4차+ 트레이드 단위 누적) | 트레이드별 (월 1~2회) |
 | 5 | [`btc-market.html`](./btc-market.html) | 📊 시장 추적 (4H + 일봉 / 시간 단위 누적) | 4H/일 단위 |
@@ -87,7 +88,8 @@ https://<github-username>.github.io/btc-system/
 btc-system/
 ├── index.html              # 🏠 메인 인덱스
 ├── btc-system-v1.html      # 📈 보수 룰 (1~4차) — 정적 / 참조용
-├── btc-system-v2.html      # 🚀 v2 룰북 (5차+) — 정적 / 합의 시
+├── btc-system-v2.html      # 🚀 v2 룰북 핵심 (헌법~로그) — 정적 / 합의 시
+├── btc-rules-extension.html # ⭐ v2 룰북 확장 (5차 사이클 진화 룰 #7~#15) — 진화
 ├── btc-v2-card.html        # 🎯 v2 실전 카드 — 정적
 ├── btc-trades.html         # 📚 트레이드 복기 카드 (4/5/6/...)
 ├── btc-market.html         # 📊 시장 추적 (4H + 일봉)
