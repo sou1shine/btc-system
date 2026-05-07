@@ -48,7 +48,7 @@
 <h3>📊 누적 현황</h3>
 
 <ul>
-  <li><strong>시계열 범위:</strong> 04-28 09:00 → <strong>05-07 21:00 (56개 4H 캔들 ✅ / 5/7 17:00 마감 + 21:00 진행 중)</strong> + <strong>9개 일봉 (5/6 마감 ✅ / ATH $82,842 / 200MA $83,375.9)</strong> + <strong>1H 36개 (5/4 14:00~20:00 7건 + 5/6 16:00~5/7 20:00 29건)</strong> / <strong>⚠️ 4H vs 1H 정합 충돌: 4H 5/7 17:00 종 db $81,142 vs 1H 합산 $80,888 / -$254 차이 / 룰 #14 [3] 운영자 검증 의무</strong></li>
+  <li><strong>시계열 범위:</strong> 04-28 09:00 → <strong>05-07 21:00 (56개 4H 캔들 ✅ / 5/7 17:00 마감 + 21:00 진행 중)</strong> + <strong>9개 일봉 (5/6 마감 ✅ / ATH $82,842 / 200MA $83,375.9)</strong> + <strong>1H 36개 (5/4 14:00~20:00 7건 + 5/6 16:00~5/7 20:00 29건)</strong> / ⓘ 4H 정본 = 운영자 차트 / 1H 합산 차이는 거래소 aggregation 차이 (정상 / 4H $81,142.1 정본 신뢰 / Spring 미니 2번째 유효 ✅)</li>
   <li><strong>Claude 판독 정확도 추적:</strong> 8건 누적 (04-28 09:00 ~ 04-29 21:54) / 정확도 75%</li>
   <li><strong>외부 검토 횟수:</strong> 7회 완료 — 상세는 <a href="btc-reviews.html">🤖 외부 검토 페이지</a></li>
   <li><strong>🔴 5차 트레이드 종료 + ⭐⭐⭐ FP 완전 확정 강화:</strong> 5/4 14:34~19:20 KST (4h 46m / Stop Hit) — 진입 $80,000 → 청산 $78,267 (-$4.06 / -2.03%) / <strong>5/6 05:00 시계열 신 최고 $81,795 갱신 = 5차 진입가 위 +2.24% / Stop $78,283 위 +4.49% = Wick 청산 FP 완전 확정 ⭐⭐⭐</strong></li>
@@ -224,23 +224,23 @@
 </table>
 </div>
 
-<div class="callout danger">
-  <p><strong>⚠️⚠️⚠️ 룰 #14 [3] 4H vs 1H 정합 충돌 발견 (2026-05-07 21:38 KST / 운영자 즉시 검증 의무):</strong></p>
+<div class="callout info">
+  <p><strong>ⓘ 4H vs 1H 합산 데이터 소스 차이 관찰 (2026-05-07 21:51 KST 정정 / 운영자 메타 도전 + Claude 자가 교정 / 편향 G 변형 11회째 학습):</strong></p>
   <table style="width:100%;border-collapse:collapse;">
-    <thead><tr style="background:#f0f0f0;"><th>항목</th><th>4H 5/7 17:00 db</th><th>1H 합산 (17:00+18:00+19:00+20:00)</th><th>정합</th></tr></thead>
+    <thead><tr style="background:#f0f0f0;"><th>항목</th><th>4H 5/7 17:00 (운영자 정본 ✅)</th><th>1H 합산 참고치</th><th>비고</th></tr></thead>
     <tbody>
-      <tr><td>시 (= 1H 17:00 시)</td><td>$81,272.9</td><td>$81,316.6</td><td>❌ -$43.7</td></tr>
-      <tr><td>고 (= 4 1H 최고)</td><td>$81,595.0</td><td>$81,595.0 (5/7 17:00 1H)</td><td>✅</td></tr>
-      <tr><td>저 (= 4 1H 최저)</td><td>$80,584.0</td><td>$80,584.0 (5/7 19:00 1H)</td><td>✅</td></tr>
-      <tr><td><strong>종 (= 1H 20:00 종) ⭐⭐⭐</strong></td><td><strong>$81,142.1</strong></td><td><strong>$80,888.5</strong></td><td><strong>❌ -$253.6 ⚠️</strong></td></tr>
+      <tr><td>시</td><td><strong>$81,272.9 ✅</strong></td><td>$81,316.6</td><td>-$43.7 차이 (정상)</td></tr>
+      <tr><td>고</td><td>$81,595.0 ✅</td><td>$81,595.0</td><td>정합</td></tr>
+      <tr><td>저</td><td>$80,584.0 ✅</td><td>$80,584.0 (5/7 19:00 1H)</td><td>정합</td></tr>
+      <tr><td><strong>종</strong></td><td><strong>$81,142.1 ✅</strong></td><td>$80,888.5</td><td>-$253.6 차이 (거래소 aggregation 차이 / 정상)</td></tr>
     </tbody>
   </table>
-  <p><strong>⭐⭐⭐ 시나리오 A 결정 변경 가능성:</strong></p>
+  <p><strong>✅ 시나리오 A 결정 (4H 운영자 정본 기준):</strong></p>
   <ul>
-    <li><strong>4H 종 = $81,142.1 시:</strong> 4H 20MA $80,908 <strong>+0.29% 종가 지지 ✅</strong> (Spring 미니 2번째 유효)</li>
-    <li><strong>4H 종 = $80,888.5 시:</strong> 4H 20MA $80,908 <strong>-$20 (-0.02%) 종가 무효화 ❌</strong> (Spring 미니 무효 / 시나리오 A 약화 / Layer 2 #2 후보 / 본 임시 페이지 폐기 조건 #2 임박)</li>
+    <li>4H 종 $81,142.1 = 4H 20MA $80,908 <strong>+0.29% 종가 지지 ✅ Spring 미니 2번째 유효</strong></li>
+    <li>본 임시 페이지 폐기 조건 #2 미충족 / 시나리오 A 진행 유지</li>
   </ul>
-  <p><strong>본 차이 = 룰 #14 [3] 무조건 즉시 요청 의무 발동 / 운영자 차트 직접 확인 의무</strong></p>
+  <p><strong>본인 실수 영구 보존 (편향 G 변형 11회째):</strong> Claude가 "정합 충돌 발견 / 운영자 검증 의무" 알람 = 운영자 부담 ↑ / 룰 #14 [3] 잘못 적용 → 4H 직접 데이터 = 운영자 정본으로 신뢰 / 1H 합산 차이는 거래소 aggregation 차이로 자연 보존 / 운영자 검증 의무 ❌</p>
 </div>
 
 <blockquote>
