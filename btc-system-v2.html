@@ -166,20 +166,66 @@
   <p><strong>다층 안전장치:</strong> 일부 항목은 동적 하향 룰·시나리오 조건과 중복되나, "선행 탈락"은 진입 차단 1차 라인. 다른 곳에 박혀 있어도 한 번 더 잡는다.</p>
 </blockquote>
 
-<h3>📊 4요소 점수표 (1~3점)</h3>
+<h3>📊 5요소 점수표 (4요소 0~3점 + 위치 점수 -3 ~ +3 / 합계 -3 ~ +15점) ⭐⭐⭐⭐ 정정 (2026-05-08 / 외부 검토 #10)</h3>
+
+<div class="callout danger">
+  <p><strong>⭐⭐⭐⭐ 매트릭스 4 → 5 요소 변경 (2026-05-08 14:35 KST / 외부 검토 #10 / 운영자 메타 룰 6번 행사 / 안전장치 1번 일시 우회)</strong></p>
+  <p>이전 4요소 = 5차 어깨 진입 패턴 유도 (잔존 모순 #1) / 시스템 정체성 (메타 #2 무릎 진입) 충돌</p>
+  <p>정정 5요소 = 위치 점수 (룰 #11 무릎 보너스 + 룰 #10 어깨 페널티) 정식 편입 / 시스템 정체성 직접 정합</p>
+  <p>상세: <a href="btc-rules-extension.html">⭐ v2 확장 (룰 #10·#11 정식 룰화)</a></p>
+</div>
 
 <div class="table-wrapper">
 <table>
 <thead>
-<tr><th>판정 요소</th><th>1점</th><th>2점</th><th>3점</th></tr>
+<tr><th>판정 요소</th><th>점수 범위</th><th>1점</th><th>2점</th><th>3점</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>거래량 (4H 5MA)</strong></td><td>1.3~1.5x</td><td>1.5~2.0x</td><td>2.0x 이상 또는 1.5x+ 핵심 돌파/장대양봉 동반</td></tr>
-<tr><td><strong>RSI 상태</strong></td><td>RSI &gt; MA</td><td>RSI &gt; MA + RSI &gt; 50</td><td>RSI &gt; MA + RSI &gt; 60</td></tr>
-<tr><td><strong>캔들 강도</strong></td><td>음봉 고가 돌파</td><td>평균 몸통 1.2x</td><td>평균 몸통 1.5x / Engulfing</td></tr>
-<tr><td><strong>구조 정합성</strong></td><td>레인지 내부 지지</td><td>이평선/피보나치 지지</td><td>핵심 저항 돌파 / 구조 전환</td></tr>
+<tr><td><strong>1. 거래량 (4H 5MA)</strong></td><td>0 ~ +3</td><td>1.3~1.5x</td><td>1.5~2.0x</td><td>2.0x+ 또는 1.5x+ 핵심 돌파/장대양봉</td></tr>
+<tr><td><strong>2. RSI 상태</strong></td><td>0 ~ +3</td><td>RSI &gt; MA</td><td>+ RSI &gt; 50</td><td>+ RSI &gt; 60</td></tr>
+<tr><td><strong>3. 캔들 강도</strong></td><td>0 ~ +3</td><td>음봉 고가 돌파</td><td>평균 몸통 1.2x</td><td>몸통 1.5x / Engulfing</td></tr>
+<tr><td><strong>4. 구조 정합성</strong></td><td>0 ~ +3</td><td>레인지 내부</td><td>이평선/피보나치 지지</td><td>핵심 저항 돌파</td></tr>
+<tr><td><strong>⭐ 5. 위치 점수 (NEW / 룰 #10·#11)</strong></td><td><strong>-3 ~ +3</strong></td><td>+1 (룰 #11 1건) / -1 (룰 #10 1건)</td><td>+2 (룰 #11 2건) / -2 (룰 #10 -2점 조건 / VPD)</td><td>+3 (룰 #11 3건 모두 / 진정한 무릎) / -3 (룰 #10 3건+ / 명확한 어깨)</td></tr>
 </tbody>
 </table>
+</div>
+
+<h4>⭐ 룰 #11 무릎 보너스 (+) — 룰 #10 어깨 페널티 (-) 정식 편입</h4>
+
+<pre><code>[룰 #11 무릎 보너스 / 각 +1점 / 최대 +3점]
+□ 추세 시작 후 첫 매수 신호 (직전 swing low 직근)
+□ RSI < 50 + 매수 시그널 (다이버전스 또는 강세 크로스)
+□ 시계열 신 저점 후 첫 반전 캔들 (Spring 또는 Engulfing)
+
+[룰 #10 어깨 페널티 / 각 -1점 / VPD만 -2점 / 최대 -6점]
+□ 추세 시작 +5%+ 이격: -1점
+□ RSI > 70: -1점
+□ 시계열 최고 -1% 이내: -1점
+□ Volume-Price Divergence: -2점 ⭐
+□ 일봉 200MA 저항 3% 이내: -1점
+
+[자동 진입 보류 조건]
+□ 어깨 페널티 -3점 이상 (3건+ 충족) = 진입 보류 (어깨/머리 강한 시그널)
+□ 어깨 페널티 -2점 = 사이즈 -1단계 강등 권고
+□ 무릎 보너스 +3점 = S급 가능 영역 (시스템 정체성 메타 #2 정합)</code></pre>
+
+<div class="callout success">
+  <p><strong>⭐⭐⭐ 5/8 09:00 4H 시점 5요소 매트릭스 재계산 사례 (정정 결과 검증):</strong></p>
+  <ul>
+    <li>거래량 0.91x: 0점</li>
+    <li>RSI 41.89 &lt; MA: 0점</li>
+    <li>캔들 (음봉 + 큰 아랫꼬리): 1점</li>
+    <li>구조 (4H 50MA Reclaim): 2점</li>
+    <li><strong>위치 점수: +1점 (RSI &lt; 50 + 매수 시그널 = 4H 50MA Reclaim 부분 충족)</strong></li>
+    <li>= <strong>4점 → 5점 이하 진입 금지 (정정 후에도 차단 정합)</strong></li>
+  </ul>
+  <p><strong>⭐⭐⭐ 5차 트레이드 ($80,000 / 2026-05-04) 5요소 재계산 (사후 검증):</strong></p>
+  <ul>
+    <li>4요소: 거래량 3 + RSI 3 + 캔들 2 + 구조 2 = 10점</li>
+    <li><strong>위치 점수: -3점 (시계열 최고 -0.77% / RSI > 70 / 추세 +5%+ 이격 모두 충족)</strong></li>
+    <li>= <strong>10 - 3 = 7점 → B급 강등 (이전 A급 → B급)</strong></li>
+    <li><strong>= 5요소 매트릭스 적용 시 사이즈 -1단계 강등 = wick FP 손실 폭 ↓ 가능</strong></li>
+  </ul>
 </div>
 
 <h3>🎯 등급 → 사이즈 매핑 (2026.04.27 항목 3 — 시드 손실 -10% 캡 적용)</h3>
@@ -193,15 +239,25 @@
 <div class="table-wrapper">
 <table>
 <thead>
-<tr><th>점수</th><th>등급</th><th>시드 마진</th><th>Stop 거리 한도</th><th>최대 시드 손실</th><th>정성 가이드 (점수 ❌)</th></tr>
+<tr><th>점수 (5요소)</th><th>등급</th><th>시드 마진</th><th>Stop 거리 한도</th><th>최대 시드 손실</th><th>정성 가이드 (5요소 / 위치 점수 결정적)</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>11~12점</strong></td><td><strong>S급</strong></td><td><strong>60~70%</strong></td><td><strong>-3% 이내</strong></td><td>약 -5.4 ~ -6.3%</td><td>초정밀 타점. 강한 구조·거래량·모멘텀·캔들·리스크 위치 동시 충족.</td></tr>
-<tr><td><strong>8~10점</strong></td><td><strong>A급</strong></td><td><strong>45~55%</strong></td><td><strong>-5% 이내</strong></td><td>약 -6.7 ~ -8.2%</td><td>표준 진입. 구조적 지지·트리거 정상 충족.</td></tr>
-<tr><td><strong>6~7점</strong></td><td><strong>B급</strong></td><td><strong>30~40%</strong></td><td><strong>-7% 이내</strong></td><td>약 -6.3 ~ -8.4%</td><td>실험적 진입. 신호 약하나 RR 충분.</td></tr>
-<tr><td><strong>5점 이하</strong></td><td><strong>진입 금지</strong></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><strong>13~15점</strong></td><td><strong>S급</strong></td><td><strong>60~70%</strong></td><td><strong>-3% 이내</strong></td><td>약 -5.4 ~ -6.3%</td><td>⭐ 진정한 무릎 진입 (위치 +3점 / 룰 #11 3건 모두 충족) + 5차+ 사이클 첫 사례 영역</td></tr>
+<tr><td><strong>9~12점</strong></td><td><strong>A급</strong></td><td><strong>45~55%</strong></td><td><strong>-5% 이내</strong></td><td>약 -6.7 ~ -8.2%</td><td>표준 진입 (위치 점수 0점 이상 / 어깨 페널티 ❌)</td></tr>
+<tr><td><strong>6~8점</strong></td><td><strong>B급</strong></td><td><strong>30~40%</strong></td><td><strong>-7% 이내</strong></td><td>약 -6.3 ~ -8.4%</td><td>실험적 진입 (위치 -1점 가능 / 어깨 페널티 1건)</td></tr>
+<tr><td><strong>5점 이하</strong></td><td><strong>진입 금지</strong></td><td>-</td><td>-</td><td>-</td><td>위치 -2점 이상 (어깨 페널티 2건+ / 명확한 어깨 영역) 또는 4요소 점수 자체 미달</td></tr>
 </tbody>
 </table>
+</div>
+
+<div class="callout danger">
+  <p><strong>⭐⭐⭐⭐ 5요소 매트릭스 정정 핵심 효과 (외부 검토 #10 / 트레이더 관점):</strong></p>
+  <ul>
+    <li><strong>패러다임 전환:</strong> "강한 신호 = 큰 사이즈" ❌ → "무릎 위치 + 강한 신호 = 큰 사이즈" ✅ (시스템 정체성 메타 #2 직접 구현)</li>
+    <li><strong>5차 패턴 차단:</strong> 매트릭스 10점 어깨 진입 = 위치 -3점 → 7점 B급 강등 = 사이즈 -1단계 = wick FP 손실 폭 ↓</li>
+    <li><strong>무릎 진입 보너스:</strong> 다이버전스 + 무릎 신호 동시 발생 = 위치 +3점 = S급 가능 (메타 #2 가장 강한 진입 시그널)</li>
+    <li><strong>역발상 점수 (Gemini #10):</strong> 매트릭스 점수 ↑ 시점 = 어깨 가능성 ↑ 자동 인식 = 진입 의심 정합</li>
+  </ul>
 </div>
 
 <div class="callout warning">
