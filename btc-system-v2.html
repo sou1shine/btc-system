@@ -642,7 +642,7 @@
 - 진입가 P (USDT/BTC)
 - Stop 가격 SL
 - 레버리지 = 3x (고정)
-- Lot Size = 0.001 BTC (기본값, 주문 전 OKX 최소 단위 재확인)</code></pre>
+- Lot Size = 0.0001 BTC (OKX BTCUSDT Perp 실제 최소 단위 / 2026-05-08 외부 검토 #11 정정 / CLAUDE.md 정합)</code></pre>
 
 <h3>① 사이즈 계산 7단계</h3>
 
@@ -656,7 +656,7 @@
    예: 300 / 78,400 = 0.003827 BTC
 
 ④ BTC 수량 (실제) = round_down(이론값, Lot Size)  ⭐ 내림 처리
-   예: 0.003827 → 0.003 BTC (Lot 0.001 자동 내림)
+   예: 0.003827 → 0.0038 BTC (Lot 0.0001 자동 내림 / 외부 검토 #11 정정)
 
 ⑤ 실제 노출 USDT   = BTC 수량(실제) × P
    예: 0.003 × 78,400 = 235.2 USDT
@@ -731,19 +731,20 @@
 
 <div class="callout danger">
   <p><strong>5개 모두 ✅ 붙어야 주문 제출. 하나라도 불일치면 주문 취소 후 재계산.</strong></p>
-  <p><strong>⚠️ 5번 항목 보완 (항목 10 합의 정합):</strong> 시드 &lt; 300 USDT 구간에서는 "계획 비중"이 아니라 "소액 시드 예외 수량 (TP0 = 0.001 BTC 고정)"과 일치 여부 대조. 단, TP0 0.001 &gt; 전체 포지션 50%면 진입 자체 재검토.</p>
+  <p><strong>⚠️ 5번 항목 (외부 검토 #11 정정 / 2026-05-08):</strong> Lot Size 0.0001 BTC 환경에서는 소액 시드 예외 룰 (이전 "TP0 = 0.001 BTC 고정") <strong>자연 해결</strong> / 시드 &lt; 300 USDT 구간이어도 충분한 해상도 보유 / TP0 비중 = 등급별 차등 정상 적용 (S/A 20% / B 30%)</p>
 </div>
 
 <h3>🔍 Lot Size 거래소 UI 변경 대비 (ChatGPT 신규 채택)</h3>
 
 <blockquote>
-  <p>Lot Size는 현재 OKX BTCUSDT Perp 주문창의 최소 수량 단위를 기준으로 한다. 기본값은 0.001 BTC로 계산하되, 주문 전 실제 최소 단위를 확인한다.</p>
+  <p>Lot Size는 OKX BTCUSDT Perp 주문창의 최소 수량 단위를 기준으로 한다. <strong>실제 최소 단위 = 0.0001 BTC (2026-05-08 외부 검토 #11 정정 / CLAUDE.md 정합)</strong>. 주문 전 실제 최소 단위 재확인 의무.</p>
 </blockquote>
 
 <pre><code>- OKX UI 변경 가능성
 - 상품/모드별 차이 가능성
 - 매번 주문 화면 최소 단위 확인 의무
-→ 0.001 BTC는 현재 기본값, 변경 시 즉시 적용</code></pre>
+→ 0.0001 BTC = 현재 OKX BTCUSDT Perp 정확값 (외부 검토 #11 검증)
+→ 이전 0.001 BTC 표기 = 구버전 / 모두 0.0001로 정정 완료</code></pre>
 
 <h3>📝 4차 소급 검증 (공식 적용 시)</h3>
 
@@ -792,8 +793,23 @@
 
 <h2>📊 S/A/B 최종 사이즈 시뮬레이션 (2026.04.27 항목 10 합의 — 마지막 1건)</h2>
 
+<div class="callout danger">
+  <p><strong>⭐⭐⭐⭐ 외부 검토 #11 정정 (2026-05-08 14:50 KST / ChatGPT 정합성 검증):</strong></p>
+  <p>본 시뮬은 <strong>Lot Size 0.001 BTC 가정 (구버전 / historical 보존)</strong>으로 작성됨.</p>
+  <p>실제 OKX BTCUSDT Perp Lot Size = <strong>0.0001 BTC (10배 작음 / CLAUDE.md 정합)</strong>.</p>
+  <p><strong>0.0001 환경에서 본 시뮬 결과 무효:</strong></p>
+  <ul>
+    <li>"해상도 문제" (관찰 2) = 자연 해결 (10배 작은 단위로 의도 마진 정확 구현 가능)</li>
+    <li>"TP0 차등 무력화" (관찰 3) = 자연 해결 (S/A 20% / B 30% 정상 작동)</li>
+    <li>"소액 시드 예외 조항" (시드 &lt; 300 / TP0 0.001 고정) = 룰 자체 무효화 (자연 해결)</li>
+    <li>"50% 한계 룰" = 0.0001 환경에서 거의 트리거 ❌</li>
+  </ul>
+  <p><strong>본 섹션 = historical 보존 (4차 사례 학습 자료) / 현재 운영 적용 ❌</strong></p>
+  <p><strong>5차+ 운영 시 = Lot 0.0001 환경 정확 적용 (A-3 베타 Position Sizing 공식 / 외부 검토 #7·#9·#10 통합 정정)</strong></p>
+</div>
+
 <div class="callout info">
-  <p><strong>🔑 핵심:</strong> 9건 합의 룰 수치 정합성 최종 검증. 시드 200 USDT 기준 매트릭스 등급별 사이즈·Stop·손익 시뮬.</p>
+  <p><strong>🔑 핵심 (historical):</strong> 9건 합의 룰 수치 정합성 최종 검증. 시드 200 USDT 기준 매트릭스 등급별 사이즈·Stop·손익 시뮬.</p>
   <p><strong>합의 흐름:</strong> Claude 6개 시뮬 권장 → Gemini "해상도 문제" 통찰 + 시드 300 예외 조항 제안 → ChatGPT 50% 한계 룰 + "통제된 공격 시스템" 정체성 + 표현 조정 → 태일 즉시 채택.</p>
 </div>
 
@@ -1565,7 +1581,26 @@ TP:
   </ul>
 </blockquote>
 
-<h3>📋 A-3 진입 조건 (7건 중 4건 이상 충족)</h3>
+<h3>📋 A-3 진입 조건 — ⚠️ <strong>구버전 (외부 검토 #11 / 2026-05-08 historical 격리)</strong></h3>
+
+<div class="callout danger">
+  <p><strong>⭐⭐⭐⭐ 외부 검토 #11 정정 (2026-05-08 14:50 KST / ChatGPT 정합성 검증):</strong></p>
+  <p>본 "7건 중 4건 이상" 룰 = <strong>구버전 (deprecated) / historical 보존만</strong></p>
+  <p><strong>최신 룰 (외부 검토 #7·#9·#10 통합):</strong> A-3 베타 모듈 카테고리 A/B/C/D/E <strong>모두 충족 (5/5)</strong> + 일봉 추세 필터 + 베타 25% 캡 + Position Sizing</p>
+  <p><strong>최신 정의 위치:</strong> <a href="btc-rules-extension.html">⭐ v2 확장</a> (룰 #10·#11·#15 정식 룰화 + 룰 #13 진입 핵심 격상)</p>
+  <p><strong>최신 카테고리 정의:</strong></p>
+  <ul>
+    <li>A. 위치 (1+): 신저점 sweep / 박스권 하단 이탈 회복 / Fib 0.618-0.786 / HTF 주요 지지</li>
+    <li>B. 반전 (1+): Spring 회복 / 쌍바닥 / 첫 강한 반전 캔들</li>
+    <li>C. 모멘텀 (1+): RSI 상승 다이버전스 / RSI 30~50 회복 (OBV 영구 제외)</li>
+    <li>D. 무효화 (필수): Stop이 구조적으로 납득 가능</li>
+    <li>E. FP 방지 (1+): Reclaim / 1H 종가 sweep 위 마감</li>
+  </ul>
+  <p><strong>⭐ 본 섹션 = historical 보존 (5차 사이클 진화 학습 자료) / 진입 시 적용 ❌</strong></p>
+</div>
+
+<details>
+<summary>📜 구버전 본문 (2026-05-04 외부 검토 #6 신설 시점 / historical 보존)</summary>
 
 <div class="callout info">
   <p><strong>진입 조건 7건 = 가격 구조 3 + 모멘텀 2 + 지지 2</strong></p>
@@ -1638,6 +1673,19 @@ TP:
 
 → 어깨 진입 사이즈와 동일 / But Stop 짧아 위험 ↓
 → 진정한 "공격적 운용" = 사이즈 ↑ + 위치 ↓ + 수익 ↑</code></pre>
+
+</details>
+
+<div class="callout success">
+  <p><strong>⭐⭐⭐ A-3 최신 룰 진입 기준 (외부 검토 #7·#9·#10 통합 / 2026-05-08):</strong></p>
+  <ul>
+    <li><strong>카테고리 A/B/C/D/E 모두 충족 (5/5)</strong> + 일봉 추세 필터 통과</li>
+    <li><strong>5요소 매트릭스 6점+ (B급 이상)</strong> 또는 다이버전스 핵심 트리거 (룰 #13 격상 시 6점+ 가능)</li>
+    <li><strong>Position Sizing (Stop 거리 동적 / 베타 25% 캡)</strong></li>
+    <li><strong>룰 #15 Stop 정적 wick low 기준 + α buffer ($80~$100)</strong></li>
+    <li>상세: <a href="btc-rules-extension.html">⭐ v2 확장 (룰 #10·#11·#15 정식 룰화)</a></li>
+  </ul>
+</div>
 
 <h3>🛑 A-3 Stop / TP / Layer 청산 구조</h3>
 
@@ -1933,7 +1981,7 @@ A-3 매트릭스 (5요소):
    - 마진 X USDT 사용 의도 → Amount 입력값 = X × 3
 
 4. Lot Size 고려:
-   - BTC Perp 0.001 BTC 단위로 자동 반올림
+   - BTC Perp 0.0001 BTC 단위로 자동 반올림 (외부 검토 #11 정정 / 2026-05-08)
    - 입력값이 정확히 체결되지 않을 수 있음
 
 5. 3x Isolated 모드 확인 (Cross 모드 혼동 금지)
