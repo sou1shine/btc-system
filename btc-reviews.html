@@ -49,11 +49,55 @@
 <h3>📊 검토 누적 현황</h3>
 
 <ul>
-  <li><strong>총 검토 횟수:</strong> 48회 완료 + <strong>⭐⭐⭐⭐⭐ 검토 #49 (Codex / 정합성 검증 17차 / 4건 정정 + 2건 잔재 검증 / 운영자 본질 질문 "왜 아직도 오류가 나오는지" + 본인 본질 원인 3가지 정직 자가 인식) — 2026-05-11 도착</strong></li>
+  <li><strong>총 검토 횟수:</strong> 49회 완료 + <strong>⭐⭐⭐⭐ 검토 #50 (Codex / 정합성 검증 18차 / 2건 정정 / "실질 잔여는 index:65 메타 + v2:1485 OBV 잔재" / 자가 결함 누적 패턴 7번 라운드 / 본인 #49 정정 시 같은 파일 v2:1485 미검증) — 2026-05-11 도착</strong></li>
   <li><strong>의뢰 패턴:</strong> Self-contained 프롬프트 → Codex + Gemini 순차 / 정밀 정정 (Codex) + 본질 합격 판정 (Gemini) 분기 패턴 (이전 라운드 #17~#47 동형 22번째 누적) → ⭐ #48 = 옵션 A Codex #47 7건 정정 후 정합성 검증 16차 (Codex 단독 / "자가 결함 누적 패턴 5번 라운드" / Codex 일관 패턴 12번째 누적)</li>
   <li><strong>다음 검토 권고 시점:</strong> 옵션 A 4건 정정 완료 후 Gemini 평가 의뢰 (Codex/Gemini 양면 검증)</li>
   <li><strong>최근 검토:</strong> ⭐⭐⭐⭐ 2026-05-11 (검토 #48 Codex 4건 핵심 정정 + 2건 잔재 검증 [ext:387·1031 / card:89·120·140 Tier 2 정합] / README:63 + index:65 + v2:1452·1583) → 자동 진행 = 4건 즉시 정정 + 영구 보존 + 자가 점검 (편향 H 33번째 회귀 / 자가 결함 누적 패턴 5번 라운드 차단)</li>
 </ul>
+
+<hr>
+
+<h2>🤖 검토 #50 — Codex "옵션 A Codex #49 4건 정정 후 정합성 검증 18차 / 2건 정정 / 본인 본질 원인 3가지 재현 사례 (#49 정정 시 같은 파일 v2:1485 미검증)" (2026-05-11)</h2>
+
+<blockquote>
+  <p><strong>작성:</strong> 2026-05-11 (외부 검토 #49 옵션 A 4건 정정 직후)</p>
+  <p><strong>검토 대상:</strong> 옵션 A Codex #49 4건 정정 후 잔존 2건 (index:65 + v2:1485)</p>
+  <p><strong>특수 컨텍스트:</strong> ⭐ Codex 일관 패턴 14번째 / 자가 결함 누적 패턴 7번 라운드 / 본인 본질 원인 #1 "국소 정정" 명확 재현 사례</p>
+</blockquote>
+
+<div class="callout danger">
+  <p><strong>⭐⭐⭐⭐ Codex #50 핵심 결론:</strong></p>
+  <p><strong>"실질 잔여는 index.html:65 메타 버전 1건, btc-system-v2.html:1485 OBV 잔재 1건"</strong></p>
+</div>
+
+<h3>📊 Codex #50 2건 정정 영역</h3>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>#</th><th>영역</th><th>심각도</th><th>Codex 지적</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>1</strong></td><td>index.html:65 카드 본문 메타 "외부 검토 48회 / × 8라운드 / 72건 / #41~#48"</td><td>⭐⭐⭐ Medium</td><td>"line 64 = × 9라운드 / #29~#49 / 76건 / 같은 카드 내부 충돌"</td></tr>
+<tr><td><strong>2</strong></td><td><strong>btc-system-v2.html:1485 A-3 매트릭스 6요소 표 "RSI 또는 OBV"</strong></td><td>⭐⭐⭐⭐ HIGH</td><td>"같은 파일 v2:1709 = RSI 또는 VPD (OBV 영구 제외) 정정 ✅ But v2:1485 미정정 / 본인 #49 정정 시 같은 파일 다른 line 미검증"</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>⭐⭐⭐⭐⭐ 본인 본질 원인 #1 "국소 정정" 명확 재현 사례 (영구 보존)</h3>
+
+<pre><code>본인 #49 정정 시:
+- v2:1709 (A-3 매트릭스 표) 정정 ✅
+- But 같은 파일 v2:1485 (A-3 매트릭스 6요소 표) 미검증 ❌
+- index:65 = 본인 #48 갱신 But #49에서 추가 갱신 미적용
+
+= ⭐ 본인 본질 원인 #1 "국소 정정 + 같은 파일 다른 line 미검증" 명확 재현 사례
+= 본인 #49 footer 명시 본질 원인이 #50에서 즉시 재현 = 자가 인식 + 즉시 실패 패턴
+= 외부 검토 양면 검증 메커니즘 본질 강화
+
+⭐ 자가 결함 누적 패턴 7번 라운드 (#44~#50):
+#44 → #45 → #46 → #47 → #48 → #49 → #50 = 7번 연속 본인 단독 정정 한계 재현
+= 외부 검토 의존성 본질 강화 (메타 #9 정합)</code></pre>
 
 <hr>
 
