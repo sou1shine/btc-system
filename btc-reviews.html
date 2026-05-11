@@ -49,11 +49,70 @@
 <h3>📊 검토 누적 현황</h3>
 
 <ul>
-  <li><strong>총 검토 횟수:</strong> 44회 완료 + <strong>⭐⭐⭐⭐ 검토 #45 (Codex / 정합성 검증 13차 / 6건 정정 / "핵심 정본은 거의 정합 / 남은 건 '운영 정본'보다 '자동 로드/요약/구 설명' 쪽 잔재") — 2026-05-11 도착</strong></li>
-  <li><strong>의뢰 패턴:</strong> Self-contained 프롬프트 → Codex + Gemini 순차 / 정밀 정정 (Codex) + 본질 합격 판정 (Gemini) 분기 패턴 (이전 라운드 #17~#44 동형 19번째 누적) → ⭐ #45 = 옵션 A Codex #44 5건 정정 후 정합성 검증 13차 (Codex 단독 / "한 파일 내부 + 같은 블록 내부 동기화 의무" 신규 명제 / Codex 일관 패턴 9번째 누적)</li>
-  <li><strong>다음 검토 권고 시점:</strong> 옵션 A 6건 정정 완료 후 Gemini 평가 의뢰 (Codex/Gemini 양면 검증)</li>
-  <li><strong>최근 검토:</strong> ⭐⭐⭐⭐ 2026-05-11 (검토 #45 Codex 6건 정정 / CLAUDE.md:13 자동 로드 최상단 + ext:370 같은 블록 내부 + ext:389 룰 #13 + ext:491 메타 #14 + README:4 + index:32·35) → 운영자 명령 "옵션 A 진행" = 6건 즉시 정정 + 영구 보존 + 자가 점검 (편향 H 30번째 회귀 차단)</li>
+  <li><strong>총 검토 횟수:</strong> 45회 완료 + <strong>⭐⭐⭐⭐ 검토 #46 (Codex / 정합성 검증 14차 / 3건 정정 + 1건 검증 완료 / "실전 판단을 크게 뒤집는 모순은 거의 해소 / 남은 것은 자동 로드/README/index 버전 동기화와 한 줄짜리 표현 잔재") — 2026-05-11 도착</strong></li>
+  <li><strong>의뢰 패턴:</strong> Self-contained 프롬프트 → Codex + Gemini 순차 / 정밀 정정 (Codex) + 본질 합격 판정 (Gemini) 분기 패턴 (이전 라운드 #17~#45 동형 20번째 누적) → ⭐ #46 = 옵션 A Codex #45 6건 정정 후 정합성 검증 14차 (Codex 단독 / "버전 동기화 강화" 명제 / Codex 일관 패턴 10번째 누적)</li>
+  <li><strong>다음 검토 권고 시점:</strong> 옵션 A 3건 정정 완료 후 Gemini 평가 의뢰 (Codex/Gemini 양면 검증)</li>
+  <li><strong>최근 검토:</strong> ⭐⭐⭐⭐ 2026-05-11 (검토 #46 Codex 3건 정정 + README:4·35 = 이미 정정 완료 정직 보고 / CLAUDE:18 + index:65 + ext:340) → 운영자 명령 "옵션 A 진행" = 3건 즉시 정정 + 영구 보존 + 자가 점검 (편향 H 31번째 회귀 차단 / Codex #45 본인 명제 위반 자가 인정)</li>
 </ul>
+
+<hr>
+
+<h2>🤖 검토 #46 — Codex "옵션 A Codex #45 6건 정정 후 정합성 검증 14차 / 3건 정정 + 1건 검증 완료 / 버전 동기화 강화" (2026-05-11)</h2>
+
+<blockquote>
+  <p><strong>작성:</strong> 2026-05-11 (외부 검토 #45 옵션 A 6건 정정 직후 / Gemini 평가 미도착)</p>
+  <p><strong>검토 대상:</strong> 옵션 A Codex #45 6건 정정 후 잔존 버전 표기 + 한 줄 표현 (Codex 일관 패턴 10번째 누적)</p>
+  <p><strong>특수 컨텍스트:</strong> ⭐⭐⭐⭐ Codex 일관 패턴 10번째 / "버전 동기화 강화" 명제 / Codex #45 본인 명제 위반 자가 인정</p>
+</blockquote>
+
+<div class="callout success">
+  <p><strong>⭐⭐⭐⭐ Codex #46 핵심 결론:</strong></p>
+  <p><strong>"실전 판단을 크게 뒤집는 모순은 거의 해소"</strong></p>
+  <p><strong>"남은 것은 자동 로드/README/index의 버전 동기화와 한 줄짜리 표현 잔재"</strong></p>
+</div>
+
+<h3>📊 Codex #46 4건 정정 영역 (3건 즉시 + 1건 검증 완료)</h3>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>#</th><th>영역</th><th>심각도</th><th>Codex 지적</th><th>출처</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>1</strong></td><td><strong>CLAUDE.md:13 (#45/58) vs CLAUDE.md:18 (#29~#44/52) 같은 파일 내부 충돌</strong></td><td>⭐⭐⭐⭐ HIGH</td><td>"line 13 = #45/58 ✅ But line 18 = #29~#44/52 잔존 / 같은 파일 내부 동기화 의무 (Codex #45 본인 명제 위반)"</td><td>CLAUDE.md:13 vs 18</td></tr>
+<tr><td><strong>2</strong></td><td>README.md:4 + 35 #43/47 잔존</td><td>⭐⭐⭐ Medium</td><td>"자가 검증 결과 = 이미 #45/58 정정 완료 ✅ (Codex #45 정정 시 적용 / 정직 보고)"</td><td>README.md:4·35 (이미 정정)</td></tr>
+<tr><td><strong>3</strong></td><td>index.html:65 같은 카드 내부 "Codex #41·#42" 옵션 α까지만 표기</td><td>⭐⭐⭐ Medium</td><td>"index:32 = #45/58 ✅ But index:65 = Codex 표기 #41·#42까지만 / 같은 카드 내부 통일"</td><td>index.html:65</td></tr>
+<tr><td><strong>4</strong></td><td>ext:340 "RSI 다이버전스 / RSI 30~50 회복" 표현</td><td>⭐⭐ Low</td><td>"다이버전스 = 대체 조건처럼 / RSI 30~50 의무 / 다이버전스 검증 필수·발생 선택으로 통일"</td><td>ext:340</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>🎯 외부 검토 #46 영구 보존 학습</h3>
+
+<pre><code>1. ⭐⭐⭐⭐⭐ Codex #45 본인 명제 위반 자가 인정 (편향 H 31번째 회귀):
+   - Codex #45 명제 = "한 파일 내부 + 같은 블록 내부 동기화 의무"
+   - 본인 #45 정정 시 line 13 갱신 ✅ But line 18 미갱신 ❌ (본인 명제 위반)
+   - = 편향 H 변형 가장 강력 (자기 명제 위반 / 자기 정정 합리화)
+   - = Codex #46 = 본인 명제 위반 자가 인정 메커니즘 작동
+
+2. ⭐⭐⭐⭐ Codex 일관 패턴 10번째 누적 (#34~#46 / 10번 라운드):
+   - 자동 로드 우선순위 / 버전 동기화 / 합산/조합 / 수학적 정합
+   - 표 vs 상세 통일 / 전역 제거 / 자동 로드 + 구 섹션
+   - 한 파일 + 블록 내부 동기화 (#45)
+   - ⭐ "버전 동기화 강화 = 정정 라운드 적용 시 같은 파일·카드 내 모든 line 동시 갱신" (#46)
+
+3. ⭐⭐⭐⭐ "README:4·35 자가 검증 정직 보고" 메커니즘 (Codex #44 #6 동형):
+   - Codex #46 = "README:4·35 #43/47 잔존" 지적
+   - 자가 검증 결과 = 이미 #45/58 정정 완료 (Codex #45 정정 시 적용)
+   - = 외부 검토 자동 수용 ❌ / 정합 검증 후 정확 보고 의무
+
+4. ⭐⭐⭐ "실전 판단 모순 거의 해소" 본질 (Codex #46 합격 영역 인정):
+   - 본질 영역 = 정합 완성 ✅
+   - 잔존 = 버전 표기 + 한 줄 표현 잔재 (가벼운 영역)
+   - = 시스템 완성 영역 진입 단계
+
+= Codex #46 = 정합성 검증 14차 / "버전 동기화 강화" + "본인 명제 위반 자가 인정"
+= 옵션 A 채택 = Codex 3건 즉시 정정 + README 검증 완료 정직 보고 + 영구 보존</code></pre>
 
 <hr>
 
