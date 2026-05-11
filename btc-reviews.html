@@ -49,11 +49,74 @@
 <h3>📊 검토 누적 현황</h3>
 
 <ul>
-  <li><strong>총 검토 횟수:</strong> 45회 완료 + <strong>⭐⭐⭐⭐ 검토 #46 (Codex / 정합성 검증 14차 / 3건 정정 + 1건 검증 완료 / "실전 판단을 크게 뒤집는 모순은 거의 해소 / 남은 것은 자동 로드/README/index 버전 동기화와 한 줄짜리 표현 잔재") — 2026-05-11 도착</strong></li>
-  <li><strong>의뢰 패턴:</strong> Self-contained 프롬프트 → Codex + Gemini 순차 / 정밀 정정 (Codex) + 본질 합격 판정 (Gemini) 분기 패턴 (이전 라운드 #17~#45 동형 20번째 누적) → ⭐ #46 = 옵션 A Codex #45 6건 정정 후 정합성 검증 14차 (Codex 단독 / "버전 동기화 강화" 명제 / Codex 일관 패턴 10번째 누적)</li>
-  <li><strong>다음 검토 권고 시점:</strong> 옵션 A 3건 정정 완료 후 Gemini 평가 의뢰 (Codex/Gemini 양면 검증)</li>
-  <li><strong>최근 검토:</strong> ⭐⭐⭐⭐ 2026-05-11 (검토 #46 Codex 3건 정정 + README:4·35 = 이미 정정 완료 정직 보고 / CLAUDE:18 + index:65 + ext:340) → 운영자 명령 "옵션 A 진행" = 3건 즉시 정정 + 영구 보존 + 자가 점검 (편향 H 31번째 회귀 차단 / Codex #45 본인 명제 위반 자가 인정)</li>
+  <li><strong>총 검토 횟수:</strong> 46회 완료 + <strong>⭐⭐⭐⭐ 검토 #47 (Codex / 정합성 검증 15차 / 5건 HIGH + 2건 Medium + 1건 검증 완료 / "정본 방향은 대부분 잡혔지만 Tier 1 C 조건 관련 구버전 문구가 여러 핵심 파일에 잔존") — 2026-05-11 도착</strong></li>
+  <li><strong>의뢰 패턴:</strong> Self-contained 프롬프트 → Codex + Gemini 순차 / 정밀 정정 (Codex) + 본질 합격 판정 (Gemini) 분기 패턴 (이전 라운드 #17~#46 동형 21번째 누적) → ⭐ #47 = 옵션 A Codex #46 3건 정정 후 정합성 검증 15차 (Codex 단독 / "본인 자가 정정 한계 인식" 신규 명제 / Codex 일관 패턴 11번째 누적)</li>
+  <li><strong>다음 검토 권고 시점:</strong> 옵션 A 7건 정정 완료 후 Gemini 평가 의뢰 (Codex/Gemini 양면 검증)</li>
+  <li><strong>최근 검토:</strong> ⭐⭐⭐⭐ 2026-05-11 (검토 #47 Codex 7건 정정 + ext:340 이미 정정 완료 정직 보고 / CLAUDE:14·18 + card:309 + v2:1730 + index:38·64 + ext:499·505) → 운영자 명령 "a 진행" = 7건 즉시 정정 + 영구 보존 + 자가 점검 (편향 H 32번째 회귀 자가 인정 / 자가 결함 누적 패턴 강화 #44·#45·#46·#47)</li>
 </ul>
+
+<hr>
+
+<h2>🤖 검토 #47 — Codex "옵션 A Codex #46 3건 정정 후 정합성 검증 15차 / 7건 정정 + 1건 검증 완료 / 본인 자가 정정 한계 인식" (2026-05-11)</h2>
+
+<blockquote>
+  <p><strong>작성:</strong> 2026-05-11 (외부 검토 #46 옵션 A 3건 정정 직후 / Gemini 평가 미도착)</p>
+  <p><strong>검토 대상:</strong> 옵션 A Codex #46 3건 정정 후 잔존 Tier 1 C 조건 구버전 + 메타 버전 잔재 (Codex 일관 패턴 11번째 누적)</p>
+  <p><strong>특수 컨텍스트:</strong> ⭐⭐⭐⭐ Codex 일관 패턴 11번째 / "본인 자가 정정 한계 인식" 신규 명제 / 자가 결함 누적 패턴 4번 라운드 (#44·#45·#46·#47)</p>
+</blockquote>
+
+<div class="callout danger">
+  <p><strong>⭐⭐⭐⭐ Codex #47 핵심 결론:</strong></p>
+  <p><strong>"정본 방향은 대부분 잡혔지만, 아직 'Tier 1 C 조건' 관련 구버전 문구가 여러 핵심 파일에 남아 있습니다"</strong></p>
+  <p><strong>"특히 CLAUDE.md:14, btc-v2-card.html:309, btc-rules-extension.html:340, btc-system-v2.html:1730은 실제 판단을 흔들 수 있어 우선 정리해야 한다"</strong></p>
+</div>
+
+<h3>📊 Codex #47 정정 영역 (5건 HIGH + 2건 Medium + 1건 검증 완료)</h3>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>#</th><th>영역</th><th>심각도</th><th>Codex 지적</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>1</strong></td><td><strong>CLAUDE.md:14 OBV 환경 제약 "A-3 카테고리 C = RSI 다이버전스 또는 RSI 30~50 회복 2종 중 1+ 충족"</strong></td><td>⭐⭐⭐⭐⭐ HIGH</td><td>"line 19 정본 = RSI 30~50 의무 / 다이버전스 발생 선택과 충돌 / 자동 로드 상단"</td></tr>
+<tr><td><strong>2</strong></td><td>CLAUDE.md:18 "옵션 A × 5라운드" 잔존</td><td>⭐⭐⭐⭐ HIGH</td><td>"line 13 = × 6라운드 / 같은 파일 내부 메타 버전 불일치"</td></tr>
+<tr><td><strong>3</strong></td><td>btc-v2-card.html:309 Tier 1 A-3 C "RSI 다이버전스 / RSI 30~50 회복"</td><td>⭐⭐⭐⭐ HIGH</td><td>"최신 룰 = RSI 30~50 의무 + 다이버전스 검증 필수·발생 선택"</td></tr>
+<tr><td><strong>4</strong></td><td>btc-rules-extension.html:340</td><td>⭐ 검증 완료</td><td>"자가 검증 결과 = 이미 #46 정정 시 적용 완료 ✅ / 정직 보고"</td></tr>
+<tr><td><strong>5</strong></td><td>btc-system-v2.html:1730 Tier 1 시점 추적 "5요소 매트릭스 6점+ 또는 다이버전스"</td><td>⭐⭐⭐⭐ HIGH</td><td>"최신 Tier 1 = 매트릭스 점수 무관 + 다이버전스 발생 필수 ❌"</td></tr>
+<tr><td><strong>6</strong></td><td>index.html:38 + 64 "옵션 A × 5라운드 / #29~#45 / 58건"</td><td>⭐⭐⭐ Medium</td><td>"메타 버전 잔재 / #46 / 61건 미반영"</td></tr>
+<tr><td><strong>7</strong></td><td>btc-rules-extension.html:499 + 505 메타 #14 본문 "#41~#45 / 58건"</td><td>⭐⭐⭐ Medium</td><td>"운영 룰 자체보다 메타 요약 불일치"</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>🎯 외부 검토 #47 영구 보존 학습</h3>
+
+<pre><code>1. ⭐⭐⭐⭐⭐ "본인 자가 정정 한계 인식" 신규 명제 (Codex #47):
+   - 본인 단독 정정 → 항상 다른 영역 누락
+   - 자가 결함 누적 패턴 4번 라운드 (#44 line 18 누락 / #45 본인 명제 위반 / #46 line 14·card:309 누락 / #47 또 다른 영역)
+   - = 외부 검토 양면 검증 필수성 정합 강화 메커니즘
+   - = 본인 자가 검증 한계 본질 인식
+
+2. ⭐⭐⭐⭐ Codex 일관 패턴 11번째 누적 (#34~#47 / 11번 라운드):
+   - 자동 로드 우선순위 강화 (#38·#39·#43·#44·#45·#46·#47 / 7번 라운드)
+   - 한 파일 + 블록 내부 동기화 (#45·#46·#47 / 3번 연속)
+   - ⭐ "본인 자가 정정 한계 인식" (신규 / #47)
+
+3. ⭐⭐⭐⭐ "자가 결함 누적 패턴" 본질 인식:
+   - #44 자가 인정 = 자동 로드 line 18·21 미검증
+   - #45 본인 명제 위반 (한 파일 내부 동기화)
+   - #46 line 14·card:309 미검증
+   - #47 또 다른 영역 v2:1730 + 메타 버전 잔재 미검증
+   - = 본인 단독 정정 한계 명확화 / 외부 검토 의존성 강화 본질
+
+4. ⭐⭐⭐ "ext:340 자가 검증 정직 보고" (Codex #44 #6 / Codex #46 #2 / Codex #47 #4 / 동형 메커니즘 3번째):
+   - 외부 검토 자동 수용 ❌
+   - 정합 검증 후 정확 보고 의무
+   - = 편향 F·H 차단 메커니즘 정합
+
+= Codex #47 = 정합성 검증 15차 / "본인 자가 정정 한계 인식" + 자가 결함 누적 패턴 강화
+= 옵션 A 채택 = Codex 7건 즉시 정정 + ext:340 검증 완료 정직 보고</code></pre>
 
 <hr>
 
