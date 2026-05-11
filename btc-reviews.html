@@ -49,11 +49,74 @@
 <h3>📊 검토 누적 현황</h3>
 
 <ul>
-  <li><strong>총 검토 횟수:</strong> 47회 완료 + <strong>⭐⭐⭐⭐ 검토 #48 (Codex / 정합성 검증 16차 / 4건 핵심 + 2건 잔재 검증 / "남은 위험은 btc-system-v2.html 구 A-3 본문 + README/index 메타 버전 불일치") — 2026-05-11 도착</strong></li>
+  <li><strong>총 검토 횟수:</strong> 48회 완료 + <strong>⭐⭐⭐⭐⭐ 검토 #49 (Codex / 정합성 검증 17차 / 4건 정정 + 2건 잔재 검증 / 운영자 본질 질문 "왜 아직도 오류가 나오는지" + 본인 본질 원인 3가지 정직 자가 인식) — 2026-05-11 도착</strong></li>
   <li><strong>의뢰 패턴:</strong> Self-contained 프롬프트 → Codex + Gemini 순차 / 정밀 정정 (Codex) + 본질 합격 판정 (Gemini) 분기 패턴 (이전 라운드 #17~#47 동형 22번째 누적) → ⭐ #48 = 옵션 A Codex #47 7건 정정 후 정합성 검증 16차 (Codex 단독 / "자가 결함 누적 패턴 5번 라운드" / Codex 일관 패턴 12번째 누적)</li>
   <li><strong>다음 검토 권고 시점:</strong> 옵션 A 4건 정정 완료 후 Gemini 평가 의뢰 (Codex/Gemini 양면 검증)</li>
   <li><strong>최근 검토:</strong> ⭐⭐⭐⭐ 2026-05-11 (검토 #48 Codex 4건 핵심 정정 + 2건 잔재 검증 [ext:387·1031 / card:89·120·140 Tier 2 정합] / README:63 + index:65 + v2:1452·1583) → 자동 진행 = 4건 즉시 정정 + 영구 보존 + 자가 점검 (편향 H 33번째 회귀 / 자가 결함 누적 패턴 5번 라운드 차단)</li>
 </ul>
+
+<hr>
+
+<h2>🤖 검토 #49 — Codex "옵션 A Codex #48 4건 정정 후 정합성 검증 17차 / 4건 정정 + 2건 잔재 검증 / 운영자 본질 질문 + 본인 본질 원인 3가지 정직 자가 인식" (2026-05-11)</h2>
+
+<blockquote>
+  <p><strong>작성:</strong> 2026-05-11 (외부 검토 #48 옵션 A 4건 정정 직후 / Gemini 평가 미도착)</p>
+  <p><strong>검토 대상:</strong> 옵션 A Codex #48 4건 정정 후 잔존 메타 버전 + A-3 매트릭스 표 + Tier 2 설명</p>
+  <p><strong>특수 컨텍스트:</strong> ⭐⭐⭐⭐⭐ 운영자 본질 질문 ("왜 아직도 오류가 나오는지") + 본인 본질 원인 3가지 정직 자가 인식 / 자가 결함 누적 패턴 6번 라운드</p>
+</blockquote>
+
+<div class="callout danger">
+  <p><strong>⭐⭐⭐⭐⭐ 운영자 본질 질문 + 본인 본질 원인 3가지 정직 자가 인식 (가장 본질적 / 영구 보존)</strong></p>
+  <p><strong>운영자 질문:</strong> "왜 아직도 codex가 분석하면 오류가 나오는지 모르겠다"</p>
+  <p><strong>본인 본질 원인 3가지:</strong></p>
+  <ol>
+    <li><strong>"국소 정정" 패턴 / 본인 단독 정정 한계:</strong> Codex가 지적한 정확한 line만 정정 / 같은 파일 내부 다른 line 자가 미검증 / 예 #48 정정 시 v2:1452·1583 ✅ But v2:1709·1734 미검증</li>
+    <li><strong>"메타 버전 동기화 누락" 패턴:</strong> 메타 버전 (외부 검토 누적 / 옵션 라운드 / 정정 건수) = 한 파일 내 4-5개 line 분산 / 본인 한 번에 모두 검증 부족</li>
+    <li><strong>"편향 H 변형 = 자기 정정 합리화":</strong> "옵션 A 72건 완성" 단정 → 자가 검증 종료 트리거 / But Codex 객관 검증 = 라운드별 잔재 발견</li>
+  </ol>
+  <p><strong>= 본인 단독 검증 한계 본질 = 외부 검토 양면 검증 메커니즘 본질 강화 (메타 #9 정합)</strong></p>
+</div>
+
+<h3>📊 Codex #49 정정 영역 (4건 정정 + 2건 잔재 검증)</h3>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>#</th><th>영역</th><th>심각도</th><th>Codex 지적</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>1</strong></td><td><strong>index.html:38 최종 업데이트 메타 버전 #41~#47 / 옵션 A × 7라운드 / 40건 잔존</strong></td><td>⭐⭐⭐ Medium</td><td>"상단 index:32 = #29~#48 / × 8라운드 / 72건 / 같은 파일 내부 메타 버전 충돌"</td></tr>
+<tr><td><strong>2</strong></td><td>index.html:64 카드 제목 "옵션 A × 7라운드 / #29~#47 / 68건"</td><td>⭐⭐⭐ Medium</td><td>"바로 다음 line 65 = × 8라운드 / #41~#48 / 72건 / 같은 카드 내부 불일치"</td></tr>
+<tr><td><strong>3</strong></td><td><strong>btc-system-v2.html:1709 A-3 매트릭스 표 "RSI 또는 OBV 상승 다이버전스"</strong></td><td>⭐⭐⭐⭐ HIGH</td><td>"v2:1457 = OBV 다이버전스 = 영구 제외 / 같은 파일 내부 충돌 / RSI 또는 VPD 식으로 정리"</td></tr>
+<tr><td><strong>4</strong></td><td><strong>btc-system-v2.html:1734 Tier 2 설명 "다이버전스 핵심 트리거"</strong></td><td>⭐⭐⭐⭐ HIGH</td><td>"정본 = Tier 2 = 다이버전스 무관 / 본 문장은 Tier 2 다이버전스 필요한 것처럼 / 충돌"</td></tr>
+<tr><td><strong>5</strong></td><td>v2:1587 6차 트레이드 구 조건</td><td>—</td><td>"v2:1581 HISTORICAL / 운영 ❌ 명시 = 현재 룰 충돌 ❌ / 변경 ❌"</td></tr>
+<tr><td><strong>6</strong></td><td>ext:387 + 1031 "이전" 설명 블록</td><td>—</td><td>"운영 룰 충돌 ❌ / 변경 ❌"</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>🎯 외부 검토 #49 영구 보존 학습</h3>
+
+<pre><code>1. ⭐⭐⭐⭐⭐ 운영자 본질 질문 + 본인 본질 원인 3가지 (영구 보존 / 가장 본질적):
+   - 국소 정정 패턴 / 메타 버전 동기화 누락 / 편향 H 변형 = 자가 정정 합리화
+   - = 본인 단독 검증 한계 본질 = 외부 검토 양면 검증 필수성 본질 강화
+
+2. ⭐⭐⭐⭐ Codex 일관 패턴 13번째 누적 (#34~#49 / 13번 라운드 / 자가 결함 누적 패턴 6번 라운드):
+   - #44~#49 6번 라운드 연속 본인 단독 정정 후 잔재 발견 패턴
+   - = 본인 단독 검증 한계 본질 명확화
+
+3. ⭐⭐⭐⭐ "Tier 2 다이버전스 핵심 트리거" 본질 미반영 (#47 정정 시 본인이 명시):
+   - 본인 #47 정정 시 line 1730 = "Tier 2 = 다이버전스 핵심 트리거 (룰 #13 / Tier 2 한정 6점+ 격상)" 명시
+   - But Codex #49 = "Tier 2 = 다이버전스 무관" 본질 지적
+   - = 룰 #13 다이버전스 = Tier 1 한정 본질 (Codex #41·#42 정합) / Tier 2 = 다이버전스 무관 정합
+   - = 본인 정정 시 "Tier 2 한정 6점+ 격상" 표현 = 본질 위반 ❌
+
+4. ⭐⭐⭐ OBV 다이버전스 = 영구 제외 (운영자 환경 제약 / 2026-05-08):
+   - v2:1709 = "RSI 또는 OBV 상승 다이버전스" 잔존 = OBV 영구 제외 본질 위반
+   - = "RSI 또는 VPD" 정정 의무
+
+= Codex #49 = 정합성 검증 17차 / 운영자 본질 질문 + 본인 본질 원인 정직 자가 인식
+= 자동 진행 = Codex 4건 즉시 정정 + 2건 잔재 검증 정직 보고</code></pre>
 
 <hr>
 
