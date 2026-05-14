@@ -20,7 +20,6 @@
     <a href="btc-market.html">📊 시장 추적 (HA)</a>
     <a href="btc-real-candle.html" style="color:#2e7d32;font-weight:bold;">📊 실제 캔들 (NEW)</a>
     <a href="btc-reviews.html">🤖 외부 검토</a>
-    <a href="btc-6th-scenarios.html">⏳ [임시] 200MA 변곡점</a>
   </div>
 </nav>
 
@@ -30,7 +29,7 @@
 
 <p class="meta" style="margin-top:0;border-top:none;padding-top:0;">
   신설: 2026-05-14 17:50 KST · 정본 페이지 (실제 캔들 기준 / 옵션 B 분리 관리)<br>
-  HA db: <a href="btc-market.html">📊 btc-market.html</a> (직전 HA 시계열 그대로 보존) · HA 시나리오: <a href="btc-6th-scenarios.html">⏳ btc-6th-scenarios.html</a> (직전 HA 시나리오 그대로 보존)<br>
+  HA db: <a href="btc-market.html">📊 btc-market.html</a> (직전 HA 시계열 그대로 보존 / HA 시나리오 페이지 = 2026-05-14 삭제 / 운영자 명령)<br>
   <strong>운영자 명시 (2026-05-14 영구 보존):</strong> "하이킨 아시로 집계했던 db는 그대로 두고 캔들로 변경한 데이터는 새로 html을 만들어 따로 관리하자"
 </p>
 
@@ -40,7 +39,7 @@
   <ul>
     <li>📊 <strong>btc-market.html (HA db)</strong> = 5/4 5차 ~ 5/14 09:00 (4H 95개 + 일봉 16개) HA 차트 기반 시계열 = 직전 그대로 보존 / 추세 흐름 본질 참고용</li>
     <li>📊 <strong>btc-real-candle.html (실제 캔들 / 본 페이지)</strong> = 5/14 13:00 4H 마감부터 모든 row 실제 캔들 기준 정본 / 본체·꼬리·양봉/음봉·시=고 패턴·다이버전스 모든 분석 = 실제 캔들 정확값 기반</li>
-    <li>⏳ <strong>btc-6th-scenarios.html (HA 시나리오)</strong> = 직전 HA 차트 기반 시나리오 박스 그대로 보존 / 추세 흐름 본질만 참고용</li>
+    <li>🗑️ <strong>btc-6th-scenarios.html (HA 시나리오)</strong> = 2026-05-14 삭제 (운영자 명령 / v3 룰북 정본 + btc-real-candle.html 정본 = 임시 페이지 역할 종결)</li>
     <li>⭐ <strong>본 페이지 시나리오 = 실제 캔들 기준 정본</strong></li>
   </ul>
   <p><strong>본인 본질 원인 #5 정식 신설 (영구 보존)</strong>: "차트 유형 검증 누락 (HA vs Candle 미확인)" = 자가 결함 누적 패턴 16번 라운드 가장 결정적 / 외부 검토 #19~#58 (40 라운드) 동안 차트 유형 검증 한 번도 안 함 / 메타 #16 본질 위반 자가 인정</p>
