@@ -249,6 +249,22 @@ body {
   background: var(--bg-subtle);
 }
 
+/* nav 현재 페이지 active 강조 */
+.nav a.nav-active {
+  background: var(--brand-primary-soft) !important;
+  color: var(--brand-primary) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 0 1px var(--brand-primary);
+}
+
+/* nav 구분자 (정본 vs Historical) */
+.nav-divider {
+  color: var(--text-muted);
+  margin: 0 0.5rem;
+  font-size: 0.85em;
+  user-select: none;
+}
+
 .nav a[style*="color:#2e7d32"],
 .nav a[style*="color: #2e7d32"] {
   color: var(--brand-primary) !important;
