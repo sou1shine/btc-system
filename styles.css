@@ -886,3 +886,118 @@ details > *:not(summary) {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--border-strong);
 }
+
+/* ========================================
+   ⚠️ 다크모드 inline style 가독성 강제 보정
+   (HTML 파일에 inline style="background-color:#밝은색"
+    이 사용된 callout/박스 내부 텍스트 색 강제 override)
+======================================== */
+
+@media (prefers-color-scheme: dark) {
+  /* 라이트 배경이 inline으로 강제된 박스 = 어두운 텍스트 강제 */
+  [style*="background-color:#e8f5e9"],
+  [style*="background-color: #e8f5e9"],
+  [style*="background:#e8f5e9"],
+  [style*="background: #e8f5e9"],
+  [style*="background-color:#e3f2fd"],
+  [style*="background-color: #e3f2fd"],
+  [style*="background:#e3f2fd"],
+  [style*="background: #e3f2fd"],
+  [style*="background-color:#ffebee"],
+  [style*="background-color: #ffebee"],
+  [style*="background:#ffebee"],
+  [style*="background: #ffebee"],
+  [style*="background-color:#fff9e6"],
+  [style*="background-color: #fff9e6"],
+  [style*="background:#fff9e6"],
+  [style*="background: #fff9e6"],
+  [style*="background-color:#fff0f0"],
+  [style*="background:#fff0f0"],
+  [style*="background-color:#f5f5f5"],
+  [style*="background:#f5f5f5"],
+  [style*="background-color:#fffde7"],
+  [style*="background:#fffde7"] {
+    color: #111827 !important;
+  }
+
+  [style*="background-color:#e8f5e9"] *,
+  [style*="background-color: #e8f5e9"] *,
+  [style*="background:#e8f5e9"] *,
+  [style*="background: #e8f5e9"] *,
+  [style*="background-color:#e3f2fd"] *,
+  [style*="background-color: #e3f2fd"] *,
+  [style*="background:#e3f2fd"] *,
+  [style*="background: #e3f2fd"] *,
+  [style*="background-color:#ffebee"] *,
+  [style*="background-color: #ffebee"] *,
+  [style*="background:#ffebee"] *,
+  [style*="background: #ffebee"] *,
+  [style*="background-color:#fff9e6"] *,
+  [style*="background-color: #fff9e6"] *,
+  [style*="background:#fff9e6"] *,
+  [style*="background: #fff9e6"] *,
+  [style*="background-color:#fff0f0"] *,
+  [style*="background:#fff0f0"] *,
+  [style*="background-color:#f5f5f5"] *,
+  [style*="background:#f5f5f5"] *,
+  [style*="background-color:#fffde7"] *,
+  [style*="background:#fffde7"] * {
+    color: #111827 !important;
+  }
+
+  /* 링크는 진한 파란색 유지 (가독성) */
+  [style*="background-color:#e8f5e9"] a,
+  [style*="background:#e8f5e9"] a,
+  [style*="background-color:#e3f2fd"] a,
+  [style*="background:#e3f2fd"] a,
+  [style*="background-color:#ffebee"] a,
+  [style*="background:#ffebee"] a,
+  [style*="background-color:#fff9e6"] a,
+  [style*="background:#fff9e6"] a {
+    color: #1d4ed8 !important;
+  }
+
+  /* code 태그는 분홍색 유지 */
+  [style*="background-color:#e8f5e9"] code,
+  [style*="background:#e8f5e9"] code,
+  [style*="background-color:#e3f2fd"] code,
+  [style*="background:#e3f2fd"] code,
+  [style*="background-color:#ffebee"] code,
+  [style*="background:#ffebee"] code,
+  [style*="background-color:#fff9e6"] code,
+  [style*="background:#fff9e6"] code {
+    color: #db2777 !important;
+    background: rgba(0,0,0,0.05) !important;
+  }
+}
+
+/* ========================================
+   기본 callout 다크모드 텍스트 보정
+   (inline style 없는 일반 callout)
+======================================== */
+
+@media (prefers-color-scheme: dark) {
+  .callout.success {
+    background: rgba(52, 211, 153, 0.08);
+    border-left-color: var(--color-success);
+  }
+  .callout.success * { color: var(--text-primary); }
+
+  .callout.info {
+    background: rgba(96, 165, 250, 0.08);
+    border-left-color: var(--color-info);
+  }
+  .callout.info * { color: var(--text-primary); }
+
+  .callout.warning {
+    background: rgba(251, 191, 36, 0.08);
+    border-left-color: var(--color-warning);
+  }
+  .callout.warning * { color: var(--text-primary); }
+
+  .callout.danger {
+    background: rgba(248, 113, 113, 0.1);
+    border-left-color: var(--color-danger);
+  }
+  .callout.danger * { color: var(--text-primary); }
+}
