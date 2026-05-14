@@ -97,56 +97,57 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-base: #0a0a0a;
-    --bg-surface: #141414;
-    --bg-elevated: #1c1c1c;
-    --bg-subtle: #1f1f1f;
-    --bg-muted: #2a2a2a;
-    --bg-code: #1f1f1f;
-    --bg-table-header: #1c1c1c;
-    --bg-table-row: #141414;
-    --bg-table-row-alt: #1a1a1a;
-    --bg-callout: #1c1c1c;
-    --bg-warning: #3a2e0a;
-    --bg-danger: #3a1414;
-    --bg-success: #0a3a1f;
-    --bg-info: #0a1f3a;
+    /* Linear / Vercel 다크모드 색조 (대비 강화) */
+    --bg-base: #0b0b0d;
+    --bg-surface: #16161a;
+    --bg-elevated: #1c1c22;
+    --bg-subtle: #1f1f25;
+    --bg-muted: #28282f;
+    --bg-code: #1f1f25;
+    --bg-table-header: #1a1a1f;
+    --bg-table-row: #16161a;
+    --bg-table-row-alt: #1c1c22;
+    --bg-callout: #1c1c22;
+    --bg-warning: rgba(251, 191, 36, 0.08);
+    --bg-danger: rgba(248, 113, 113, 0.1);
+    --bg-success: rgba(52, 211, 153, 0.08);
+    --bg-info: rgba(96, 165, 250, 0.08);
 
-    --text-primary: #f3f4f6;
-    --text-secondary: #9ca3af;
-    --text-muted: #6b7280;
+    --text-primary: #ecedee;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
     --text-link: #60a5fa;
     --text-link-hover: #93c5fd;
     --text-code: #f472b6;
     --text-inverse: #111827;
 
-    --border-subtle: #2a2a2a;
-    --border-default: #3a3a3a;
-    --border-strong: #525252;
+    --border-subtle: #2a2a32;
+    --border-default: #3f3f47;
+    --border-strong: #52525b;
 
     --brand-primary: #34d399;
-    --brand-primary-soft: #064e3b;
+    --brand-primary-soft: rgba(52, 211, 153, 0.1);
     --brand-primary-strong: #6ee7b7;
 
-    --brand-historical: #6b7280;
-    --brand-historical-soft: #1f1f1f;
+    --brand-historical: #71717a;
+    --brand-historical-soft: rgba(113, 113, 122, 0.1);
 
     --color-success: #34d399;
-    --color-success-soft: #064e3b;
+    --color-success-soft: rgba(52, 211, 153, 0.12);
     --color-warning: #fbbf24;
-    --color-warning-soft: #422006;
+    --color-warning-soft: rgba(251, 191, 36, 0.12);
     --color-danger: #f87171;
-    --color-danger-soft: #4c1414;
+    --color-danger-soft: rgba(248, 113, 113, 0.12);
     --color-info: #60a5fa;
-    --color-info-soft: #1e3a5f;
+    --color-info-soft: rgba(96, 165, 250, 0.12);
     --color-purple: #a78bfa;
-    --color-purple-soft: #2e1065;
+    --color-purple-soft: rgba(167, 139, 250, 0.12);
 
-    --shadow-xs: 0 1px 2px rgba(0,0,0,0.3);
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
-    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4), 0 2px 4px -2px rgba(0,0,0,0.3);
-    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -4px rgba(0,0,0,0.3);
-    --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.5), 0 8px 10px -6px rgba(0,0,0,0.4);
+    --shadow-xs: 0 1px 2px rgba(0,0,0,0.4);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.4);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.5), 0 2px 4px -2px rgba(0,0,0,0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5), 0 4px 6px -4px rgba(0,0,0,0.4);
+    --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.6), 0 8px 10px -6px rgba(0,0,0,0.5);
   }
 }
 
@@ -454,7 +455,7 @@ td table td {
 }
 
 /* ========================================
-   콜아웃 / 박스 (현대적 카드형)
+   콜아웃 / 박스 (현대적 카드형 / 직관성 강화)
 ======================================== */
 
 .callout {
@@ -463,12 +464,54 @@ td table td {
   border-left: 4px solid var(--text-secondary);
   border-radius: var(--radius-md);
   padding: var(--space-4) var(--space-5);
-  margin: var(--space-4) 0;
+  margin: var(--space-5) 0;
   box-shadow: var(--shadow-xs);
+  position: relative;
 }
 
 .callout > *:first-child { margin-top: 0; }
 .callout > *:last-child { margin-bottom: 0; }
+
+/* callout 내부 표는 callout 색조에 맞게 배경 투명 */
+.callout table,
+.callout table thead,
+.callout table tbody,
+.callout table tr,
+.callout table td,
+.callout table th {
+  background: transparent !important;
+}
+
+.callout table {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin: var(--space-3) 0;
+}
+
+.callout table th {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-bottom: 2px solid var(--border-default);
+  font-size: 0.85rem;
+}
+
+@media (prefers-color-scheme: light) {
+  .callout table th {
+    background: rgba(0, 0, 0, 0.03) !important;
+  }
+}
+
+.callout table td {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.callout table tr:last-child td {
+  border-bottom: none;
+}
+
+.callout table tr:hover td {
+  background: rgba(127, 127, 127, 0.04) !important;
+}
 
 .callout.warning {
   background: var(--bg-warning);
@@ -887,194 +930,73 @@ details > *:not(summary) {
   background: var(--border-strong);
 }
 
-/* ========================================
-   ⚠️ 다크모드 inline style 가독성 강제 보정
-   (HTML 파일에 inline style="background-color:#밝은색"
-    이 사용된 callout/박스 내부 텍스트 색 강제 override)
-======================================== */
+/* ════════════════════════════════════════
+   ⚠️⚠️⚠️ 다크모드 inline 밝은 배경 자동 변환
+   본질: HTML 파일에 inline style="background-color:#밝은색"이
+        하드코딩되어 있어도 다크모드에서 자동으로 다크 톤 색상으로
+        변환 → 텍스트는 다크모드 기본 (밝은 색) 유지 →
+        라이트/다크 양쪽에서 자연스러운 디자인
+   적용 대상: callout, 표 row, 표 thead, 일반 div 박스 모두
+═════════════════════════════════════════════ */
 
 @media (prefers-color-scheme: dark) {
-  /* 라이트 배경이 inline으로 강제된 박스 = 어두운 텍스트 강제 */
+
+  /* ── 녹색 (정본 / 성공 / 매수) ── */
   [style*="background-color:#e8f5e9"],
   [style*="background-color: #e8f5e9"],
   [style*="background:#e8f5e9"],
-  [style*="background: #e8f5e9"],
+  [style*="background: #e8f5e9"] {
+    background-color: rgba(52, 211, 153, 0.08) !important;
+    background: rgba(52, 211, 153, 0.08) !important;
+    border-color: rgba(52, 211, 153, 0.35) !important;
+  }
+
+  /* ── 파란색 (정보) ── */
   [style*="background-color:#e3f2fd"],
   [style*="background-color: #e3f2fd"],
   [style*="background:#e3f2fd"],
-  [style*="background: #e3f2fd"],
+  [style*="background: #e3f2fd"] {
+    background-color: rgba(96, 165, 250, 0.08) !important;
+    background: rgba(96, 165, 250, 0.08) !important;
+    border-color: rgba(96, 165, 250, 0.35) !important;
+  }
+
+  /* ── 빨간색 (위험 / 매도) ── */
   [style*="background-color:#ffebee"],
   [style*="background-color: #ffebee"],
   [style*="background:#ffebee"],
   [style*="background: #ffebee"],
+  [style*="background-color:#fff0f0"],
+  [style*="background:#fff0f0"] {
+    background-color: rgba(248, 113, 113, 0.1) !important;
+    background: rgba(248, 113, 113, 0.1) !important;
+    border-color: rgba(248, 113, 113, 0.35) !important;
+  }
+
+  /* ── 노란색 (주의 / Historical / 진행 중) ── */
   [style*="background-color:#fff9e6"],
   [style*="background-color: #fff9e6"],
   [style*="background:#fff9e6"],
   [style*="background: #fff9e6"],
-  [style*="background-color:#fff0f0"],
-  [style*="background:#fff0f0"],
-  [style*="background-color:#f5f5f5"],
-  [style*="background:#f5f5f5"],
   [style*="background-color:#fffde7"],
   [style*="background:#fffde7"] {
-    color: #111827 !important;
+    background-color: rgba(251, 191, 36, 0.08) !important;
+    background: rgba(251, 191, 36, 0.08) !important;
+    border-color: rgba(251, 191, 36, 0.3) !important;
   }
 
-  [style*="background-color:#e8f5e9"] *,
-  [style*="background-color: #e8f5e9"] *,
-  [style*="background:#e8f5e9"] *,
-  [style*="background: #e8f5e9"] *,
-  [style*="background-color:#e3f2fd"] *,
-  [style*="background-color: #e3f2fd"] *,
-  [style*="background:#e3f2fd"] *,
-  [style*="background: #e3f2fd"] *,
-  [style*="background-color:#ffebee"] *,
-  [style*="background-color: #ffebee"] *,
-  [style*="background:#ffebee"] *,
-  [style*="background: #ffebee"] *,
-  [style*="background-color:#fff9e6"] *,
-  [style*="background-color: #fff9e6"] *,
-  [style*="background:#fff9e6"] *,
-  [style*="background: #fff9e6"] *,
-  [style*="background-color:#fff0f0"] *,
-  [style*="background:#fff0f0"] *,
-  [style*="background-color:#f5f5f5"] *,
-  [style*="background:#f5f5f5"] *,
-  [style*="background-color:#fffde7"] *,
-  [style*="background:#fffde7"] * {
-    color: #111827 !important;
+  /* ── 회색 (중립 / placeholder) ── */
+  [style*="background-color:#f5f5f5"],
+  [style*="background-color: #f5f5f5"],
+  [style*="background:#f5f5f5"],
+  [style*="background: #f5f5f5"],
+  [style*="background-color:#f9fafb"],
+  [style*="background:#f9fafb"] {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
   }
 
-  /* 링크는 진한 파란색 유지 (가독성) */
-  [style*="background-color:#e8f5e9"] a,
-  [style*="background:#e8f5e9"] a,
-  [style*="background-color:#e3f2fd"] a,
-  [style*="background:#e3f2fd"] a,
-  [style*="background-color:#ffebee"] a,
-  [style*="background:#ffebee"] a,
-  [style*="background-color:#fff9e6"] a,
-  [style*="background:#fff9e6"] a {
-    color: #1d4ed8 !important;
-  }
-
-  /* code 태그는 분홍색 유지 */
-  [style*="background-color:#e8f5e9"] code,
-  [style*="background:#e8f5e9"] code,
-  [style*="background-color:#e3f2fd"] code,
-  [style*="background:#e3f2fd"] code,
-  [style*="background-color:#ffebee"] code,
-  [style*="background:#ffebee"] code,
-  [style*="background-color:#fff9e6"] code,
-  [style*="background:#fff9e6"] code {
-    color: #db2777 !important;
-    background: rgba(0,0,0,0.05) !important;
-  }
-}
-
-/* ========================================
-   기본 callout 다크모드 텍스트 보정
-   (inline style 없는 일반 callout)
-======================================== */
-
-@media (prefers-color-scheme: dark) {
-  .callout.success {
-    background: rgba(52, 211, 153, 0.08);
-    border-left-color: var(--color-success);
-  }
-  .callout.success * { color: var(--text-primary); }
-
-  .callout.info {
-    background: rgba(96, 165, 250, 0.08);
-    border-left-color: var(--color-info);
-  }
-  .callout.info * { color: var(--text-primary); }
-
-  .callout.warning {
-    background: rgba(251, 191, 36, 0.08);
-    border-left-color: var(--color-warning);
-  }
-  .callout.warning * { color: var(--text-primary); }
-
-  .callout.danger {
-    background: rgba(248, 113, 113, 0.1);
-    border-left-color: var(--color-danger);
-  }
-  .callout.danger * { color: var(--text-primary); }
-}
-
-/* ========================================
-   ⚠️ 표 (table) row inline 밝은 배경 처리
-   - <tr style="background:#fff9e6"> 등이 있을 때
-   - 자식 <td>는 다크모드 기본 배경 (어두움)을 가지므로
-     tr의 inline 배경이 가려지고 텍스트만 어두워짐 → 가독성 0
-   - 해결: tr inline 배경 시 td 배경 투명 강제
-======================================== */
-
-@media (prefers-color-scheme: dark) {
-  tr[style*="background-color:#fff9e6"] > td,
-  tr[style*="background-color: #fff9e6"] > td,
-  tr[style*="background:#fff9e6"] > td,
-  tr[style*="background: #fff9e6"] > td,
-  tr[style*="background-color:#e8f5e9"] > td,
-  tr[style*="background-color: #e8f5e9"] > td,
-  tr[style*="background:#e8f5e9"] > td,
-  tr[style*="background: #e8f5e9"] > td,
-  tr[style*="background-color:#e3f2fd"] > td,
-  tr[style*="background-color: #e3f2fd"] > td,
-  tr[style*="background:#e3f2fd"] > td,
-  tr[style*="background: #e3f2fd"] > td,
-  tr[style*="background-color:#ffebee"] > td,
-  tr[style*="background-color: #ffebee"] > td,
-  tr[style*="background:#ffebee"] > td,
-  tr[style*="background: #ffebee"] > td,
-  tr[style*="background-color:#f5f5f5"] > td,
-  tr[style*="background:#f5f5f5"] > td,
-  tr[style*="background-color:#fffde7"] > td,
-  tr[style*="background:#fffde7"] > td,
-  tr[style*="background-color:#fff0f0"] > td,
-  tr[style*="background:#fff0f0"] > td {
-    background: transparent !important;
-  }
-
-  /* hover 시 약간 톤다운 */
-  tr[style*="background-color:#fff9e6"]:hover > td,
-  tr[style*="background:#fff9e6"]:hover > td,
-  tr[style*="background-color:#e8f5e9"]:hover > td,
-  tr[style*="background:#e8f5e9"]:hover > td,
-  tr[style*="background-color:#e3f2fd"]:hover > td,
-  tr[style*="background:#e3f2fd"]:hover > td {
-    background: rgba(255, 255, 255, 0.05) !important;
-  }
-}
-
-/* ========================================
-   ⚠️ thead/tbody row inline 배경 (header style)
-   - thead 내 tr에 inline 배경이 있을 때도 동일 처리
-======================================== */
-
-@media (prefers-color-scheme: dark) {
-  thead tr[style*="background-color:#e3f2fd"] > th,
-  thead tr[style*="background:#e3f2fd"] > th,
-  thead tr[style*="background-color:#fff0f0"] > th,
-  thead tr[style*="background:#fff0f0"] > th,
-  thead tr[style*="background-color:#fff9e6"] > th,
-  thead tr[style*="background:#fff9e6"] > th,
-  thead tr[style*="background-color:#e8f5e9"] > th,
-  thead tr[style*="background:#e8f5e9"] > th,
-  thead tr[style*="background-color:#f5f5f5"] > th,
-  thead tr[style*="background:#f5f5f5"] > th {
-    background: transparent !important;
-    color: #111827 !important;
-  }
-}
-
-/* ========================================
-   ⚠️ inline color (글자색 직접 명시) 다크모드 보정
-   - <h1 style="color:#666"> 등 어두운 회색 텍스트가
-     다크모드에서 거의 안 보이게 되는 경우 보정
-======================================== */
-
-@media (prefers-color-scheme: dark) {
+  /* ── inline 회색 글자 색상 보정 ── */
   [style*="color:#666"],
   [style*="color: #666"],
   [style*="color:#999"],
@@ -1085,4 +1007,169 @@ details > *:not(summary) {
   [style*="color: #888"] {
     color: #9ca3af !important;
   }
+}
+
+/* ════════════════════════════════════════
+   기본 .callout 다크모드 정합 (inline style 없는 경우)
+═════════════════════════════════════════════ */
+
+@media (prefers-color-scheme: dark) {
+  .callout.success {
+    background: rgba(52, 211, 153, 0.08);
+    border-left-color: var(--color-success);
+  }
+  .callout.info {
+    background: rgba(96, 165, 250, 0.08);
+    border-left-color: var(--color-info);
+  }
+  .callout.warning {
+    background: rgba(251, 191, 36, 0.08);
+    border-left-color: var(--color-warning);
+  }
+  .callout.danger {
+    background: rgba(248, 113, 113, 0.1);
+    border-left-color: var(--color-danger);
+  }
+}
+
+/* ════════════════════════════════════════
+   inline 배경 박스 내부 표 (callout 외부도 적용)
+   본질: 어느 박스든 inline style="background:..." 안에 있는
+        표는 박스 색조 따라가도록 배경 투명 강제
+═════════════════════════════════════════════ */
+
+[style*="background-color:#e8f5e9"] table,
+[style*="background:#e8f5e9"] table,
+[style*="background-color:#e3f2fd"] table,
+[style*="background:#e3f2fd"] table,
+[style*="background-color:#ffebee"] table,
+[style*="background:#ffebee"] table,
+[style*="background-color:#fff0f0"] table,
+[style*="background:#fff0f0"] table,
+[style*="background-color:#fff9e6"] table,
+[style*="background:#fff9e6"] table,
+[style*="background-color:#fffde7"] table,
+[style*="background:#fffde7"] table,
+[style*="background-color:#f5f5f5"] table,
+[style*="background:#f5f5f5"] table {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  margin: var(--space-3) 0;
+  background: transparent !important;
+}
+
+[style*="background-color:#e8f5e9"] table tr,
+[style*="background:#e8f5e9"] table tr,
+[style*="background-color:#e3f2fd"] table tr,
+[style*="background:#e3f2fd"] table tr,
+[style*="background-color:#ffebee"] table tr,
+[style*="background:#ffebee"] table tr,
+[style*="background-color:#fff0f0"] table tr,
+[style*="background:#fff0f0"] table tr,
+[style*="background-color:#fff9e6"] table tr,
+[style*="background:#fff9e6"] table tr,
+[style*="background-color:#fffde7"] table tr,
+[style*="background:#fffde7"] table tr,
+[style*="background-color:#f5f5f5"] table tr,
+[style*="background:#f5f5f5"] table tr {
+  background: transparent !important;
+}
+
+[style*="background-color:#e8f5e9"] table td,
+[style*="background:#e8f5e9"] table td,
+[style*="background-color:#e3f2fd"] table td,
+[style*="background:#e3f2fd"] table td,
+[style*="background-color:#ffebee"] table td,
+[style*="background:#ffebee"] table td,
+[style*="background-color:#fff0f0"] table td,
+[style*="background:#fff0f0"] table td,
+[style*="background-color:#fff9e6"] table td,
+[style*="background:#fff9e6"] table td,
+[style*="background-color:#fffde7"] table td,
+[style*="background:#fffde7"] table td,
+[style*="background-color:#f5f5f5"] table td,
+[style*="background:#f5f5f5"] table td {
+  background: transparent !important;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+[style*="background-color:#e8f5e9"] table th,
+[style*="background:#e8f5e9"] table th,
+[style*="background-color:#e3f2fd"] table th,
+[style*="background:#e3f2fd"] table th,
+[style*="background-color:#ffebee"] table th,
+[style*="background:#ffebee"] table th,
+[style*="background-color:#fff0f0"] table th,
+[style*="background:#fff0f0"] table th,
+[style*="background-color:#fff9e6"] table th,
+[style*="background:#fff9e6"] table th,
+[style*="background-color:#fffde7"] table th,
+[style*="background:#fffde7"] table th,
+[style*="background-color:#f5f5f5"] table th,
+[style*="background:#f5f5f5"] table th {
+  background: rgba(127, 127, 127, 0.06) !important;
+  border-bottom: 2px solid var(--border-default);
+}
+
+/* thead/tr inline 배경 처리: 자체 색 무시 + 동일 처리 */
+thead tr[style*="background"] {
+  background: rgba(127, 127, 127, 0.06) !important;
+}
+
+thead tr[style*="background"] th {
+  background: transparent !important;
+}
+
+/* tbody tr inline 배경 (강조 row): 좌측 컬러 바 + 옅은 배경 */
+tbody tr[style*="background-color:#fff9e6"],
+tbody tr[style*="background:#fff9e6"],
+tbody tr[style*="background-color:#fffde7"],
+tbody tr[style*="background:#fffde7"] {
+  position: relative;
+  background: rgba(251, 191, 36, 0.06) !important;
+}
+
+tbody tr[style*="background-color:#fff9e6"] td:first-child,
+tbody tr[style*="background:#fff9e6"] td:first-child,
+tbody tr[style*="background-color:#fffde7"] td:first-child,
+tbody tr[style*="background:#fffde7"] td:first-child {
+  border-left: 3px solid var(--color-warning);
+}
+
+tbody tr[style*="background-color:#e8f5e9"],
+tbody tr[style*="background:#e8f5e9"] {
+  background: rgba(52, 211, 153, 0.06) !important;
+}
+
+tbody tr[style*="background-color:#e8f5e9"] td:first-child,
+tbody tr[style*="background:#e8f5e9"] td:first-child {
+  border-left: 3px solid var(--color-success);
+}
+
+tbody tr[style*="background-color:#ffebee"],
+tbody tr[style*="background:#ffebee"],
+tbody tr[style*="background-color:#fff0f0"],
+tbody tr[style*="background:#fff0f0"] {
+  background: rgba(248, 113, 113, 0.06) !important;
+}
+
+tbody tr[style*="background-color:#ffebee"] td:first-child,
+tbody tr[style*="background:#ffebee"] td:first-child,
+tbody tr[style*="background-color:#fff0f0"] td:first-child,
+tbody tr[style*="background:#fff0f0"] td:first-child {
+  border-left: 3px solid var(--color-danger);
+}
+
+tbody tr[style*="background-color:#e3f2fd"],
+tbody tr[style*="background:#e3f2fd"] {
+  background: rgba(96, 165, 250, 0.06) !important;
+}
+
+tbody tr[style*="background-color:#e3f2fd"] td:first-child,
+tbody tr[style*="background:#e3f2fd"] td:first-child {
+  border-left: 3px solid var(--color-info);
+}
+
+tbody tr[style*="background"] td {
+  background: transparent !important;
 }
