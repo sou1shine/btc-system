@@ -21,12 +21,57 @@
 
 <div class="container">
 
-<h1>🎯 BTC v3 실전 카드 <span style="color:#2e7d32;">(Real Candle Zero-Base / 2026-05-14 신설)</span></h1>
+<h1>🎯 BTC v3 실전 카드 <span style="color:#2e7d32;">(Real Candle Zero-Base / 2026-05-14 신설 / 외부 검토 #64 통합)</span></h1>
 
 <p class="meta" style="margin-top:0;border-top:none;padding-top:0;">
-  신설: 2026-05-14 23:00 KST · 정본 (즉시 적용 / Gemini #63 + Codex #63 통합 협의안)<br>
+  신설: 2026-05-14 23:00 KST · 외부 검토 #64 통합: 2026-05-14 23:50 KST (Gemini + Codex / honest disagreement over consensus-seeking)<br>
   본문 룰북: <a href="btc-system-v3.html">🚀 BTC 매매 시스템 v3</a> · Real 시계열: <a href="btc-real-candle.html">📊 btc-real-candle.html</a>
 </p>
+
+<div class="callout danger" style="border:3px solid #d32f2f; background-color:#ffebee;">
+  <p><strong>⭐⭐⭐⭐⭐⭐ v3 카드 진입 압축 매뉴얼 (Codex #64 정합 / "분석 마비 차단" / 영구 보존)</strong></p>
+
+  <p><strong>🔵 진입 전 6문항 (모두 ✅ = 진입 후보 / 1건 ❌ = 진입 중단)</strong>:</p>
+  <ol>
+    <li>Real Candle 확인했나? (룰 #17 / 차트 유형 명시)</li>
+    <li>Tier 3 차단 조건 없는가? (어깨 페널티 합산 ≥ -2점 / 룰 #14.6 3신호 모두 발생 후 = 차단)</li>
+    <li>진입 근거 = Tier 1 / Tier 1.5 / Tier 2 중 하나로 10초 안에 말할 수 있는가?</li>
+    <li>Stop 가격과 무효화 조건이 일치하는가? (구조 Stop = wick low -0.5% - α / 무효화 = Stop 이탈 동시)</li>
+    <li>TP0 RR 1.5 + TP1 RR 2.0 (Tier 1.5) / TP1 RR 3.0 (Tier 1·2) 충족하는가?</li>
+    <li>진입 후 해석 변경 금지 조건을 적었는가? (Codex #64 신설 / "사실 Tier 2였다" / "Swing 전환" ❌)</li>
+  </ol>
+
+  <p><strong>🟡 허리 W-1 전용 5문항 (Tier 1.5 / 모두 ✅ + 필수 5 + 가중치 3점+)</strong>:</p>
+  <ol>
+    <li>Real RSI 50~60 + RSI > MA 정배열인가?</li>
+    <li>거래량 5MA 1.3x+ 종가 돌파 양봉인가?</li>
+    <li>매크로 반등 진행 중 + 룰 #14.6 3신호 모두 발생 ❌인가?</li>
+    <li>어깨 페널티 합산 ≥ -1점 + Stop 짧음 (-1.0~-1.5%) + RR 2.0 이상인가?</li>
+    <li>4H 6캔들 (24h) 이내 TP1 미도달 시 부분 익절 룰 적었는가? + 진입 후 해석 변경 금지?</li>
+  </ol>
+
+  <p><strong>🔴 청산 4문항 (보유 중 / 항상 적용)</strong>:</p>
+  <ol>
+    <li>Stop 이탈 = 즉시 종료 (Layer 1 / 100%)</li>
+    <li>Layer 2 (4H 음봉 거래량 1.5x+ / 직전 4H 스윙 저점 이탈 / RSI &lt; MA + RSI &lt; 50) 중 2건+ 동시 = 50% 감산</li>
+    <li>선제 감산 트리거 (룰 #10) 1건 + 어깨 페널티 -1점 이상 결합 또는 2건+ 동시 = 50% 익절 + Stop ratchet</li>
+    <li>TP0 도달 후 BE 이동 실패 금지 (Stop을 BE 또는 -0.2R 즉시 이동 의무)</li>
+  </ol>
+
+  <p><strong>본질 (Codex #64)</strong>: 실전 4H 마감 직후 빠르게 처리 가능 / 17 룰 + 28단계 + 9조건 + 4 wick + 11 선행 탈락 + 14 자체점검 = 압축 매뉴얼로 분석 마비 차단</p>
+</div>
+
+<div class="callout danger" style="border:3px solid #2e7d32; background-color:#e8f5e9;">
+  <p><strong>⭐⭐⭐⭐⭐⭐ 외부 검토 #64 통합 정정 사항 (Gemini + Codex 합의 / 영구 보존)</strong></p>
+  <ul>
+    <li>⭐ <strong>룰 #5 포지션 사이징 공식 정정</strong>: notional = 허용 손실 USDT / Stop 거리% (레버리지 ÷ 3 = 가격 리스크 감소 ❌)</li>
+    <li>⭐ <strong>룰 #11.5 점수제 전환</strong>: 9건 동시 → 필수 5 + 가중치 4 (3점+ 통과)</li>
+    <li>⭐ <strong>룰 #16.5 wick 점수제 전환</strong>: 4건 동시 → 점수제 3점+ + Tier별 차별화 + 차단 조건 2건</li>
+    <li>⭐ <strong>룰 #10 선제 감산 결합 트리거</strong>: 단독 1건 ❌ / 1건 + 어깨 페널티 ≥ -1점 결합 또는 2건+ 동시</li>
+    <li>⭐ <strong>룰 #14.6 정정</strong>: "전면 금지" → "추격 ❌ + 눌림 A-2 ✅ + 보유 trailing"</li>
+    <li>⭐ <strong>헌법 3번 정량 명시</strong>: 단기 반등 트레이드 = 사이즈 10~20% / Stop -1.0~-1.5% / TP RR 2.0 / 보유 24h / 진입 후 해석 변경 금지</li>
+  </ul>
+</div>
 
 <div class="callout danger" style="border:3px solid #2e7d32; background-color:#e8f5e9;">
   <p><strong>⭐⭐⭐⭐⭐⭐ v3 카드 본질 (운영자 명시 영구 보존)</strong></p>
@@ -107,30 +152,54 @@
 
 <p><strong>합산</strong>: -2점 이하 = Tier 2 재검토 + 사이즈 -1단계 / -3점 이상 = <strong>Tier 3 자동 차단</strong></p>
 
-<h3>⭐⭐⭐ 룰 #10 선제 감산 트리거 (Codex #63 신설 / 1건 발동 = 50% 익절 + 추가 진입 차단)</h3>
+<h3>⭐⭐⭐ 룰 #10 선제 감산 결합 트리거 (v3 #63 단독 → v3 #64 결합 정정)</h3>
 
+<p><strong>트리거 4건 (Codex #63 신설)</strong>:</p>
 <ol>
-  <li>RSI > 60 + 위꼬리 본체 2배+ 1캔들 (단일 시그널 / 어깨 임박)</li>
-  <li>시계열 최고 -3% 이내 도달 (어깨 영역 접근)</li>
-  <li>VPD 후보 1캔들 (음봉 거래량 1.3x+ / 분배 시그널 시작)</li>
-  <li>위꼬리/본체 ≥ 2.0배 + 거래량 1.5x+ Engulfing 음봉 (Wyckoff Upthrust 후보)</li>
+  <li>RSI > 60 + 위꼬리 본체 2배+ 1캔들</li>
+  <li>시계열 최고 -3% 이내 도달</li>
+  <li>VPD 후보 1캔들 (음봉 거래량 1.3x+)</li>
+  <li>위꼬리/본체 ≥ 2.0배 + 거래량 1.5x+ Engulfing 음봉</li>
 </ol>
 
-<p><strong>= 분배 캔들 3건 동시 충족 (확정 발동) 전에 선제적으로 50% 익절 의무</strong> (Gemini #63 "분배 캔들 3건 동시 = 사후 확신" 비판 정합)</p>
-
-<h3>⭐⭐⭐ 룰 #16.5 wick 필터링 수식 (v3 신설 / 양 검토자 합의 / 4건 동시 충족 의무)</h3>
-
+<p><strong>발동 조건 (외부 검토 #64 정정 / Gemini "공포 기반 룰" + Codex "PnL 상태별 / 결합" 합의)</strong>:</p>
 <table>
-  <thead><tr><th>수식</th><th>강한 매수</th><th>중립</th><th>진입 차단</th></tr></thead>
+  <thead><tr><th>발동 상태</th><th>대응</th></tr></thead>
   <tbody>
-    <tr><td>upper_wick / body</td><td>&lt; 0.5</td><td>0.5~1.0</td><td>&gt; 1.0 (Upthrust ≥ 2.0)</td></tr>
-    <tr><td>CLV = (close-low)/(high-low)</td><td>&gt; 0.7</td><td>0.3~0.7</td><td>&lt; 0.3</td></tr>
-    <tr><td>ATR(14) 대비 wick</td><td>&lt; 0.5</td><td>0.5~1.0</td><td>&gt; 1.0</td></tr>
-    <tr><td>body / range</td><td>&gt; 0.5</td><td>0.3~0.5</td><td>&lt; 0.3 (Doji)</td></tr>
+    <tr><td>1건 단독 + 어깨 페널티 0점</td><td>⚠️ Stop BE 이동 / 추가 진입 ❌ (50% 익절 ❌)</td></tr>
+    <tr><td><strong>1건 + 어깨 페널티 ≥ -1점</strong></td><td><strong>50% 익절 + 추가 진입 차단</strong></td></tr>
+    <tr><td><strong>2건+ 동시</strong></td><td><strong>50% 익절 + Stop ratchet (BE → +0.5R)</strong></td></tr>
+    <tr><td>3건+ 동시</td><td>전량 청산 + 룰 #8 숏 검토</td></tr>
+  </tbody>
+</table>
+<p><strong>PnL 상태별 정합 (Codex #64)</strong>: PnL +RR 1.0 미만 = Stop BE만 / PnL +RR 1.5 이상 = 50% 익절 의무</p>
+
+<h3>⭐⭐⭐ 룰 #16.5 wick 필터링 점수제 (v3 #64 정정 / 4건 동시 → 점수제 + Tier별)</h3>
+
+<p><strong>점수제 (3점 이상 통과 / 최대 5점)</strong>:</p>
+<table>
+  <thead><tr><th>지표</th><th>점수</th></tr></thead>
+  <tbody>
+    <tr><td>CLV &gt; 0.7</td><td>+1점</td></tr>
+    <tr><td>body / range &gt; 0.5</td><td>+1점</td></tr>
+    <tr><td>upper_wick / body &lt; 1.0</td><td>+1점 / &lt; 0.5 = +2점</td></tr>
+    <tr><td>upper_wick / ATR(14) &lt; 0.7</td><td>+1점</td></tr>
   </tbody>
 </table>
 
-<p><strong>= 4건 동시 충족 시만 진입 후보 활성 / 1건이라도 미달 시 진입 차단 의무</strong></p>
+<p><strong>차단 조건 (1건 발동 = 진입 ❌ / 점수 무관)</strong>:</p>
+<ol>
+  <li>upper_wick / body &gt; 2.0 + 거래량 1.5x+ 음봉 = Wyckoff Upthrust 후보</li>
+  <li>body / range &lt; 0.2 + 양꼬리 본체 5배+ = Doji 변형 (매수·매도 충돌)</li>
+</ol>
+
+<p><strong>Tier별 차별화 (Codex #64)</strong>:</p>
+<ul>
+  <li>Tier 1 무릎: 아래꼬리 흡수 우선 (lower_wick/body ≥ 1.0 +1점 / 윗꼬리 관대 &lt; 1.5)</li>
+  <li>Tier 1.5 허리: 윗꼬리 억제 우선 (upper_wick/body &lt; 1.0 의무)</li>
+  <li>Tier 2 확정: CLV + 종가 안착 우선 (CLV &gt; 0.7 + body/range &gt; 0.5 의무)</li>
+  <li>숏 (룰 #8): lower_wick/body + close near low 별도 필터 (롱 반전형)</li>
+</ul>
 
 <h2>🚨 STAGE 3 — 사이즈 + Stop + TP + 자동 중단</h2>
 
@@ -143,21 +212,48 @@
   <li><strong>자동 중단</strong>: 3연속 Stop / 평균 손실 > TP0 평균 이익 / Reclaim 실패 2회 / Stop -1.5%+ 반복</li>
 </ul>
 
-<h3>⭐⭐⭐ Tier 1.5 (허리 / W-1 / v3 신설 / Gemini #63 + Codex #63 통합)</h3>
+<h3>⭐⭐⭐⭐⭐ Position Sizing 공식 (v3 #64 결정적 정정 / Codex #64)</h3>
+
+<div class="callout danger" style="border:3px solid #d32f2f; background-color:#ffebee;">
+  <p><strong>v3 이전 (잘못된 공식 / 폐기)</strong>: <code>(시드 × 0.5%) / Stop 거리 / 3 (레버리지)</code> = ❌ "레버리지로 가격 리스크 감소" 잘못된 전제</p>
+
+  <p><strong>v3 #64 신 공식 (Notional 기준)</strong>:</p>
+  <ol>
+    <li><strong>허용 손실 USDT = 시드 × Tier 리스크%</strong> (Tier 1 = 0.5% / Tier 1.5 = 0.3% / Tier 2 = 0.5~1.0% 등급별)</li>
+    <li><strong>Stop 거리% = |진입가 - 실행 Stop| / 진입가</strong></li>
+    <li><strong>포지션 notional = 허용 손실 USDT / Stop 거리%</strong></li>
+    <li><strong>BTC 수량 = notional / 진입가</strong> (Lot 0.0001 BTC 내림)</li>
+    <li><strong>증거금 검증 = notional / 3 ≤ 시드 × Tier 사이즈%</strong></li>
+  </ol>
+
+  <p><strong>본질</strong>: 가격 리스크 = notional 기반 / 레버리지 = 증거금 효율만 (가격 리스크 감소 ❌)</p>
+
+  <p><strong>비용 주의 (Codex #64)</strong>: 시드 195.94 USDT / Lot 0.0001 / 3x 격리 → 수수료·슬리피지·펀딩이 작은 사이즈 10~20% 잦은 단타에서 비용 민감도 큼 / TP RR 계산 시 수수료 차감 의무</p>
+</div>
+
+<h3>⭐⭐⭐ Tier 1.5 (허리 / W-1 / v3 신설 / 외부 검토 #64 점수제 정정)</h3>
 
 <div class="callout danger" style="border:2px solid #2e7d32; background-color:#e8f5e9;">
-  <p><strong>9건 조건 모두 충족 시 진입 활성 (4→9건 강화 / Codex #63)</strong>:</p>
+  <p><strong>v3 #64 정정: 9건 동시 충족 → 필수 5건 + 가중치 4건 점수제 (Gemini #64 + Codex #64 합의)</strong></p>
+
+  <p><strong>필수 5건 (모두 ✅ 의무 / 1건이라도 ❌ = 진입 차단)</strong>:</p>
   <ol>
     <li>RSI 50~60 영역 (Real 기준)</li>
     <li>거래량 5MA 1.3x+ 동반 양봉</li>
     <li>RSI > MA 정배열 + RSI > 50</li>
-    <li>Real candle 기준 직전 저항 종가 돌파 (의무 / Codex #63)</li>
-    <li>wick 비율: 윗꼬리/본체 < 1.0배 (의무 / 가짜 돌파 차단)</li>
-    <li>돌파 후 눌림 지지 확인 또는 2캔들 유지 (Fake-out 차단)</li>
-    <li>매트릭스 5요소 6점+ (B급 정합 의무)</li>
-    <li>매크로 사이클 위계 = 매크로 반등 진행 중 (Period High 도달 후 = 진입 ❌)</li>
-    <li>외부 검토 시나리오 C 60%+ 시 진입 차단</li>
+    <li>매크로 사이클 = 매크로 반등 진행 중 (룰 #14.6 3신호 모두 발생 후 = ❌)</li>
+    <li>룰 #10 어깨 페널티 합산 ≥ -1점 (-2점 이하 = ❌)</li>
   </ol>
+
+  <p><strong>가중치 4건 (3점 이상 충족 시 진입 활성 / 최대 5점)</strong>:</p>
+  <ol>
+    <li>Real candle 기준 직전 저항 종가 돌파 (+1점)</li>
+    <li>wick 비율: 윗꼬리/본체 &lt; 1.0배 (+1점) / &lt; 0.5배 (+2점)</li>
+    <li>돌파 후 눌림 지지 또는 2캔들 유지 (+1점)</li>
+    <li>매트릭스 5요소 6점+ B급 (+1점)</li>
+  </ol>
+
+  <p><strong>= 필수 5/5 + 가중치 ≥ 3/5점 시 Tier 1.5 W-1 진입 활성</strong></p>
 
   <p><strong>사이즈</strong>: <strong>10~20%</strong> (Codex #63 / Gemini #63 비판 정합 / 가짜 돌파 위험 / 어깨 거리 짧음)</p>
 
@@ -274,6 +370,7 @@ Tier 1 (무릎) / Tier 1.5 (허리 NEW) / Tier 2 (확정) / Tier 3 자동 차단
   <li><strong>룰 #6 (메타 룰 6번)</strong>: 최종 진입/청산 실행 결정은 운영자 단독. Claude는 룰북 역할.</li>
   <li><strong>운영자 메타 #15</strong>: 외부 검토 합격 = 외부 검토자의 의견 / 시스템 본질 변경 결정 = 운영자 단독 영역</li>
   <li><strong>운영자 메타 #16</strong>: CLAUDE.md = Claude 관리 영역 위임 / 운영 룰·결정 = 운영자 단독</li>
+  <li><strong>⭐⭐⭐⭐⭐⭐ 운영자 메타 #17 (영구 규칙)</strong>: <strong>"다른 AI에게 검토·의견 요청 시 항상 'honest disagreement over consensus-seeking' 명시 의무"</strong> = 합의 추구 ❌ / 정직 반박 우선 / 편향 E·F 차단</li>
 </ul>
 
 <hr>
