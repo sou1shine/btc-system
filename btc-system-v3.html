@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚀 BTC 매매 시스템 v3 (Real Candle Zero-Base / 2026-05-14 신설)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-home">🏠 BTC 시스템</a>
+    <a href="btc-system-v1.html">📈 보수 룰</a>
+    <a href="btc-system-v2.html">🚀 v2 룰북 (HA 기준 / Historical)</a>
+    <a href="btc-system-v3.html" style="color:#2e7d32;font-weight:bold;">🚀 v3 룰북 (Real 기준 / NEW)</a>
+    <a href="btc-rules-extension.html">⭐ v2 확장</a>
+    <a href="btc-v2-card.html">🎯 v2 실전 카드</a>
+    <a href="btc-trades.html">📚 트레이드 복기</a>
+    <a href="btc-market.html">📊 시장 추적 (HA)</a>
+    <a href="btc-real-candle.html" style="color:#2e7d32;">📊 실제 캔들</a>
+    <a href="btc-reviews.html">🤖 외부 검토</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<h1>🚀 BTC 매매 시스템 v3 <span style="color:#2e7d32;">(Real Candle Zero-Base / 2026-05-14 신설)</span></h1>
+
+<p class="meta" style="margin-top:0;border-top:none;padding-top:0;">
+  신설: 2026-05-14 22:30 KST · 정본 (즉시 적용)<br>
+  <strong>운영자 명시 (영구 보존):</strong> "기조는 v2와 동일하게 최대한의 이익을 발라먹으려고 하는 매매법이다. 가능하면 무릎에서 구매하여 어깨에서 파는 매매법이다. 단 늦게 판단하더라고 허리정도라고 판단되면 먹을 수 있는 만큼 먹는다. 무조건 수익 우선의 기조다."<br>
+  v2 룰북 (HA 기준): <a href="btc-system-v2.html">📈 btc-system-v2.html</a> (Historical 보존 / 분석 입력 ❌)<br>
+  Real 캔들 시계열: <a href="btc-real-candle.html">📊 btc-real-candle.html</a> · 외부 검토: <a href="btc-reviews.html">🤖 btc-reviews.html</a>
+</p>
+
+<div class="callout danger" style="border:3px solid #2e7d32; background-color:#e8f5e9;">
+  <p><strong>⭐⭐⭐⭐⭐⭐ v3 룰북 본질 (Real Candle Zero-Base / 운영자 명시)</strong></p>
+  <ol>
+    <li><strong>차트 유형 = Real Candle 정본</strong> (Heikin Ashi ❌ / 룰 #17 차트 유형 검증 의무)</li>
+    <li><strong>매크로 사이클 정합 = 28단계 위계 적용</strong> (HA 8단계 → Real 28단계 확장)</li>
+    <li><strong>매매 본질 = 무조건 수익 우선</strong> (무릎+허리 매수 + 어깨 즉시 매도)</li>
+    <li><strong>진입 영역 = 무릎 (이상) + 허리 (현실)</strong> (v2 = 무릎 위주 / v3 = 무릎+허리 양립)</li>
+    <li><strong>HA 시스템 부정확 정정 8건 통합</strong> (RSI 일관 과장 / 어깨 영역 부정확)</li>
+    <li><strong>외부 검토 본질 명제 통합</strong> (Codex #25/#27 + Gemini #26/#28 + Codex/Gemini #62)</li>
+  </ol>
+</div>
+
+<h2>📜 헌법 (Constitution)</h2>
+
+<div class="callout danger">
+  <p><strong>헌법 1번 (변경 ❌ / v2 정합 유지)</strong>: OKX BTCUSDT Perp / 레버리지 3x Isolated 고정</p>
+  <p><strong>헌법 2번 (v3 강화)</strong>: 공격적 운용 / 양방향 (롱/숏) / <strong>무조건 수익 우선</strong> / 무릎+허리 매수 + 어깨 즉시 매도</p>
+  <p><strong>헌법 3번 (v3 신설 / 운영자 명시 영구 보존 + Codex #63 보완)</strong>: <strong>"늦게 판단해도 허리 정도면 먹을 수 있는 만큼 먹는다"</strong> = 무릎 놓친 시점 = 허리 진입 활성 / 어깨 도달 시 = 즉시 익절 의무</p>
+  <p><strong>⭐ 헌법 3번 보완 (Codex #63 / 인지부조화 차단)</strong>: 허리 진입 = <strong>"단기 반등 트레이드"</strong> 명시 (Swing 매매 ❌) / 시나리오 C (베어 재개) 우위 시에도 허리 진입 가능 But <strong>사이즈 10~20% / 보유 4H 6캔들 / TP RR 2.0 짧음 / 인지부조화 차단</strong> (방어 시나리오 + 공격 진입 양립 = 양방향 시스템 정합)</p>
+</div>
+
+<h2>🎯 시스템 정체성 (v3 / 영구 보존)</h2>
+
+<div class="callout danger">
+  <p><strong>v3 정체성: "Aggressive Profit Maximization at Knee+Waist (수익 발라먹기)"</strong></p>
+  <ul>
+    <li><strong>이상</strong>: 무릎 매수 (Tier 1 A-3) + 어깨 매도 (Tier 3 도달 즉시 익절)</li>
+    <li><strong>현실</strong>: 무릎 놓침 시 허리 매수 (Tier 1.5 / v3 신설) + 어깨 매도</li>
+    <li><strong>무조건 금지</strong>: 어깨 매수 (Tier 3 진입 / Real 기준 어깨 = RSI > 65 + 거래량 동반 + 분배 캔들)</li>
+    <li><strong>본질</strong>: "수익 발라먹기" = 모든 수익 가능 영역 활용 (무릎/허리 모두) / But 어깨 진입 절대 차단</li>
+  </ul>
+</div>
+
+<h2>🚨 룰 (v3 / 17건)</h2>
+
+<h3>룰 #1 진입 시나리오 (Entry Scenarios / v3)</h3>
+
+<table>
+  <thead>
+    <tr><th>시나리오</th><th>조건</th><th>사이즈</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>A-3 (Knee Entry / 무릎)</strong></td><td>Tier 1 / RSI 30~50 + Spring 확인 + 거래량 0.8~1.3x + 다이버전스 검증</td><td>15~25% 베타 → 30~40% 검증 → 40~50% 정식</td></tr>
+    <tr><td><strong>W-1 (Waist Entry / 허리 / v3 신설 / Codex #63 통합 정정)</strong></td><td>Tier 1.5 / 9건 조건 동시 (RSI 50~60 + 거래량 1.3x+ + RSI > MA + Real candle 저항 돌파 + wick 비율 < 1.0 + 눌림 지지 / 2캔들 유지 + 매트릭스 6점+ + 매크로 반등 진행 + 시나리오 C < 60%)</td><td><strong>10~20%</strong> (Codex #63)</td></tr>
+    <tr><td><strong>A (Confirmed Trend / 추세 확정)</strong></td><td>Tier 2 / RSI 60~65 + 거래량 1.3x+ + 핵심 저항 돌파 + 안착</td><td>30~40% (B급) / 45~55% (A급)</td></tr>
+    <tr><td><strong>A-2 (Pullback Entry / 눌림목)</strong></td><td>이평선 터치 + 반전 캔들 + 거래량 1.3x (+2캔들 8h 이내 진입)</td><td>30~40%</td></tr>
+    <tr><td><strong>B (Range Bottom / 레인지 하단)</strong></td><td>레인지 하단 2회 지지 (동일 가격대)</td><td>30~40%</td></tr>
+    <tr><td><strong>S (Short / 숏 / 헌법 2번 정합)</strong></td><td>$79,739 이탈 + 거래량 음봉 1.5x+ + 어깨 분배 확정</td><td>15~25% 베타</td></tr>
+    <tr><td><strong>C (Entry Block / 진입 차단)</strong></td><td>Tier 3 어깨 영역 / RSI > 65 + 거래량 동반 + 분배 캔들 3건 동시</td><td>진입 ❌</td></tr>
+  </tbody>
+</table>
+
+<h3>룰 #2 선행 탈락 (Disqualification / 11건)</h3>
+
+<ol>
+  <li>거래량 4H 5MA 1.3x 미만 (단, Tier 1 A-3 = 0.8~1.3x 허용 / Tier 1.5 W-1 = 1.3x+ 의무)</li>
+  <li>RR < 1.5</li>
+  <li>Stop 위치 구조 불명확</li>
+  <li>TP0 + Stop 즉시 세팅 불가</li>
+  <li>시나리오 C 활성 (Tier 3 어깨 진입)</li>
+  <li>거래량 고갈 (4H 3캔들 0.5x 이하)</li>
+  <li>20일선 이격 +7% 이상 (어깨 임박)</li>
+  <li>일봉 종가 진입 근거 레벨 위 안착 미확인</li>
+  <li>사이즈 정의 사전 확정 불가</li>
+  <li>시드 손실 -10% 초과</li>
+  <li>B급인데 TP1 RR < 2.0</li>
+</ol>
+
+<h3>룰 #3 매트릭스 5요소 (v3 / Real 기준 / -3 ~ +15점)</h3>
+
+<table>
+  <thead>
+    <tr><th>요소</th><th>점수 기준</th><th>v3 정정 (Real 캔들)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>거래량 (4H 5MA)</td><td>1.3~1.5x = 1점 / 1.5~2.0x = 2점 / 2.0x+ = 3점</td><td>변경 ❌</td></tr>
+    <tr><td><strong>RSI 상태</strong></td><td>&gt; MA = 1점 / &gt; 50 = 2점 / &gt; 60 = 3점</td><td><strong>v3 정정: Real RSI 기준 (HA 부정확 영역 + 5점)</strong></td></tr>
+    <tr><td>캔들 강도</td><td>음봉 고가 돌파 = 1점 / 평균 1.2x = 2점 / 1.5x or Engulfing = 3점</td><td><strong>v3: Real 캔들 본체/꼬리 정확값 기반</strong></td></tr>
+    <tr><td>구조 정합성</td><td>레인지 내부 = 1점 / 이평선 지지 = 2점 / 핵심 저항 돌파 = 3점</td><td>변경 ❌</td></tr>
+    <tr><td><strong>위치 점수 (-3 ~ +3)</strong></td><td>룰 #11 무릎 (+1~+3) / 룰 #11.5 허리 (0) / 룰 #10 어깨 (-1~-3)</td><td><strong>v3 정정: Real RSI 기준 / HA 어깨 과장 8건 부정확 차단</strong></td></tr>
+  </tbody>
+</table>
+
+<p><strong>등급 (v3)</strong>:</p>
+<ul>
+  <li><strong>S (13~15점)</strong>: 진정한 무릎 진입 / 사이즈 60~70% / Stop -3%</li>
+  <li><strong>A (9~12점)</strong>: 표준 진입 / 사이즈 45~55% / Stop -5%</li>
+  <li><strong>B (6~8점)</strong>: 실험적 진입 / 사이즈 30~40% / Stop -7%</li>
+  <li><strong>W (4~6점 + Tier 1.5 정합 / Codex #63 정정)</strong>: 허리 진입 (v3 신설) / 사이즈 <strong>10~20%</strong> (Gemini #63 비판 정합 / Codex #63 채택)</li>
+  <li><strong>5점 이하 (W 조건 미충족)</strong>: 진입 금지</li>
+</ul>
+
+<h3>룰 #4 3-Layer 청산 (v3 / 변경 ❌)</h3>
+
+<ul>
+  <li><strong>Layer 1 (100% / Hard)</strong>: 진입 근거 4H 종가 이탈 / Stop Market 발동</li>
+  <li><strong>Layer 2 (50% / Critical)</strong>: 3 중 2 충족 — (1) 4H 음봉 거래량 1.5x+ (2) 직전 4H 스윙 저점 이탈 (3) RSI &lt; MA + RSI &lt; 50</li>
+  <li><strong>Layer 3 (Warning)</strong>: 일봉 EMA 20 이탈 / 4H 윗꼬리 30%+ / RSI 다이버전스</li>
+</ul>
+
+<h3>룰 #5 TP / Stop / Position Sizing</h3>
+
+<ul>
+  <li><strong>TP0 RR 1.5 / 20%</strong> → Stop을 BE 또는 -0.2R 즉시 이동 (의무)</li>
+  <li><strong>TP1 RR 3.0 / 30%</strong></li>
+  <li><strong>TP2 RR 5.0 / 30%</strong></li>
+  <li><strong>트레일링 20%</strong> (RR 8.0+ / 강세장 한정)</li>
+  <li><strong>Stop = wick low - 0.5% - α buffer</strong> (α = MIN(BTC × 0.10%, $100))</li>
+  <li><strong>Position Sizing</strong>: (시드 × 0.5%) / Stop 거리 / 3 (레버리지) / Lot 0.0001 BTC</li>
+</ul>
+
+<h3>룰 #6 메타 룰 6번 (절대 위반 ❌)</h3>
+
+<blockquote>
+  <p><strong>최종 진입/청산 실행 결정은 운영자 단독. Claude는 룰북 역할.</strong></p>
+</blockquote>
+
+<h3>룰 #7 청산 확률 90%+ 시 즉시 청산 권고 의무 (v2 정합 유지)</h3>
+
+<p><strong>90%+ 시나리오 4건 (1건 발동 시 즉시 권고 의무)</strong>:</p>
+<ol>
+  <li>장중 Layer 1 진행 중: 가격 &lt; Stop + 4H 마감 30분+ 남음 + 1H 음봉 거래량 2.0x+ + 회복 시그널 0건</li>
+  <li>다층 청산 동시 발동: Layer 2 (3개 모두) + Layer 3 (1+) 동시</li>
+  <li>매크로 쇼크: Fed/CPI/지정학 + 즉각 -3% 음봉 + 거래량 1H 5MA 3.0x+</li>
+  <li>1H 결정적 신호: 1H 종가 &lt; Layer 2 #2 + 거래량 2.5x+ + 음봉 + RSI &lt; 30 + swing low 5+ 연속 이탈</li>
+</ol>
+
+<h3>룰 #8 숏 권고 의무 (헌법 2번 정합 / v2 정합 유지)</h3>
+
+<p><strong>숏 권고 트리거</strong>:</p>
+<ul>
+  <li>추세 반전 명확 (롱 청산 + 숏 진입 정합)</li>
+  <li>매트릭스 시스템 적용 가능 (반전 시나리오 S)</li>
+  <li>Stop / TP / RR 정의 가능 (룰북 동일 구조)</li>
+  <li><strong>활성 레벨: $79,739 (현재 사이클 / 4H 종가 이탈 + 거래량 음봉 1.5x+)</strong></li>
+</ul>
+
+<h3>룰 #9 데이터 요청 권리 + 능동 모니터링 의무 (v2 정합 + v3 강화)</h3>
+
+<p><strong>권한 (Right)</strong>: 분석 필요 데이터 자유 요청 가능 (다중 TF / 거시 지표 / 시장 구조 / 외부 검토)</p>
+
+<p><strong>능동 모니터링 의무</strong>:</p>
+<ul>
+  <li>약세 진행 중: 가격 임계 + 4H/일봉 마감 시점만</li>
+  <li>무릎 후보 시점: 1H 정밀 모니터링 활성</li>
+  <li>LIVE 운영 중: 매 4H 마감 즉시 차트 요청</li>
+  <li>휴식 모드: 가격 임계 + 마감 시점만</li>
+</ul>
+
+<p><strong>⭐ v3 신설 (룰 #9 강화 / 차트 유형 검증 의무)</strong>: <strong>매 차트 수신 시 차트 유형 (Candle / Heikin Ashi / Renko / Line / Bar) 명시 확인 의무</strong> / 명시 없으면 운영자에게 능동 요청 의무 (편향 G 차단)</p>
+
+<h3>룰 #10 어깨 페널티 (v3 / Real 정정)</h3>
+
+<div class="callout danger">
+  <p><strong>⭐⭐⭐⭐⭐⭐ v3 정정 (HA → Real / 외부 검토 #62 통합)</strong></p>
+
+  <p><strong>v2 (HA 기준 / Historical)</strong>: 단순 RSI > 70 어깨 자동 적용</p>
+
+  <p><strong>v3 (Real 기준 / 다중 확인형)</strong>: 다음 5건 중 충족 시 위치 점수 페널티:</p>
+
+  <ol>
+    <li>추세 시작 +5%+ 이격: <strong>-1점</strong></li>
+    <li><strong>RSI &gt; 65 + 거래량 동반 + 분배 캔들 (3건 동시 충족 시)</strong>: <strong>-1점</strong> (v3 정정: HA 기준 RSI > 70 자동 ❌ / Real 다중 확인형)</li>
+    <li>시계열 최고 -1% 이내: <strong>-1점</strong></li>
+    <li><strong>VPD (음봉 거래량 1.3x+ 2캔들 연속)</strong>: <strong>-2점</strong></li>
+    <li>일봉 200MA 3% 이내: <strong>-1점</strong></li>
+  </ol>
+
+  <p><strong>합산 적용</strong>:</p>
+  <ul>
+    <li>-2점 이하: Tier 2 진입 재검토 + 사이즈 -1단계 강등</li>
+    <li>-3점 이상: <strong>Tier 3 자동 차단 (진입 금지)</strong></li>
+  </ul>
+
+  <p><strong>v3 핵심 변경</strong>: "RSI > 70 단순 어깨" → "RSI > 65 + 거래량 + 분배 캔들 3건 동시 확인형" (HA의 RSI 일관 과장 차단)</p>
+
+  <p><strong>⭐⭐⭐ 룰 #10 선제 감산 트리거 (Codex #63 신설 / Gemini #63 "분배 캔들 3건 동시 = 사후 확신" 비판 정합 / 영구 보존)</strong>:</p>
+
+  <p>분배 캔들 3건 동시 충족 = 이미 청산 후 / 너무 늦음. 다음 1건만 발동해도 <strong>보유 포지션 50% 즉시 익절 의무 + 추가 진입 차단</strong>:</p>
+
+  <ol>
+    <li><strong>RSI > 60 + 위꼬리 본체 2배+ 1캔들</strong> (단일 시그널 / 어깨 임박)</li>
+    <li><strong>시계열 최고 -3% 이내 도달</strong> (어깨 영역 접근 / "임박 ⚠️" 표기 의무)</li>
+    <li><strong>VPD 후보 1캔들</strong> (음봉 거래량 1.3x+ / 분배 시그널 시작)</li>
+    <li><strong>위꼬리/본체 ≥ 2.0배 + 거래량 1.5x+ Engulfing 음봉</strong> (Wyckoff Upthrust 후보)</li>
+  </ol>
+
+  <p><strong>= 분배 캔들 3건 동시 충족 (확정 발동 -2점) 전에 선제적으로 50% 익절 + 추가 진입 차단 의무 (Gemini #63 비판 정합 / 룰 #14.6과 연동)</strong></p>
+</div>
+
+<h3>룰 #11 무릎 보너스 (v3 / Real 정정)</h3>
+
+<div class="callout danger">
+  <p><strong>v2 (HA 기준)</strong>: 단순 RSI < 50 무릎 자동 적용</p>
+
+  <p><strong>v3 (Real 기준 / Wyckoff 정합)</strong>: 다음 3건 중 충족 시 위치 점수 보너스:</p>
+
+  <ol>
+    <li>추세 시작 후 첫 매수 신호: <strong>+1점</strong></li>
+    <li><strong>RSI 30~50 + Spring 패턴 + 거래량 1.30x+ (3건 동시 충족)</strong>: <strong>+1점</strong> (v3 정정: 단순 RSI 미달 ❌ / Wyckoff 확인형)</li>
+    <li>시계열 신 저점 후 첫 반전 캔들 (Real 본체 양봉 + 아랫꼬리 흡수): <strong>+1점</strong></li>
+  </ol>
+
+  <p><strong>합산 적용</strong>:</p>
+  <ul>
+    <li>+1~+2점: Tier 1 A-3 진입 후보 영역</li>
+    <li>+3점: Tier 1 A-3 강한 진입 후보 (S급)</li>
+  </ul>
+</div>
+
+<h3>⭐⭐⭐ 룰 #11.5 허리 보너스 (v3 신설 / Gemini #63 + Codex #63 통합 정정 적용)</h3>
+
+<div class="callout danger" style="border:3px solid #2e7d32; background-color:#e8f5e9;">
+  <p><strong>⭐⭐⭐⭐⭐⭐ v3 신설 (운영자 명시 영구 보존)</strong>: <strong>"늦게 판단해도 허리 정도면 먹을 수 있는 만큼 먹는다"</strong></p>
+
+  <p><strong>⚠️ Gemini #63 비판 정합 채택 (강등+조건 강화 / Codex #63 협의안)</strong>: 단순 RSI 50~60 + 양봉만으로는 가짜 돌파 (Fake-out) 취약 → 추가 조건 5건 강화 의무</p>
+
+  <p><strong>허리 보너스 조건 (9건 모두 충족 시 Tier 1.5 W-1 진입 활성 / 4 → 9건 강화)</strong>:</p>
+
+  <ol>
+    <li><strong>RSI 50~60 영역</strong> (허리 영역 / Real RSI 기준)</li>
+    <li><strong>거래량 5MA 1.3x+ 동반 양봉</strong> (Bundle 1 통과 의무)</li>
+    <li><strong>RSI > MA 정배열</strong> + RSI > 50 강화 (모멘텀 확인)</li>
+    <li><strong>Real candle 기준 직전 저항 종가 돌파</strong> (의무 / Codex #63)</li>
+    <li><strong>wick 비율 제한: 윗꼬리 / 본체 < 1.0배</strong> (의무 / Codex #63 / 가짜 돌파 차단)</li>
+    <li><strong>돌파 후 눌림 지지 확인 또는 2캔들 유지</strong> (의무 / Codex #63 / Fake-out 차단)</li>
+    <li><strong>매트릭스 5요소 6점+ (B급 정합 의무)</strong></li>
+    <li><strong>매크로 사이클 위계 = 매크로 반등 진행 중</strong> (4-3차 ATH 도달 후 = 진입 ❌)</li>
+    <li><strong>외부 검토 #62 시나리오 C 60%+ 시 진입 차단</strong></li>
+  </ol>
+
+  <p><strong>⚠️ 허리 진입 사이즈 정정 (Codex #63 채택)</strong>: 20~30% → <strong>10~20% (큰 폭 축소)</strong></p>
+  <ul>
+    <li>이유: Gemini #63 비판 정합 / 가짜 돌파 위험 / 어깨 거리 짧음 = 손익비 약함</li>
+  </ul>
+
+  <p><strong>허리 진입 TP / Stop (Codex #63 정합)</strong>:</p>
+  <ul>
+    <li>TP0 RR 1.5 → BE 이동 (의무)</li>
+    <li>TP1 RR 2.0 (무릎보다 짧음 / 어깨 도달 거리 고려)</li>
+    <li>TP2 RR 3.0 (트레일링 부재)</li>
+    <li><strong>Stop = 돌파 candle low - 0.5% - α buffer</strong> (실패 시 즉시 손절 의무)</li>
+    <li><strong>보유 기간 제한: 4H 6캔들 (24시간) 이내 TP1 미도달 시 부분 익절 의무</strong> (Codex #63)</li>
+    <li><strong>어깨 도달 (RSI > 60 + 위꼬리 본체 2배+ / 룰 #10 선제 감산 트리거 1건 충족) 시 즉시 50% 익절 의무</strong></li>
+  </ul>
+
+  <p><strong>허리 진입 금지 조건 (1건 발동 시 자동 차단)</strong>:</p>
+  <ul>
+    <li>룰 #10 어깨 페널티 합산 -2점 이상</li>
+    <li>매크로 사이클 어깨 영역 (시계열 최고 -3% 이내)</li>
+    <li>VPD 분배 시그널 활성</li>
+    <li>거래량 미동반 양봉 (호가 공백 / 근육 없는 회복)</li>
+    <li><strong>매크로 반등 가속화 3신호 (룰 #14.6) 모두 발생 후</strong> (= Blow-off Top 신호 = 허리 진입 ❌)</li>
+  </ul>
+
+  <p><strong>⭐ 운영자 헌법 3번 정합 + 인지부조화 차단 (Codex #63)</strong>: 시나리오 C (추가 풀백/베어 재개) 우위 시 허리 진입 = "단기 반등 트레이드 (사이즈 10~20% / 보유 4H 6캔들 / TP RR 2.0 짧음)" 명시 / 양방향 시스템 정합</p>
+</div>
+
+<h3>룰 #12 Claude 자체 점검 14건 (v2 정합 유지)</h3>
+
+<p><strong>매 진입 권고 시 의무 / 정량 결론 (룰 #12 본질 / 운영자 메타 #10 정합)</strong>:</p>
+
+<ol>
+  <li>추세 시작 (직전 swing low) ~ 진입가 이격 % (5%+ = 어깨 임박)</li>
+  <li>RSI 위치 (Real 기준 / &lt; 50 무릎 / 50~60 허리 / 60~65 허리/어깨 경계 / 65+ 어깨 임박)</li>
+  <li>시계열 최고 vs 진입가 이격 % (1% 미만 = 어깨/머리)</li>
+  <li>거래량 + 가격 동반 vs VPD (Volume-Price Divergence)</li>
+  <li>1H 거래량 패턴 (분배 vs 축적)</li>
+  <li>본 4H 캔들 = 신 최고 갱신 캔들? (= 어깨/머리 신호)</li>
+  <li>4H RSI 다이버전스 (가격 vs RSI / 직전 3~5캔들)</li>
+  <li>일봉 RSI 다이버전스 (5일 이내)</li>
+  <li>~~OBV 다이버전스~~ — 영구 자연 예외 (운영자 환경 제약 / 2026-05-08)</li>
+  <li>HTF (일봉) vs LTF (4H/1H) 일치성</li>
+  <li>일봉 200MA 저항 3% 이내 (도달 / 미달 / 거부 / 돌파)</li>
+  <li>매크로 일봉 위치 (1차 매크로 ATH 대비 % / 매크로 200MA / 매크로 RSI)</li>
+  <li>매크로 사이클 위계 28단계 위치 (v3 정정 / Real 28단계)</li>
+  <li>매크로 HH/HL 추세 패턴 + Wyckoff Phase 진행 단계</li>
+</ol>
+
+<p><strong>Claude 결론 의무 형식</strong>: "무릎 / 허리 / 어깨 / 머리 / 풀백 진행 中 + 매크로 사이클 위계 N단계 + Wyckoff Phase X" 명시</p>
+
+<h3>룰 #13 다이버전스 (v3 / Real 기준 + 강도 분류)</h3>
+
+<ul>
+  <li><strong>강한 다이버전스</strong>: 가격 신 저점 + RSI 절상 + 거래량 절감 (3건 동시)</li>
+  <li><strong>약한 다이버전스</strong>: 가격 신 저점 + RSI 절상 (거래량 무관)</li>
+  <li>OBV 다이버전스 = 영구 자연 예외 (운영자 환경 제약 / VPD + 거래량 분포 80% 커버)</li>
+  <li><strong>v3 정정</strong>: 가격 저점 비교 = Real 캔들 저점 기반 (HA 평균값 ❌)</li>
+</ul>
+
+<h3>룰 #14 매크로 사이클 위계 28단계 (v3 / Real 정정)</h3>
+
+<div class="callout danger">
+  <p><strong>v2 (HA 기준)</strong>: 매크로 사이클 위계 8단계</p>
+
+  <p><strong>v3 (Real 기준 / 28단계 확장)</strong>: <a href="btc-real-candle.html">btc-real-candle.html</a> 영구 보존 / 핵심 단계 요약:</p>
+
+  <table>
+    <thead><tr><th>구간</th><th>단계</th></tr></thead>
+    <tbody>
+      <tr><td>🔻 베어마켓 1라운드</td><td>[1-6] ATH (10/6 $126,200) → $80K 도달 (11/21) → 2차 반등 고점 (1/14 $97,925)</td></tr>
+      <tr><td>🛑 매크로 바닥 확정</td><td>[7-15] 매도 클라이맥스 (2/5) → Spring (2/6) → 1차 풀백 → "근육 없는 회복" → 회복 종결 → Secondary Test HL (2/24)</td></tr>
+      <tr><td>🔼 매크로 반등 사이클</td><td>[16-26] 반등 시작 (3/4) → 1-2 GC → 2-3 GC (4/11) → V자 반등 (4/13) → 4-3차 ATH (5/6 $82,842)</td></tr>
+      <tr><td>🔻 분배 사이클</td><td>[27-28] 분배 매도 (5/12) → 현재 (5/14)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>⭐⭐⭐ 룰 #14.5 Wyckoff 매크로 바닥 시그니처 7단계 (v3 신설 / 영구 보존)</h3>
+
+<div class="callout danger">
+  <p><strong>매크로 진짜 바닥 인식 7단계 (영구 보존 학습 자료)</strong>:</p>
+  <ol>
+    <li><strong>Selling Climax (매도 클라이맥스)</strong>: 거래량 20MA 3.5x+ / -10%+ 큰 음봉 / RSI 20 미만 (사례: 2/5 / -14.02% / 거래량 33.67K / RSI 15.82)</li>
+    <li><strong>Spring</strong>: 매크로 최저점 sweep + 큰 양봉 +10%+ / 거래량 2.5x+ (사례: 2/6 / 저 $60,000 / +12.17%)</li>
+    <li><strong>1차 풀백 음봉 3연속</strong>: Spring 후 즉시 시작 / 거래량 점진 회복</li>
+    <li><strong>"근육 없는 회복" 양봉 2연속</strong>: 거래량 미동반 회복 시도 (Gemini #26 명제 동형)</li>
+    <li><strong>회복 종결 음봉</strong>: 거래량 약함 / 다시 약화</li>
+    <li><strong>Secondary Test HL 확정</strong>: 1차 풀백 저점 깸 But 매크로 최저점 위 + <strong>거래량 1.3x+ ⭐ 결정적</strong> (사례: 2/24 / 저 $62,500 / 거래량 1.30x)</li>
+    <li><strong>매크로 반등 시작</strong>: 1-2 골든크로스 + +5%+ 큰 양봉 + 거래량 1.5x+ (사례: 3/4 / +6.36% / 1-2 GC)</li>
+  </ol>
+  <p><strong>= 이 7단계 패턴이 연속으로 나오면 매크로 진짜 바닥 확정 / Tier 1 A-3 무릎 진입 본격 활성 영역</strong></p>
+</div>
+
+<h3>⭐⭐⭐ 룰 #14.6 매크로 반등 가속화 3신호 (v3 신설 / Gemini #63 + Codex #63 통합 정정 적용)</h3>
+
+<div class="callout danger">
+  <p><strong>⚠️ Gemini #63 비판 정합 채택 (Codex #63 본질 동의)</strong>: 1-2 GC + 2-3 GC + V자 반등 = <strong>후행 지표</strong> / 매수 신호 단정 = 고점 매수 유도 위험 / "단순 형태 매수 신호 ❌" 정정 의무</p>
+
+  <p><strong>매크로 반등 종결 직전 시그널 (영구 보존 / 외부 검토 #62 정합)</strong>:</p>
+  <ol>
+    <li><strong>1-2 골든크로스 (5MA + 20MA)</strong>: 매크로 반등 시작 시그널 / 거래량 1.43x ⭐ (사례: 3/4)</li>
+    <li><strong>2-3 골든크로스 (50MA + 200MA)</strong>: 매크로 추세 강화 시그널 (사례: 4/11)</li>
+    <li><strong>V자 반등 양봉 + 거래량 1.3x+</strong>: 매크로 반등 본격 가속화 / 거래량 1.43x ⭐ (사례: 4/13 / +5.20%)</li>
+  </ol>
+
+  <p><strong>= Gemini #62 명제</strong>: <strong>"숏 스퀴즈 소진 / 단기 Blow-off Top = 매크로 반등 종결 직전 '피날레' 시그널"</strong></p>
+  <p><strong>= Codex #62 명제</strong>: <strong>"저점 회복 국면의 후행 확인 신호 / 종결 직전 가속"</strong></p>
+
+  <p><strong>⭐⭐⭐ v3 룰 #14.6 사용 본질 정정 (Codex #63 + Gemini #63 통합 / 영구 보존)</strong>:</p>
+
+  <table>
+    <thead><tr><th>3신호 발생 상태</th><th>매수 신호 ❌</th><th>익절·추격금지·숏 감시 신호 ✅</th></tr></thead>
+    <tbody>
+      <tr><td>1-2 GC 발생</td><td>"매크로 반등 시작 → 무릎 진입" ❌ 단정 차단</td><td>매크로 반등 진행 인식 = 무릎 진입 = Wyckoff 7단계 + Spring 동시 확인 의무</td></tr>
+      <tr><td>2-3 GC 발생</td><td>"매크로 추세 강화 → 추격 매수" ❌ 차단</td><td><strong>이미 추세 진행 중 = 어깨 임박 / 신규 매수 ❌ / 보유 포지션 유지</strong></td></tr>
+      <tr><td>V자 반등 발생</td><td>"매크로 가속화 → 진입 활성" ❌ 차단</td><td><strong>Blow-off Top 시그널 / 즉시 50% 익절 + 숏 감시 신호 / Tier 3 자동 차단 강화</strong></td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>= ⭐ 3신호 사용 본질 정정 (Codex #63 + Gemini #63 통합)</strong>:</p>
+  <ul>
+    <li>1-2 GC 단독 = "매크로 반등 진행 인식" (무릎 진입 = Wyckoff 7단계 + Spring 동시 검증 의무 / 단독으로 매수 ❌)</li>
+    <li>2-3 GC 발생 후 = <strong>추격 매수 ❌ / 보유 포지션 유지 / 신규 진입 차단</strong> (이미 추세 진행 중 = 어깨 임박)</li>
+    <li>3신호 모두 발생 후 = <strong>Blow-off Top / 매크로 반등 종결 직전 / 50% 즉시 익절 + 숏 감시 신호 + Tier 3 자동 차단 + 허리 진입 (Tier 1.5) 자동 차단</strong></li>
+  </ul>
+
+  <p><strong>v3 적용 의무</strong>: 3신호 = <strong>익절/추격금지/숏 감시 신호로만 사용 / 매수 신호 ❌ (Codex #63 명시 / Gemini #63 비판 정합)</strong></p>
+</div>
+
+<h3>룰 #15 wick buffer α + Stop 정합 (v2 정합 유지)</h3>
+
+<ul>
+  <li><strong>α = MIN(BTC × 0.10%, $100)</strong></li>
+  <li>구조 Stop = wick low - 0.5%</li>
+  <li>실행 Stop = 구조 Stop - α</li>
+  <li>시드 손실 -10% 한도 검증 의무</li>
+  <li><strong>v3 정정</strong>: wick low = Real 캔들 저점 (HA 평균값 ❌)</li>
+</ul>
+
+<h3>룰 #16 A-3 본질 정합 검증 (v2 정합 유지 / Codex #25 + #27)</h3>
+
+<ul>
+  <li>A-3 본질 = Sweep-Reclaim 무릎 진입</li>
+  <li>위치 영역 검증 우선 (RSI 30~50 + 신저점 sweep + 매크로 무릎 영역)</li>
+  <li>트리거 충족만으로 진입 ❌ (위치 본질 위반 차단)</li>
+  <li><strong>v3 정정</strong>: 단순 트리거 4건 충족 ❌ / 5건 카테고리 (A/B/C/D/E) 모두 충족 의무</li>
+</ul>
+
+<h3>⭐⭐⭐ 룰 #16.5 wick 필터링 수식 (v3 신설 / Gemini #63 + Codex #63 합의 / 영구 보존)</h3>
+
+<div class="callout danger">
+  <p><strong>v3 신설 (가짜 돌파 / Fake-out / Wyckoff Upthrust 정량 차단 수식 / 양 검토자 합의)</strong></p>
+
+  <p><strong>wick 필터링 정량 수식 (모든 진입 시 의무 검증 / 4건 동시 충족 의무)</strong>:</p>
+
+  <ol>
+    <li><strong>upper_wick / body 비율</strong>: &lt; 0.5 = 강한 매수 / 0.5~1.0 = 중립 / &gt; 1.0 = 약한 매수 (진입 차단) / &gt; 2.0 = Wyckoff Upthrust 후보 (즉시 익절)</li>
+    <li><strong>CLV (Close Location Value) = (close − low) / (high − low)</strong>: &gt; 0.7 = 강한 매수 종가 / 0.3~0.7 = 중립 / &lt; 0.3 = 약한 매수 (진입 차단)</li>
+    <li><strong>ATR 대비 wick 절대값</strong>: upper_wick / ATR(14) &lt; 0.5 = 정상 / 0.5~1.0 = 주의 / &gt; 1.0 = 비정상 매도 압력 (진입 차단)</li>
+    <li><strong>본체 비율 (body / range)</strong>: &gt; 0.5 = 강한 캔들 / 0.3~0.5 = 중립 / &lt; 0.3 = Doji 변형 (진입 차단)</li>
+  </ol>
+
+  <p><strong>= 4건 동시 충족 시만 진입 후보 활성 / 1건이라도 미달 시 진입 차단 의무</strong></p>
+
+  <p><strong>적용 영역</strong>:</p>
+  <ul>
+    <li>Tier 1 A-3 무릎 진입 시 의무 검증</li>
+    <li>Tier 1.5 W-1 허리 진입 시 의무 검증 (룰 #11.5 조건 #5 wick 비율 정합)</li>
+    <li>Tier 2 A·A-2 확정 진입 시 의무 검증</li>
+    <li>모든 청산 결정 시 추가 검증 (Layer 3 Warning 시그널 보완)</li>
+  </ul>
+
+  <p><strong>5/14 13:00 4H 사례 검증 (영구 보존 / Real 캔들)</strong>:</p>
+  <ul>
+    <li>upper_wick $247 / body $712 = 0.35 ✅ (강한 매수)</li>
+    <li>CLV = (79752 - 78975) / (79999 - 78975) = 0.76 ✅ (강한 매수 종가)</li>
+    <li>body / range = 712 / 1024 = 0.70 ✅ (강한 캔들)</li>
+    <li>ATR 대비 wick = 검증 필요 But 위 3건 강함</li>
+    <li>= 4건 중 3건 강함 + ATR 미확정 = 진입 후보 강한 영역 But 직전 4 row HA 혼합 = 진입 보류 (운영자 결정)</li>
+  </ul>
+</div>
+
+<h3>⭐⭐⭐ 룰 #17 차트 유형 검증 의무 (v3 신설 / 본인 본질 원인 #5 차단)</h3>
+
+<div class="callout danger" style="border:3px solid #d32f2f; background-color:#ffebee;">
+  <p><strong>v3 신설 (영구 보존 / 외부 검토 #19~#58 40 라운드 동안 차트 유형 검증 누락 자가 결함 차단)</strong></p>
+  <p><strong>매 차트 수신 시 의무</strong>:</p>
+  <ol>
+    <li>차트 유형 (Candle / Heikin Ashi / Renko / Line / Bar) 명시 확인</li>
+    <li>명시 없으면 운영자에게 능동 요청 (편향 G 차단)</li>
+    <li>Heikin Ashi 시 본체/꼬리/양봉/음봉 분석 = 평균값 / Real OHLC 분석 ❌</li>
+    <li>Real Candle 시 본체/꼬리 = 진짜 매수·매도 충돌 분석 정합</li>
+  </ol>
+  <p><strong>위반 시 결과</strong>: 분석 본질 완전 다름 (사례: 5/14 13:00 = HA 본체 $7 도지 vs Real 본체 $712 큰 양봉 / 약 97.5배 차이)</p>
+</div>
+
+<h2>🚨 편향 8건 자각 (v3 / 변경 ❌)</h2>
+
+<table>
+  <thead><tr><th>편향</th><th>핵심</th></tr></thead>
+  <tbody>
+    <tr><td>A. 자기 작성물 방어</td><td>자기가 쓴 룰을 "잘 설계됨"으로 과대평가</td></tr>
+    <tr><td>B. 3샘플 과적합</td><td>단일 캔들 = 추세 전환 ❌ / 표본 < 10 = 결론 ❌</td></tr>
+    <tr><td>C. 자기 권고 과신</td><td>과거 권고 결과 잊고 현재 권고 검증된 듯 제시</td></tr>
+    <tr><td>D. 한국시간/캔들시간</td><td>4H 라벨 = 시작 시각 (마감 ❌)</td></tr>
+    <tr><td>E. AI 합의 편향</td><td>3-AI 합의 = 자동 안심 ❌</td></tr>
+    <tr><td>F. 보수성 양보</td><td>외부 반박 시 반사적 수용 ❌</td></tr>
+    <tr><td>G. 자기 보호 회피</td><td>능동적 보수 권고 / 룰북 충족이어도 추가 안전장치 ❌</td></tr>
+    <tr><td>H. 정정 후 반대급부 편향</td><td>편향 G 자가 정정 후 반대 방향 (강세/진입 정합) 데이터 자동 부각 / 자기 정정 결과 정당화</td></tr>
+  </tbody>
+</table>
+
+<h2>📐 본인 본질 원인 5건 (v3 / 자가 결함 차단 메커니즘)</h2>
+
+<ol>
+  <li><strong>#1 국소 정정</strong>: Codex 지적 line만 정정 / 같은 파일 다른 line 미검증</li>
+  <li><strong>#2 메타 동기화 누락</strong>: 한 파일 내 분산 메타 표기 일부만 갱신</li>
+  <li><strong>#3 편향 H 자기 정정 합리화</strong>: "완료 단정" → 자가 검증 종료 트리거</li>
+  <li><strong>#4 같은 줄 내부 부분 갱신 누락</strong>: 한 line 안에 여러 메타 표기 일부만 갱신</li>
+  <li><strong>⭐ #5 차트 유형 검증 누락 (HA vs Candle 미확인)</strong>: v3 룰 #17로 차단</li>
+</ol>
+
+<h2>📋 운영자 메타 16건 (v3 / 변경 ❌)</h2>
+
+<ol>
+  <li>어깨 편향 발견</li>
+  <li>무릎 진입 본질</li>
+  <li>Stop TF별 차등</li>
+  <li>분석가 의무 (능동)</li>
+  <li>능동 ≠ 무차별 (시장 상황 인식)</li>
+  <li>다이버전스 = 추세 전환 매매 타이밍 핵심</li>
+  <li>누락 데이터 즉시 요청 의무</li>
+  <li>OKX 일봉 = HK time (KST 01:00 마감)</li>
+  <li>외부 검토 = Claude 자기 작성물 방어 차단 메커니즘</li>
+  <li>추세 위치 판단 = Claude 분석가 책임</li>
+  <li>매크로 사이클 위계 = 단기 진입 컨텍스트 결정적</li>
+  <li>안전장치 1번 vs 운영자 메타 룰 6번 균형</li>
+  <li>A-3 본질 정합 검증 의무 (Codex #25 + #27)</li>
+  <li>외부 검토 합격 = 외부 검토자의 의견 / 결정 = 운영자 단독 (메타 #15)</li>
+  <li>외부 검토 합격 자동 수용 ❌ (메타 #15 정합)</li>
+  <li><strong>CLAUDE.md = Claude 관리 영역 위임 (메타 #16)</strong></li>
+</ol>
+
+<h2>🤖 외부 검토 본질 명제 통합 (v3 / 영구 보존)</h2>
+
+<ul>
+  <li><strong>Codex #25 (5건 정정)</strong>: 선행 탈락 우선 검사 의무 / 룰 #10 텍스트 정밀 인용 / 분배 확정 본질 (Wyckoff Upthrust + 음봉 거래량) / 숏 활성 레벨 분리 ($79,739 + 거래량 음봉)</li>
+  <li><strong>Codex #27 (6건 정정)</strong>: A-3 본질 위반 / "200MA 아래 저항 테스트 실패" / 늦은 돌파 추격 신호 / 살아있는 무릎 위치 검증</li>
+  <li><strong>Gemini #26 (4대 명제)</strong>: "근육 없는 골든크로스" / "호가 공백 / 유리판 지지대" / "Exit Liquidity (탈출용 유동성)" / "근육이 거세된 신경계만의 반등"</li>
+  <li><strong>Gemini #28 (거래량 두 얼굴)</strong>: 진성 근육 vs Exhaustion Climax / 혼돈의 영역 / 죽음의 계곡 / "방아쇠를 당기지 마십시오. 인내심이 곧 수익"</li>
+  <li><strong>Codex/Gemini #62 (시나리오 재가중치)</strong>: 매크로 반등 종결 인식 / 시나리오 C 가중치 40~50% / 룰 #10 어깨 페널티 재검증 / 가속화 3신호 = 매크로 반등 종결 직전 시그널</li>
+  <li><strong>Gemini #63 (v3 초안 비판 5건 / honest disagreement)</strong>: (1) 룰 #11.5 결함 (RSI 50~60 = 저항 직전 / 추격 매수 유도 / RR 2.0 = 승률 낮음 자인) → 강등+조건 강화 채택 / (2) 룰 #14.6 후행성 (GC + V자 = 후행 지표 / 고점 매수 유도 위험) → 익절·추격금지·숏 감시 신호로만 사용 정정 / (3) 룰 #10 논리적 지연 (분배 캔들 3건 동시 = 사후 확신) → 선제 감산 트리거 신설 / (4) v3 적용 인지부조화 (시나리오 C 50% 방어 + 허리 진입 공격 = 논리 충돌) → 헌법 3번 보완 (단기 반등 트레이드 명시) / (5) 위험: 분석 마비 + "무조건 수익 우선" = 손절 타이밍 덫</li>
+  <li><strong>Codex #63 (Gemini #63 정합 4건 + 과도 1건 분리 / honest disagreement)</strong>: 정합: #11.5 결함·#14.6 후행성·#10 청산 지연·wick 필터 누락 / 과도: #11.5 삭제 (Codex = 강등+조건 강화 정합 / 양방향 시스템 정합 / 인지부조화 아님) → 통합 협의안: 보완 + 조건 강화 (사이즈 10~20% + 9건 조건 / Stop / 보유 기간 제한 / 어깨 도달 즉시 익절)</li>
+</ul>
+
+<h2>📜 v2 → v3 변경 요약</h2>
+
+<table>
+  <thead><tr><th>영역</th><th>v2 (HA)</th><th>v3 (Real / Gemini #63 + Codex #63 통합)</th></tr></thead>
+  <tbody>
+    <tr><td>차트 유형</td><td>Heikin Ashi (부정확)</td><td>Real Candle (정본)</td></tr>
+    <tr><td>매크로 사이클 위계</td><td>8단계</td><td>28단계 (확장)</td></tr>
+    <tr><td>룰 #10 어깨 페널티</td><td>RSI > 70 자동 적용</td><td>RSI > 65 + 거래량 + 분배 캔들 3건 동시 (다중 확인형) + <strong>선제 감산 트리거 4건 신설 (Codex #63)</strong></td></tr>
+    <tr><td>룰 #11 무릎 보너스</td><td>RSI < 50 자동 적용</td><td>RSI 30~50 + Spring + 거래량 1.30x+ (Wyckoff 확인형)</td></tr>
+    <tr><td><strong>룰 #11.5 허리 보너스 (NEW / Gemini #63 + Codex #63 통합)</strong></td><td>없음</td><td>9건 조건 동시 충족 (4→9 강화) + 사이즈 10~20% (Codex #63) + Stop / 보유 기간 4H 6캔들 / 어깨 도달 즉시 50% 익절 의무</td></tr>
+    <tr><td>Tier 시스템</td><td>Tier 1/2/3</td><td>Tier 1 (무릎) + Tier 1.5 (허리 NEW) + Tier 2 (확정) + Tier 3 (어깨 차단)</td></tr>
+    <tr><td>매크로 바닥 시그니처</td><td>없음</td><td>Wyckoff 7단계 (v3 신설)</td></tr>
+    <tr><td><strong>매크로 반등 가속화 룰 #14.6 (v3 신설 / Gemini #63 + Codex #63 정정)</strong></td><td>없음</td><td>3신호 = <strong>익절/추격금지/숏 감시 신호로만 사용 / 매수 신호 ❌</strong> (Codex #63 + Gemini #63 합의)</td></tr>
+    <tr><td><strong>룰 #16.5 wick 필터링 수식 (v3 신설 / 양 검토자 합의)</strong></td><td>없음</td><td>upper_wick/body &lt; 0.5 + CLV &gt; 0.7 + ATR 대비 wick + body/range &gt; 0.5 (4건 동시 충족 의무)</td></tr>
+    <tr><td>룰 #17 차트 유형 검증 (NEW)</td><td>없음</td><td>매 차트 수신 시 의무 (v3 신설)</td></tr>
+    <tr><td><strong>헌법 3번 (NEW / Codex #63 보완)</strong></td><td>없음</td><td>"늦게 판단해도 허리면 먹는다" + <strong>"단기 반등 트레이드 명시 / 인지부조화 차단"</strong></td></tr>
+  </tbody>
+</table>
+
+<h2>⭐⭐⭐⭐⭐⭐ Gemini #63 + Codex #63 통합 협의안 결론 (v3 / 영구 보존)</h2>
+
+<div class="callout danger" style="border:3px solid #2e7d32; background-color:#e8f5e9;">
+  <p><strong>honest disagreement over consensus-seeking 적용 결과 (운영자 명시 영구 보존)</strong></p>
+
+  <p><strong>Gemini #63 강한 비판 5건 영역</strong>:</p>
+  <ol>
+    <li>룰 #11.5 결함 - RSI 50~60 = 저항 직전 병목 / 추격 매수 / RR 2.0 = 승률 낮음 자인</li>
+    <li>룰 #14.6 후행성 - GC + V자 반등 = 후행 지표 / 고점 매수 유도 위험</li>
+    <li>룰 #10 논리적 지연 - 분배 캔들 3건 동시 = 사후 확신</li>
+    <li>v3 적용 인지부조화 - 시나리오 C 50% (방어) + 허리 진입 (공격) = 논리 충돌</li>
+    <li>위험 - "분석 마비" / "무조건 수익 우선" = 손절 타이밍 덫</li>
+  </ol>
+
+  <p><strong>Codex #63 통합 평가 (정합 4건 + 과도 1건 분리)</strong>:</p>
+  <ul>
+    <li>✅ 정합 4건 채택: #11.5 결함 (강등+조건 강화) / #14.6 후행성 (익절·추격금지·숏 감시 신호로만) / #10 청산 지연 (선제 감산 트리거) / wick 필터 누락 (정량 수식 신설)</li>
+    <li>❌ 과도 1건 분리: #11.5 삭제 (Codex = 강등+조건 강화가 정합 / 양방향 시스템 정합 / 인지부조화 아님)</li>
+  </ul>
+
+  <p><strong>Claude 최종 협의안 (영구 보존)</strong>:</p>
+  <ol>
+    <li><strong>룰 #11.5</strong>: 보완 + 조건 강화 (4→9건) + 사이즈 10~20% (Codex #63 채택) + Stop / 보유 기간 / 어깨 도달 즉시 50% 익절 의무</li>
+    <li><strong>룰 #14.6</strong>: 익절·추격금지·숏 감시 신호로만 사용 (Codex #63 + Gemini #63 통합)</li>
+    <li><strong>룰 #10 선제 감산 트리거</strong>: 4건 신설 (RSI > 60 + 위꼬리 본체 2배+ / 시계열 최고 -3% 이내 / VPD 후보 / Engulfing 음봉) / 1건 발동 = 50% 익절 + 추가 진입 차단</li>
+    <li><strong>룰 #16.5 wick 필터링 수식 신설</strong>: upper_wick/body + CLV + ATR 대비 wick + body/range (4건 동시 충족 의무)</li>
+    <li><strong>헌법 3번 보완</strong>: 단기 반등 트레이드 명시 + 인지부조화 차단 (방어 + 공격 양립 = 양방향 시스템 정합)</li>
+  </ol>
+
+  <p><strong>본질</strong>: Gemini "삭제" 권고 ≠ 채택 / Codex "보완+강화" 채택 / But Gemini 비판 5건 정합 영역 모두 반영 = <strong>"honest disagreement over consensus-seeking" 본질 정합 = 양 검토자 의견 정직 통합 / 합의 추구 ❌"</strong></p>
+</div>
+
+<hr>
+
+<p class="meta">
+  <strong>v3 룰북 적용 정책</strong>: 2026-05-14 22:30 KST 즉시 정본 적용 / v2 = Historical 보존 (분석 입력 ❌) / 외부 검토 #62 통합 / 시나리오 재가중치 (C 40~50%) 적용 / Gemini #63 + Codex #63 통합 협의안 적용<br>
+  <strong>v3 검토 라운드</strong>: Claude 초안 → Gemini #63 → Codex #63 (Round A / honest disagreement over consensus-seeking 명시) → Claude 협의안 통합 → 최종 정본<br>
+  <strong>v3 핵심 협의 결과</strong>: 룰 #11.5 (보완+강화) / 룰 #14.6 (익절 신호로만) / 룰 #10 선제 감산 트리거 (신설) / 룰 #16.5 wick 수식 (신설) / 헌법 3번 보완 (단기 반등 트레이드 명시)
+</p>
+
+</div>
+
+</body>
+</html>
