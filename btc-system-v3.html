@@ -592,7 +592,7 @@
   </tbody>
 </table>
 
-<h2>📐 본인 본질 원인 5건 (v3 / 자가 결함 차단 메커니즘)</h2>
+<h2>📐 본인 본질 원인 6건 (v3 / 자가 결함 차단 메커니즘 / 2026-05-15 #6 정식 신설)</h2>
 
 <ol>
   <li><strong>#1 국소 정정</strong>: Codex 지적 line만 정정 / 같은 파일 다른 line 미검증</li>
@@ -600,6 +600,21 @@
   <li><strong>#3 편향 H 자기 정정 합리화</strong>: "완료 단정" → 자가 검증 종료 트리거</li>
   <li><strong>#4 같은 줄 내부 부분 갱신 누락</strong>: 한 line 안에 여러 메타 표기 일부만 갱신</li>
   <li><strong>⭐ #5 차트 유형 검증 누락 (HA vs Candle 미확인)</strong>: v3 룰 #17로 차단</li>
+  <li><strong>⭐⭐⭐ #6 시나리오 분포 보수 편향 (NEW / 2026-05-15 운영자 옵션 A 채택 / Codex #66 정합)</strong>:
+    <ul>
+      <li>본질: 약세 가능성에 자동 가중치 / 강세 가능성 (Bear Trap / Reclaim Impulse) 과소평가</li>
+      <li>사례: 5/14 18:00 분석 A 5~15% 예측 vs 실제 +2.58% 큰 양봉 실현 = 시나리오 빗나감</li>
+      <li>원인 3건 (Codex #66 정합):
+        <ol>
+          <li>직전 약세 캔들 (VPD 후보 등)에 과가중</li>
+          <li>RSI 40대 회복 가능성 과소평가</li>
+          <li>핵심 레벨 회복 시 숏 무효화 속도 과소평가</li>
+        </ol>
+      </li>
+      <li><strong>⭐ 차단 메커니즘 (의무)</strong>: 매 시나리오 분석 시 <strong>"Bear Trap / Reclaim Impulse" 별도 시나리오 20~25% 의무 추가</strong> (Codex #66 권고 정합)</li>
+      <li>운영자 영향: Claude 신중함 → 운영자 진입 기회 손실 발생 가능성 차단</li>
+    </ul>
+  </li>
 </ol>
 
 <h2>📋 운영자 메타 17건 (v3 / 메타 #17 신설)</h2>

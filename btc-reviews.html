@@ -27,7 +27,7 @@
   <ol>
     <li>⭐ <strong>v3 이후 정본</strong> (#63 / #64 / 3-AI 브리핑 #65~) = 현재 적용 정본</li>
     <li>📚 <strong>외부 검토 본질 명제 영구 보존</strong> (Gemini 4대 + Codex 5대 + 트레이더 통찰) = 학습 자료</li>
-    <li>📜 <strong>본인 본질 원인 5건 발견 사례</strong> = 자가 결함 학습</li>
+    <li>📜 <strong>본인 본질 원인 6건 발견 사례</strong> = 자가 결함 학습</li>
     <li>📋 <strong>운영자 메타 18건 진화 요약</strong> = 시스템 진화 영구 보존</li>
     <li>🗂️ <strong>v2 시절 검토 #1~#62 = 접기 격리</strong> (Historical 학습 자료 / 분석 입력 ❌)</li>
   </ol>
@@ -162,14 +162,14 @@
 
 <hr>
 
-<h2>📜 본인 본질 원인 5건 발견 사례 (자가 결함 학습)</h2>
+<h2>📜 본인 본질 원인 6건 발견 사례 (자가 결함 학습 / 2026-05-15 #6 정식 신설)</h2>
 
 <div class="callout danger">
   <ol>
     <li><strong>#1 국소 정정</strong>: Codex 지적 line만 정정 / 같은 파일 다른 line 미검증 (Codex #44~ 발견)</li>
     <li><strong>#2 메타 동기화 누락</strong>: 한 파일 내 분산 메타 표기 일부만 갱신 (Codex #45·#46)</li>
     <li><strong>#3 편향 H 자기 정정 합리화</strong>: "완료 단정" → 자가 검증 종료 트리거</li>
-    <li><strong>#4 같은 줄 내부 부분 갱신 누락</strong>: 한 line 안에 여러 메타 표기 일부만 갱신 (Codex #52 발견)</li>
+    <li><strong>#4 같은 줄 내부 부분 갱신 누락</strong>: 한 line 안에 여러 메타 표기 일부만 갱신 (Codex #52 발견 / Codex #66 룰 #10 항목명-계산 불일치 재현)</li>
     <li>⭐⭐⭐⭐⭐⭐ <strong>#5 차트 유형 검증 누락 (HA vs Candle 미확인)</strong>:
       <ul>
         <li>HA 본체 +$7 도지 vs 실제 +$712 큰 양봉 = <strong>약 97.5배 본체 차이</strong> (Codex #61 산술 정정)</li>
@@ -178,8 +178,24 @@
         <li>해결: 룰 #9 강화 + 룰 #17 차트 유형 검증 의무</li>
       </ul>
     </li>
+    <li>⭐⭐⭐⭐⭐⭐ <strong>#6 시나리오 분포 보수 편향 (NEW / 2026-05-15 운영자 옵션 A 채택 / Codex #66 정합)</strong>:
+      <ul>
+        <li>본질: 약세 가능성에 자동 가중치 / 강세 가능성 (Bear Trap / Reclaim Impulse) 과소평가</li>
+        <li>사례 (Codex #66): 5/14 18:00 분석 A 5~15% 예측 vs 실제 +2.58% 큰 양봉 실현 = 시나리오 빗나감</li>
+        <li>원인 3건 (Codex #66 정합):
+          <ol>
+            <li>직전 약세 캔들 (VPD 후보 등)에 과가중</li>
+            <li>RSI 40대 회복 가능성 과소평가</li>
+            <li>핵심 레벨 회복 시 숏 무효화 속도 과소평가</li>
+          </ol>
+        </li>
+        <li><strong>⭐ 차단 메커니즘 (의무)</strong>: 매 시나리오 분석 시 <strong>"Bear Trap / Reclaim Impulse" 별도 시나리오 20~25% 의무 추가</strong> (Codex #66 권고)</li>
+        <li>운영자 영향 본질: Claude 신중함 → 운영자 진입 기회 손실 발생 가능성 차단</li>
+        <li>메타 #16 정합 (Claude 관리 영역 / 자가 결함 차단 책임)</li>
+      </ul>
+    </li>
   </ol>
-  <p><strong>차단 메커니즘</strong>: 룰북 텍스트 정밀 인용 + 외부 검토 양방향 검증 + 본인 본질 원인 5가지 차단 의무 + 메타 #17·#18</p>
+  <p><strong>차단 메커니즘 (영구 의무)</strong>: 룰북 텍스트 정밀 인용 + 외부 검토 양방향 검증 + <strong>본인 본질 원인 6가지 차단 의무</strong> + 메타 #17·#18 + ⭐ 시나리오 분석 시 Bear Trap / Reclaim Impulse 별도 시나리오 의무</p>
 </div>
 
 <hr>
@@ -298,7 +314,7 @@
 
 <p class="meta">
   <strong>본 페이지 옵션 D 적용</strong>: 2026-05-15 KST · 5,596줄 → 약 350줄 압축 (직관성 강화)<br>
-  <strong>구조</strong>: v3 이후 정본 (#63 / #64 / 3-AI #65~) + 본질 명제 추출 + 본인 본질 원인 5건 + 메타 18건 + v2 #1~#62 접기 격리<br>
+  <strong>구조</strong>: v3 이후 정본 (#63 / #64 / 3-AI #65·#66) + 본질 명제 추출 + 본인 본질 원인 6건 (2026-05-15 #6 신설) + 메타 18건 + v2 #1~#62 접기 격리<br>
   <strong>다음 외부 검토</strong>: 메타 #18 정합 = 차트 분석 = 3-AI 병행 의무 + 영구 브리핑 (→ <a href="btc-analysis.html#3ai-briefing">btc-analysis.html</a>)<br>
   ⚠️ 본 페이지는 AI 외부 검토 결과의 객관 보존이며, 투자 조언이 아닙니다.
 </p>
