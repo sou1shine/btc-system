@@ -1001,3 +1001,88 @@ details > *:not(summary) {
   }
   .callout.danger * { color: var(--text-primary); }
 }
+
+/* ========================================
+   ⚠️ 표 (table) row inline 밝은 배경 처리
+   - <tr style="background:#fff9e6"> 등이 있을 때
+   - 자식 <td>는 다크모드 기본 배경 (어두움)을 가지므로
+     tr의 inline 배경이 가려지고 텍스트만 어두워짐 → 가독성 0
+   - 해결: tr inline 배경 시 td 배경 투명 강제
+======================================== */
+
+@media (prefers-color-scheme: dark) {
+  tr[style*="background-color:#fff9e6"] > td,
+  tr[style*="background-color: #fff9e6"] > td,
+  tr[style*="background:#fff9e6"] > td,
+  tr[style*="background: #fff9e6"] > td,
+  tr[style*="background-color:#e8f5e9"] > td,
+  tr[style*="background-color: #e8f5e9"] > td,
+  tr[style*="background:#e8f5e9"] > td,
+  tr[style*="background: #e8f5e9"] > td,
+  tr[style*="background-color:#e3f2fd"] > td,
+  tr[style*="background-color: #e3f2fd"] > td,
+  tr[style*="background:#e3f2fd"] > td,
+  tr[style*="background: #e3f2fd"] > td,
+  tr[style*="background-color:#ffebee"] > td,
+  tr[style*="background-color: #ffebee"] > td,
+  tr[style*="background:#ffebee"] > td,
+  tr[style*="background: #ffebee"] > td,
+  tr[style*="background-color:#f5f5f5"] > td,
+  tr[style*="background:#f5f5f5"] > td,
+  tr[style*="background-color:#fffde7"] > td,
+  tr[style*="background:#fffde7"] > td,
+  tr[style*="background-color:#fff0f0"] > td,
+  tr[style*="background:#fff0f0"] > td {
+    background: transparent !important;
+  }
+
+  /* hover 시 약간 톤다운 */
+  tr[style*="background-color:#fff9e6"]:hover > td,
+  tr[style*="background:#fff9e6"]:hover > td,
+  tr[style*="background-color:#e8f5e9"]:hover > td,
+  tr[style*="background:#e8f5e9"]:hover > td,
+  tr[style*="background-color:#e3f2fd"]:hover > td,
+  tr[style*="background:#e3f2fd"]:hover > td {
+    background: rgba(255, 255, 255, 0.05) !important;
+  }
+}
+
+/* ========================================
+   ⚠️ thead/tbody row inline 배경 (header style)
+   - thead 내 tr에 inline 배경이 있을 때도 동일 처리
+======================================== */
+
+@media (prefers-color-scheme: dark) {
+  thead tr[style*="background-color:#e3f2fd"] > th,
+  thead tr[style*="background:#e3f2fd"] > th,
+  thead tr[style*="background-color:#fff0f0"] > th,
+  thead tr[style*="background:#fff0f0"] > th,
+  thead tr[style*="background-color:#fff9e6"] > th,
+  thead tr[style*="background:#fff9e6"] > th,
+  thead tr[style*="background-color:#e8f5e9"] > th,
+  thead tr[style*="background:#e8f5e9"] > th,
+  thead tr[style*="background-color:#f5f5f5"] > th,
+  thead tr[style*="background:#f5f5f5"] > th {
+    background: transparent !important;
+    color: #111827 !important;
+  }
+}
+
+/* ========================================
+   ⚠️ inline color (글자색 직접 명시) 다크모드 보정
+   - <h1 style="color:#666"> 등 어두운 회색 텍스트가
+     다크모드에서 거의 안 보이게 되는 경우 보정
+======================================== */
+
+@media (prefers-color-scheme: dark) {
+  [style*="color:#666"],
+  [style*="color: #666"],
+  [style*="color:#999"],
+  [style*="color: #999"],
+  [style*="color:#555"],
+  [style*="color: #555"],
+  [style*="color:#888"],
+  [style*="color: #888"] {
+    color: #9ca3af !important;
+  }
+}
