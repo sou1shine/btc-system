@@ -17,18 +17,19 @@
 <h1>📊 BTC 시장 추적 (4H + 일봉 시계열)</h1>
 
 <p>
-  v2 본문 룰북: <a href="btc-system-v2.html">🚀 BTC 매매 시스템 v2</a><br>
-  실전 카드: <a href="btc-v2-card.html">🎯 BTC v2 실전 카드</a> ·
+  ⭐ <strong>v3 정본 룰북: <a href="btc-system-v3.html" style="color:#2e7d32;font-weight:bold;">🚀 BTC 매매 시스템 v3</a> + <a href="btc-system-v3-card.html" style="color:#2e7d32;font-weight:bold;">🎯 v3 실전 카드</a> 단독 정본 적용</strong><br>
+  실제 캔들 정본 DB: <a href="btc-real-candle.html" style="color:#2e7d32;">📊 Real Candle DB</a> ·
   트레이드 복기: <a href="btc-trades.html">📚 트레이드 카드</a> ·
-  외부 검토: <a href="btc-reviews.html">🤖 3-AI 검토</a>
+  외부 검토: <a href="btc-reviews.html">🤖 외부 검토</a>
 </p>
 
 <h2>🧭 페이지 운용 목적</h2>
 
-<div class="callout danger">
-  <p><strong>🚨 분석 룰 정책: <a href="btc-system-v2.html">🚀 v2 룰북</a>
-    <a href="btc-rules-extension.html">⭐ v2 확장</a> 단독 사용</strong></p>
-  <p>모든 시나리오 평가 / 매트릭스 점수 / 선행 탈락 / 3-Layer 청산 / 사이즈 공식 / 진입 결정 = v2 기준. 보수 룰 (v1) = 1~4차 과거 운용 기록 / 단순 참고용 / <strong>분석 입력 ❌</strong>.</p>
+<div class="callout danger" style="border:3px solid #d32f2f; background-color:#ffebee;">
+  <p><strong>⚠️ 본 페이지 = HA 차트 기반 Historical 영역 (분석 입력 ❌ / 운영자 옵션 B 정합 / 2026-05-14 정정)</strong></p>
+  <p><strong>v2 룰북 / v2 확장 / v2 실전 카드</strong> = 시스템 진화 historical 자료 (운영자 commit `791c640`에서 v2 확장 + v2 실전 카드 삭제됨). 본 페이지의 v2 시절 분석 명제 = 추세 흐름 본질만 참고용 / 본체·꼬리·양봉/음봉 판정 = HA 기준 (실제 캔들 무결성 미보장).</p>
+  <p><strong>🚨 현재 분석 룰 정본: <a href="btc-system-v3.html" style="color:#2e7d32;font-weight:bold;">🚀 v3 룰북</a> + <a href="btc-system-v3-card.html" style="color:#2e7d32;font-weight:bold;">🎯 v3 실전 카드</a> 단독 적용</strong> (Real Candle Zero-Base / 4-Tier / 17 룰 / 룰 #5 Notional Position Sizing / 룰 #10 6항목 어깨 페널티 / 룰 #11.5 허리 진입 / 룰 #14.6 매크로 반등 가속화 3신호 / 룰 #16.5 wick 필터링 / 룰 #17 차트 유형 검증)</p>
+  <p><strong>실제 캔들 정본 DB</strong>: <a href="btc-real-candle.html" style="color:#2e7d32;font-weight:bold;">📊 btc-real-candle.html</a> (5/14 13:00 이후 모든 row Real Candle 기준 / HA db 본 페이지 = 보존 / 분석 입력 ❌)</p>
 </div>
 
 <blockquote>
@@ -2222,11 +2223,13 @@ RSI (64.96 > MA + > 60) → 3점
 <h2>🔗 관련 페이지</h2>
 
 <ul>
-  <li><strong>v2 룰북:</strong> <a href="btc-system-v2.html">🚀 BTC 매매 시스템 v2</a> — 모든 분석 룰의 정본</li>
-  <li><strong>실전 카드:</strong> <a href="btc-v2-card.html">🎯 BTC v2 실전 카드</a> — 4-STAGE 진입 매뉴얼</li>
+  <li>⭐ <strong>v3 정본 룰북:</strong> <a href="btc-system-v3.html" style="color:#2e7d32;font-weight:bold;">🚀 BTC 매매 시스템 v3 (Real Candle Zero-Base)</a> — 현재 분석 룰 정본 단독 적용</li>
+  <li>⭐ <strong>v3 실전 카드:</strong> <a href="btc-system-v3-card.html" style="color:#2e7d32;font-weight:bold;">🎯 BTC v3 실전 카드</a> — STAGE Q → STAGE 0 → STAGE 1 → STAGE 2 → STAGE 3 진입 매뉴얼</li>
+  <li>⭐ <strong>실제 캔들 정본 DB:</strong> <a href="btc-real-candle.html" style="color:#2e7d32;">📊 Real Candle DB</a> — 5/14 13:00 이후 모든 row Real Candle 기준</li>
   <li><strong>트레이드 복기:</strong> <a href="btc-trades.html">📚 BTC 트레이드 복기 카드</a> — 4차+ 트레이드별 카드</li>
-  <li><strong>외부 검토:</strong> <a href="btc-reviews.html">🤖 BTC 3-AI 외부 검토 결과</a> — 편향 E + F 대응 영구 보존</li>
+  <li><strong>외부 검토:</strong> <a href="btc-reviews.html">🤖 BTC 외부 검토 결과</a> — 편향 차단 영구 보존</li>
   <li><strong>인덱스:</strong> <a href="index.html">🏠 BTC 시스템 인덱스</a></li>
+  <li style="opacity:0.6;"><em>(Historical) v2 룰북: <a href="btc-system-v2.html">🚀 BTC 매매 시스템 v2</a> — 시스템 진화 학습 자료 / 분석 입력 ❌</em></li>
 </ul>
 
 <div class="meta">
