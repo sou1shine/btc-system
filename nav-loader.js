@@ -20,7 +20,7 @@
     <a href="btc-analysis.html" data-page="btc-analysis.html" data-primary="true">📈 분석</a>
     <a href="btc-real-candle.html" data-page="btc-real-candle.html" data-primary="true">📊 DB</a>
     <a href="btc-macro-learn.html" data-page="btc-macro-learn.html" data-primary="true">📖 매크로 학습</a>
-    <a href="btc-3ai-archive.html" data-page="btc-3ai-archive.html">🤖 3-AI 누적</a>
+    <a href="btc-3ai-archive.html" data-page="btc-3ai-archive.html">🤖 AI 누적 (2-AI)</a>
     <a href="btc-closing-archive.html" data-page="btc-closing-archive.html">🎯 마감 누적</a>
     <a href="btc-trades.html" data-page="btc-trades.html">📚 트레이드</a>
     <a href="btc-reviews.html" data-page="btc-reviews.html">📚 외부 검토</a>

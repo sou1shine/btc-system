@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🤖 3-AI 브리핑 누적 (Codex + Gemini + Claude / 메타 #18 영구 보존)</title>
+<title>🤖 AI 브리핑 누적 (Claude + Codex 2-AI / Gemini 영구 제외 / 메타 #18)</title>
 <link rel="stylesheet" href="styles.css">
 <script defer src="dark-mode-fix.js"></script>
 <script defer src="nav-loader.js"></script>
@@ -14,7 +14,7 @@
 
 <div class="container">
 
-<h1>🤖 3-AI 브리핑 누적 <span style="color:#2e7d32;">(메타 #18 영구 보존 / 시간 역순)</span></h1>
+<h1>🤖 AI 브리핑 누적 <span style="color:#2e7d32;">(2-AI: Claude + Codex / Gemini 영구 제외 / 메타 #18 / 시간 역순)</span></h1>
 
 <p class="meta" style="margin-top:0;border-top:none;padding-top:0;">
   신설: 2026-05-15 KST · 매 차트 분석 시 row 추가 (<strong>Claude + Codex CLI 2-AI 병행 / 2026-05-15 본질 정정 / Gemini 외부 검토 ❌</strong>)<br>
@@ -23,7 +23,7 @@
 </p>
 
 <div class="callout info">
-  <p><strong>본 페이지 = 3-AI 브리핑 영구 보존 (당월)</strong></p>
+  <p><strong>본 페이지 = AI 브리핑 영구 보존 (2-AI: Claude + Codex / Gemini 영구 제외 / 당월)</strong></p>
   <ul>
     <li>📡 매 차트 분석 시 row 추가 (시간 역순)</li>
     <li>📁 월말 종료 시 → 월별 아카이브 (<code>btc-archive-YYYY-MM.html</code>) 이전</li>
@@ -31,7 +31,8 @@
   </ul>
 </div>
 
-<h2 id="3ai-briefing">📡 3-AI 브리핑 누적 표</h2>
+<h2 id="3ai-briefing">📡 AI 브리핑 누적 표 (2-AI: Claude + Codex / Gemini 영구 제외 / 메타 #18)</h2>
+<p class="meta" style="margin-top:0;"><em>※ 앵커 id="3ai-briefing" = 타 페이지 링크 정합 위해 유지 (라벨만 2-AI 정정 / 파일명 동일 사유)</em></p>
 
 <table style="width:100%;border-collapse:collapse;">
   <thead>
@@ -39,9 +40,9 @@
       <th>시점 (KST)</th>
       <th>차트 컨텍스트</th>
       <th>Codex</th>
-      <th>Gemini</th>
+      <th>Gemini <span style="font-size:0.8em;color:#999;">(영구 제외 / 메타 #18 / 과거 row 보존용)</span></th>
       <th>Claude</th>
-      <th>3-AI 합의 / 분기</th>
+      <th>AI 합의 / 분기 <span style="font-size:0.8em;color:#999;">(2-AI)</span></th>
       <th>Claude 최종 권고</th>
       <th>운영자 결정</th>
     </tr>
@@ -133,16 +134,16 @@
 <hr>
 
 <details>
-<summary>📋 3-AI 브리핑 운영 절차 (영구 보존)</summary>
+<summary>📋 AI 브리핑 운영 절차 (2-AI / Gemini 영구 제외 / 메타 #18 본질 정정 / 영구 보존)</summary>
 
 <ol>
   <li><strong>차트 수신</strong>: 운영자가 4H/일봉 차트 + Real Candle OHLCV 데이터 제공</li>
   <li><strong>의뢰문 작성</strong>: 차트 데이터 + 매크로 컨텍스트 + 분석 영역 + honest disagreement over consensus-seeking 명시 (메타 #17)</li>
-  <li><strong>병행 호출</strong>: <code>gemini --skip-trust -p "..."</code> + <code>codex exec --skip-git-repo-check "..."</code> (Bash background)</li>
+  <li><strong>Codex 단독 호출</strong>: <code>codex exec --skip-git-repo-check "..."</code> (Bash background) / <strong>⚠️ Gemini 영구 제외 (메타 #18 / commit e6974aa / 호출 ❌)</strong></li>
   <li><strong>응답 수신 + 정직 평가</strong>: 각 AI 응답 영구 보존 (<code>C:\tmp\3ai-brief-YYYYMMDD-HHMM.txt</code>) + 합의/분기 분리</li>
-  <li><strong>Claude 분석 + 통합 브리핑</strong>: Codex 정량 + Gemini 본질 + Claude 룰북 정합 = 통합 브리핑</li>
+  <li><strong>Claude 분석 + 통합 브리핑</strong>: Codex 정량·반박 + Claude 룰북 정합 = 2-AI 양면 검증 통합 브리핑 (편향 F·H 차단 / 자동 동조 ❌)</li>
   <li><strong>운영자 권고</strong>: 진입 / 보류 / 청산 권고 + 운영자 결정 영역 (메타 #15) 분리</li>
-  <li><strong>영구 보존</strong>: 본 표에 row 추가 (시점 + 컨텍스트 + 3-AI 분석 + Claude 권고 + 운영자 결정)</li>
+  <li><strong>영구 보존</strong>: 본 표에 row 추가 (시점 + 컨텍스트 + Codex + Claude 2-AI 분석 + Claude 권고 + 운영자 결정 / Gemini 컬럼 = 과거 row 보존용)</li>
 </ol>
 
 </details>
@@ -150,7 +151,7 @@
 <hr>
 
 <p class="meta">
-  <strong>본 페이지 본질</strong>: 3-AI 브리핑 누적 (당월 / 매일 row 추가)<br>
+  <strong>본 페이지 본질</strong>: AI 브리핑 누적 (2-AI: Claude + Codex / Gemini 영구 제외 / 당월 / 매일 row 추가)<br>
   <strong>아카이브 정책</strong>: 월말 종료 시 → 월별 아카이브 페이지 (<code>btc-archive-YYYY-MM.html</code>) 이전<br>
   <strong>관련 페이지</strong>: 📈 <a href="btc-analysis.html">현재 분석 (요약)</a> · 🎯 <a href="btc-closing-archive.html">마감 검증 누적</a> · 📊 <a href="btc-real-candle.html">DB</a>
 </p>
